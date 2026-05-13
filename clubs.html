@@ -28,9 +28,31 @@
   <link as="font" crossorigin="" href="./latest-assets/fonts/proximanova-bold.woff2" rel="preload" type="font/woff2"/>
   <link as="font" crossorigin="" href="https://www.cuchd.in/latest-assets/web-fonts/fa-solid-900.woff2" rel="preload" type="font/woff2"/>
   <link as="font" crossorigin="" href="https://www.cuchd.in/latest-assets/web-fonts/fa-brands-400.woff2" rel="preload" type="font/woff2"/>
-  <link href="./new-assets/fonts/fontawesome/css/fontawesome.min.css" rel="stylesheet"/>
-  <link href="./new-assets/fonts/fontawesome/css/brands.css" rel="stylesheet"/>
-  <link href="./new-assets/fonts/fontawesome/css/solid.css" rel="stylesheet"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <style>
+        /* Performance optimizations */
+        .pxp-areas-1-item {
+            content-visibility: auto;
+            contain-intrinsic-size: 300px;
+        }
+        img {
+            content-visibility: auto;
+        }
+        .pxp-areas-1-item-fig {
+            will-change: transform;
+            transition: transform 0.3s ease-out;
+        }
+        /* Smooth image loading */
+        .pxp-cover {
+            background-color: #f0f0f0; /* Placeholder color */
+        }
+    </style>
+    <!-- CSS -->
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="new-assets/fonts/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="new-assets/fonts/fontawesome/css/brands.css">
+    <link rel="stylesheet" href="new-assets/fonts/fontawesome/css/solid.css">
   <link href="./latest-assets/css/main-2024.css%3Fv=1.55.css" rel="stylesheet"/>
   <link href="https://www.cuchd.in/add_to_homescreen/apple-icon-57x57.png" rel="apple-touch-icon" sizes="57x57"/>
   <link href="https://www.cuchd.in/add_to_homescreen/apple-icon-60x60.png" rel="apple-touch-icon" sizes="60x60"/>
@@ -548,13 +570,13 @@
     <div class="navbar-brand p-0 mt-0">
      <div class="d-flex align-items-center">
       <a aria-label="Go to Chandigarh University's Home Page" href="https://www.cuchd.in/">
-       <img alt="" class="me-2 cu-logo" src="./includes/assets/images/header-footer/cu-logo-white.webp" width="210"/>
+       <img loading="lazy" decoding="async" alt="" class="me-2 cu-logo" src="./includes/assets/images/header-footer/cu-logo-white.webp" width="210"/>
       </a>
      </div>
      <div class="d-flex ms-auto showOnMobile">
       <div class="d-flex header_btn blue-gradient me-3">
        <a class="d-flex align-items-center text-white" href="tel:+1800121288800">
-        <img alt="" src="./includes/assets/images/header-footer/phone-icon.webp" width="30"/>
+        <img loading="lazy" decoding="async" alt="" src="./includes/assets/images/header-footer/phone-icon.webp" width="30"/>
         <span class="d-block ms-2">
          <small class="d-block text-capitalize">
           Admission Helpline
@@ -583,7 +605,7 @@
     <nav class="navbar navbar-expand-xl">
      <div class="mobileNavHeader d-none">
       <a aria-label="Go to Chandigarh University's Home Page" href="https://www.cuchd.in/">
-       <img alt="" class="me-2 cu-logo" src="./includes/assets/images/header-footer/cu-logo-dark.webp" width="180"/>
+       <img loading="lazy" decoding="async" alt="" class="me-2 cu-logo" src="./includes/assets/images/header-footer/cu-logo-dark.webp" width="180"/>
       </a>
       <button aria-label="Close" class="btn-close" data-bs-dismiss="modal" type="button">
       </button>
@@ -605,7 +627,7 @@
            <div class="row g-0">
             <div class="col-6">
              <a href="https://www.cuchd.in/">
-              <img alt="" class="w-100" src="./includes/assets/images/header-footer/cuchd-icon.webp" width="70"/>
+              <img loading="lazy" decoding="async" alt="" class="w-100" src="./includes/assets/images/header-footer/cuchd-icon.webp" width="70"/>
               <span>
                Punjab
                <br/>
@@ -615,7 +637,7 @@
             </div>
             <div class="col-6">
              <a href="https://www.culko.in/" rel="nofollow" target="_blank">
-              <img alt="" class="w-100" src="./includes/assets/images/header-footer/culko-icon.webp" width="70"/>
+              <img loading="lazy" decoding="async" alt="" class="w-100" src="./includes/assets/images/header-footer/culko-icon.webp" width="70"/>
               <span>
                Uttar Pradesh
                <br/>
@@ -665,7 +687,7 @@
         <div class="d-flex ms-auto hideOnMobile">
          <div class="d-flex header_btn blue-gradient">
           <a class="d-flex align-items-center text-white" href="tel:+1800121288800">
-           <img alt="" src="./includes/assets/images/header-footer/phone-icon.webp" width="30"/>
+           <img loading="lazy" decoding="async" alt="" src="./includes/assets/images/header-footer/phone-icon.webp" width="30"/>
            <span class="d-block ms-2">
             <small class="d-block text-capitalize">
              Admission Helpline
@@ -1236,13 +1258,13 @@
                    <a href="https://www.cuchd.in/computing/mca-data-science.php">
                     MCA
                                                                         Data Science with
-                    <img alt="MCA Data Science with Intel" class="ptrans lazy-img" data-src="./includes/assets/images/header-footer/intel-logo.svg" style="margin-top: -2px;" width="26px"/>
+                    <img loading="lazy" decoding="async" alt="MCA Data Science with Intel" class="ptrans lazy-img" data-src="./includes/assets/images/header-footer/intel-logo.svg" style="margin-top: -2px;" width="26px"/>
                    </a>
                   </li>
                   <li>
                    <a href="https://www.cuchd.in/IBM/">
                     CSE with
-                    <img alt="MBA with IBM" class="ptrans lazy-img" data-src="./includes/assets/images/header-footer/IBM-logo.webp" style="margin-top: -3px;" width="30px"/>
+                    <img loading="lazy" decoding="async" alt="MBA with IBM" class="ptrans lazy-img" data-src="./includes/assets/images/header-footer/IBM-logo.webp" style="margin-top: -3px;" width="30px"/>
                    </a>
                   </li>
                   <li>
@@ -1251,7 +1273,7 @@
                                                                         CSE Artificial
                     <br/>
                     Intelligence with
-                    <img alt="BE CSE AI with Microsoft" class="ptrans lazy-img" data-src="./includes/assets/images/header-footer/microsoft-logo.png" style="margin-top: -5px; margin-left: 1px;" width="60px"/>
+                    <img loading="lazy" decoding="async" alt="BE CSE AI with Microsoft" class="ptrans lazy-img" data-src="./includes/assets/images/header-footer/microsoft-logo.png" style="margin-top: -5px; margin-left: 1px;" width="60px"/>
                    </a>
                   </li>
                   <li>
@@ -1260,13 +1282,13 @@
                                                                         CSE Cloud
                     <br/>
                     Computing with
-                    <img alt="ME CSE with Virtusa" class="ptrans lazy-img" data-src="./includes/assets/images/header-footer/virtusa-logo.webp" style="margin-top: -4px;" width="50px"/>
+                    <img loading="lazy" decoding="async" alt="ME CSE with Virtusa" class="ptrans lazy-img" data-src="./includes/assets/images/header-footer/virtusa-logo.webp" style="margin-top: -4px;" width="50px"/>
                    </a>
                   </li>
                   <li>
                    <a href="https://www.cuchd.in/TCS/">
                     CSE with
-                    <img alt="MBA with TCS" class="ptrans lazy-img" data-src="./includes/assets/images/header-footer/TCS-logo.webp" style="margin-top: -1px;" width="130px"/>
+                    <img loading="lazy" decoding="async" alt="MBA with TCS" class="ptrans lazy-img" data-src="./includes/assets/images/header-footer/TCS-logo.webp" style="margin-top: -1px;" width="130px"/>
                    </a>
                   </li>
                   <li>
@@ -1274,26 +1296,26 @@
                     B.Com
                                                                         in Applied Finance &amp; Accounting with Grant
                                                                         Thronton
-                    <img alt="BBA with ACCA" class="lazy-img" data-src="./includes/assets/images/header-footer/acca-header-logo.webp" width="30px"/>
+                    <img loading="lazy" decoding="async" alt="BBA with ACCA" class="lazy-img" data-src="./includes/assets/images/header-footer/acca-header-logo.webp" width="30px"/>
                    </a>
                   </li>
                   <!-- <li><a
                                                                         href="https://www.cuchd.in/finance-and-accounting/bba-acca.php">BBA
-                                                                        with <img
+                                                                        with <img loading="lazy" decoding="async"
                                                                             data-src="./includes/assets/images/header-footer/acca-header-logo.webp"
                                                                             alt="BBA with ACCA" width="30px"
                                                                             class="lazy-img"></a>
                                                                 </li>
                                                                 <li><a
                                                                         href="https://www.cuchd.in/finance-and-accounting/bcom-acca.php">B.Com
-                                                                        with <img
+                                                                        with <img loading="lazy" decoding="async"
                                                                             data-src="./includes/assets/images/header-footer/acca-header-logo.webp"
                                                                             alt="B.Com with ACCA" width="30px"
                                                                             class="lazy-img"></a>
                                                                 </li> -->
                   <!-- <li><a
                                                                         href="https://www.cuchd.in/finance-and-accounting/mcom-acca.php">M.Com
-                                                                        with <img
+                                                                        with <img loading="lazy" decoding="async"
                                                                             data-src="./includes/assets/images/header-footer/acca-header-logo.webp"
                                                                             alt="M.Com with ACCA" width="30px"
                                                                             class="lazy-img"></a>
@@ -1307,7 +1329,7 @@
                    <a href="https://www.cuchd.in/apex-management/mba-healthcare-and-life-sciences.php">
                     MBA
                                                                         Healthcare and Hospital Management
-                    <img alt="MBA
+                    <img loading="lazy" decoding="async" alt="MBA
                                                                         Healthcare and Hospital Management" class="lazy-img" data-src="./includes/assets/images/header-footer/max-logo.jpg" width="75px"/>
                    </a>
                   </li>
@@ -1322,41 +1344,41 @@
                   <a href="https://www.cuchd.in/finance-and-accounting/mba-in-capital-markets-with-additional-certifications-from-nism.php">
                    MBA
                                                                         in Capital Markets with
-                   <img alt="MBA in Capital Markets with NISM" class="ptrans lazy-img" data-src="./includes/assets/images/header-footer/nism-logo.webp" width=""/>
+                   <img loading="lazy" decoding="async" alt="MBA in Capital Markets with NISM" class="ptrans lazy-img" data-src="./includes/assets/images/header-footer/nism-logo.webp" width=""/>
                   </a>
                  </li>
                  <li>
                   <a href="https://www.cuchd.in/apex-management/mba-strategic-hr.php">
                    MBA
                                                                         Strategic HR with
-                   <img alt="MBA with AON" class="ptrans lazy-img" data-src="./includes/assets/images/header-footer/aon-logo.webp" width="36px"/>
+                   <img loading="lazy" decoding="async" alt="MBA with AON" class="ptrans lazy-img" data-src="./includes/assets/images/header-footer/aon-logo.webp" width="36px"/>
                   </a>
                  </li>
                  <li>
                   <a href="https://www.cuchd.in/apex-management/mba-data-science-and-artificial-intelligence.php">
                    MBA
                                                                         Data Science &amp; AI with
-                   <img alt="MBA with SAS" class="ptrans lazy-img" data-src="./includes/assets/images/header-footer/sas-logo.webp" style="margin-top: -3px;" width="30px"/>
+                   <img loading="lazy" decoding="async" alt="MBA with SAS" class="ptrans lazy-img" data-src="./includes/assets/images/header-footer/sas-logo.webp" style="margin-top: -3px;" width="30px"/>
                   </a>
                  </li>
                  <li>
                   <a href="https://www.cuchd.in/IBM/MBA-business-analytics.php">
                    MBA
                                                                         Business Analytics with
-                   <img alt="MBA with IBM" class="ptrans lazy-img" data-src="./includes/assets/images/header-footer/IBM-logo.webp" style="margin-top: -3px;" width="30px"/>
+                   <img loading="lazy" decoding="async" alt="MBA with IBM" class="ptrans lazy-img" data-src="./includes/assets/images/header-footer/IBM-logo.webp" style="margin-top: -3px;" width="30px"/>
                   </a>
                  </li>
                  <li>
                   <a href="https://www.cuchd.in/finance-and-accounting/mba-applied-finance.php">
                    MBA
                                                                         in Applied Finance &amp; Analytics with
-                   <img alt="MBA with pwc" class="ptrans lazy-img" data-src="./includes/assets/images/header-footer/pwc-logo-new.png" style="margin-top: -8px;" width="30px"/>
+                   <img loading="lazy" decoding="async" alt="MBA with pwc" class="ptrans lazy-img" data-src="./includes/assets/images/header-footer/pwc-logo-new.png" style="margin-top: -8px;" width="30px"/>
                   </a>
                  </li>
                  <li>
                   <a href="https://www.cuchd.in/apex-management/bfe.php">
                    MBA in Banking, Financial Services &amp; Insurance
-                   <img alt="MBA Banking and Financial Engineering with SBI" class="ptrans lazy-img" data-src="./includes/assets/images/header-footer/SBI-logo.webp" style="margin-top: -3px;" width="90px"/>
+                   <img loading="lazy" decoding="async" alt="MBA Banking and Financial Engineering with SBI" class="ptrans lazy-img" data-src="./includes/assets/images/header-footer/SBI-logo.webp" style="margin-top: -3px;" width="90px"/>
                   </a>
                  </li>
                  <li>
@@ -1364,7 +1386,7 @@
                    MBA
                                                                         Digital
                                                                         Marketing
-                   <!--<img
+                   <!--<img loading="lazy" decoding="async"
                                                                             data-src="./includes/assets/images/header-footer/adobe-logo.png"
                                                                             alt="MBA Digital Marketing powered by Adobe" style="margin-top: -1px;"
                                                                             width="40px" class="ptrans lazy-img">-->
@@ -1374,7 +1396,7 @@
                   <a href="https://www.cuchd.in/apex-management/mba-fintech.php">
                    MBA
                                                                         FinTech &amp; AI
-                   <img alt="MBA with Fintech" class="ptrans lazy-img" data-src="./includes/assets/images/header-footer/nse-acadmey.webp" style="margin-top: -2px;" width="36px"/>
+                   <img loading="lazy" decoding="async" alt="MBA with Fintech" class="ptrans lazy-img" data-src="./includes/assets/images/header-footer/nse-acadmey.webp" style="margin-top: -2px;" width="36px"/>
                   </a>
                  </li>
                  <li>
@@ -1382,7 +1404,7 @@
                    MBA
                                                                         Logistics and Supply Chain Management
                                                                         with
-                   <img alt="MBA Logistics and Supply Chain Management with CII" class="ptrans lazy-img" data-src="./includes/assets/images/header-footer/cii-logo.webp" style="margin-top: 0px;" width="60px"/>
+                   <img loading="lazy" decoding="async" alt="MBA Logistics and Supply Chain Management with CII" class="ptrans lazy-img" data-src="./includes/assets/images/header-footer/cii-logo.webp" style="margin-top: 0px;" width="60px"/>
                   </a>
                  </li>
                 </ul>
@@ -2359,7 +2381,7 @@
                 <div class="col-6 p-2 py-3 d-flex">
                  <div class="dd--title align-self-center mx-auto">
                   <span>
-                   <img class="w-100 lazy-img" data-src="https://www.cuchd.in/includes/assets/images/header-footer/mahindra-logo-dark.webp"/>
+                   <img loading="lazy" decoding="async" class="w-100 lazy-img" data-src="https://www.cuchd.in/includes/assets/images/header-footer/mahindra-logo-dark.webp"/>
                   </span>
                   Mahindra
                  </div>
@@ -3143,7 +3165,7 @@
    <!-- banner -->
    <!--<div class="banner" id="top-image">-->
     <div class="banner cult-banner" style="background: none; height: auto;">
-     <img src="logos/hersosection-5.jpg" class="img-fluid w-100" style="object-fit: cover; display: block;" alt="University Banner">
+     <img loading="lazy" decoding="async" src="logos/hersosection-5.jpg" class="img-fluid w-100" style="object-fit: cover; display: block;" alt="University Banner">
      <div class="banner-layer" style="display: none;">
       <!-- banner-text -->
       <div class="banner-text-info">
@@ -3165,7 +3187,7 @@
                 <div class="row no-gutters">
                     <div class="col-12 col-md-6 aos-init">
                         <div class="about-section__image">
-                            <img src="campus-life/images/har-har-shambhu.jpg" alt="Abhilipsa Panda" class="img-fluid">
+                            <img loading="lazy" decoding="async" src="campus-life/images/har-har-shambhu.jpg" alt="Abhilipsa Panda" class="img-fluid">
                             <div class="video-play-ico-new">
                                 <a href="https://www.facebook.com/chandigarhuniversitygharuan/videos/486294656878112/"
                                     target="_blank" class="video-play-button">
@@ -4019,7 +4041,7 @@
         </li>
         <li>
          <a aria-label="Go to Chandigarh University's Twitter (X) Page" href="https://twitter.com/Chandigarh_uni" rel="nofollow" target="_blank">
-          <img alt="" class="f-twitter-icon" height="12" src="./includes/assets/images/header-footer/twitter-icon.webp"/>
+          <img loading="lazy" decoding="async" alt="" class="f-twitter-icon" height="12" src="./includes/assets/images/header-footer/twitter-icon.webp"/>
          </a>
         </li>
         <li>
@@ -4048,7 +4070,7 @@
         </li>
         <li>
          <a aria-label="Go to Chandigarh University's Threads Page" href="https://www.threads.net/@chandigarhuniversity" target="_blank">
-          <img alt="" height="14" src="./includes/assets/images/header-footer/threads-icon.webp"/>
+          <img loading="lazy" decoding="async" alt="" height="14" src="./includes/assets/images/header-footer/threads-icon.webp"/>
          </a>
         </li>
         <li>
@@ -4069,14 +4091,14 @@
        <div class="card br-6 bdr-1 h-100 bg-transparent me-2 w-50">
         <div class="card-body text-center align-items-center d-flex">
          <a class="w-100" href="https://www.cuchd.in/radio-punjab-90/" target="_blank">
-          <img alt="Radio Punjab 90.0" class="lazyload_" src="./includes/assets/images/header-footer/radio-punjab-logo.webp" title="Radio Punjab 90.0" width="110"/>
+          <img loading="lazy" decoding="async" alt="Radio Punjab 90.0" class="lazyload_" src="./includes/assets/images/header-footer/radio-punjab-logo.webp" title="Radio Punjab 90.0" width="110"/>
          </a>
         </div>
        </div>
        <div class="card br-6 bdr-1 h-100 bg-transparent w-50">
         <div class="card-body text-center align-items-center d-flex">
          <a class="w-100" href="https://www.cuchd.in/maps/">
-          <img alt="Virtual Tour 360" class="lazyload_" src="./includes/assets/images/header-footer/virtual-tour-logo-w.webp" title="Virtual Tour 360" width="110"/>
+          <img loading="lazy" decoding="async" alt="Virtual Tour 360" class="lazyload_" src="./includes/assets/images/header-footer/virtual-tour-logo-w.webp" title="Virtual Tour 360" width="110"/>
          </a>
         </div>
        </div>
@@ -4100,7 +4122,7 @@
       </div>
       <div class="col-lg-2 col-md-4 position-relative">
        <div class="unai-logo">
-        <img alt="UNAI" class="img-fluid lazyload_" src="./includes/assets/images/header-footer/unai-logo.webp"/>
+        <img loading="lazy" decoding="async" alt="UNAI" class="img-fluid lazyload_" src="./includes/assets/images/header-footer/unai-logo.webp"/>
        </div>
       </div>
      </div>
@@ -4747,7 +4769,7 @@
                         imageSources.forEach(function(src, index) {
                             var activeClass = index === 0 ? 'active' : '';
                             carouselHtml += '<div class="carousel-item ' + activeClass + '">' +
-                                '<img src="' + src.trim() + '" alt="' + title + '">' +
+                                '<img loading="lazy" decoding="async" src="' + src.trim() + '" alt="' + title + '">' +
                                 '</div>';
                         });
                         carouselInner.innerHTML = carouselHtml;
@@ -4762,7 +4784,7 @@
                         if (contentColumn) contentColumn.className = 'col-lg-6';
 
                         carouselInner.innerHTML = '<div class="carousel-item active">' +
-                            '<img src="' + img + '" alt="' + title + '">' +
+                            '<img loading="lazy" decoding="async" src="' + img + '" alt="' + title + '">' +
                             '</div>';
                     } else {
                         if (carouselColumn) carouselColumn.style.display = 'none';
