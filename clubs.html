@@ -457,7 +457,7 @@
    <div class="header__main">
     <div class="headerTopBar d-flex align-items-center justify-content-between">
      <div class="headerTopSlider position-relative">
-      <div class="carousel slide" data-bs-ride="carousel" id="carouselExampleAutoplaying">
+      <div class="carousel slide"  id="carouselExampleAutoplaying">
        <div class="carousel-inner text-center">
         <!-- <div class="carousel-item active" data-bs-interval="3000">North India's Biggest Incubator &
                             Capital Summit 2025 (18th & 19th April, 2025) <a href="https://www.cuchd.in/ics-2025/"
@@ -4590,7 +4590,7 @@
       <div class="row g-0">
        <div class="col-lg-6" style="overflow: hidden;">
         <!-- Carousel -->
-        <div class="carousel slide h-100" data-bs-ride="carousel" id="clubCarousel" style="height: 100%;">
+        <div class="carousel slide h-100"  id="clubCarousel" style="height: 100%;">
          <div class="carousel-inner h-100" id="clubCarouselInner" style="height: 100%;">
           <!-- Images will be injected here -->
          </div>
@@ -4750,7 +4750,16 @@
                         carouselInner.innerHTML = carouselHtml;
 
                         var carouselElement = document.getElementById('clubCarousel');
-                        var oldInstance = bootstrap.Carousel.getInstance(carouselElement); if (oldInstance) oldInstance.dispose(); var bsCarousel = new bootstrap.Carousel(carouselElement, { interval: 3000, ride: "carousel", pause: "hover" }); bsCarousel.to(0); bsCarousel.cycle();
+                        var oldInstance = bootstrap.Carousel.getInstance(carouselElement);
+                        if (oldInstance) oldInstance.dispose();
+                        var bsCarousel = new bootstrap.Carousel(carouselElement, {
+                            interval: 3000,
+                            pause: 'hover'
+                        });
+                        bsCarousel.to(0);
+                        setTimeout(function() {
+                            bsCarousel.cycle();
+                        }, 500);
 
                     } else if (img && img.trim() !== '') {
                         if (carouselColumn) {
