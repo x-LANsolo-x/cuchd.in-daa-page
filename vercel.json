@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "cleanUrls": true,
+  "rewrites": [
+    { "source": "/", "destination": "/index.html" },
+    { "source": "/clubs", "destination": "/clubs.html" },
+    { "source": "/communities", "destination": "/communities.html" },
+    { "source": "/departmental-societies", "destination": "/departmental-societies.html" },
+    { "source": "/professional-societies", "destination": "/professional-societies.html" }
+  ],
+  "trailingSlash": false
+}
