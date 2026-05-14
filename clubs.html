@@ -22,39 +22,50 @@
   <link href="./new-assets/images/fevicon.png" rel="shortcut icon" type="image/x-icon"/>
   <link href="https://fonts.googleapis.com" rel="preconnect"/>
   <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-  <style>
-   /* Layout Stability Fixes */
+  
+    <style>
+        /* Precision Layout Stability */
         .pxp-areas-1-item {
-            /* Remove content-visibility to prevent scroll jumps */
             content-visibility: visible !important;
-            contain-intrinsic-size: auto !important;
+            margin-bottom: 30px;
         }
-        .pxp-areas-1-item-fig { aspect-ratio: 16 / 11; width: 100%; height: auto; min-height: 220px; object-fit: cover; background-color: #f0f0f0; }
-        #clubCarousel { aspect-ratio: 16 / 10; background-color: #000; display: flex; align-items: center; overflow: hidden; }
-        #clubCarousel .carousel-item { height: 100%; width: 100%; }
-        #clubCarousel .carousel-item img { width: 100%; height: 100%; object-fit: cover; }
-        /* Prevent modal from being too tall */
+        .pxp-areas-1-item-fig {
+            height: 250px !important;
+            width: 100%;
+            object-fit: cover;
+            background-color: #ffffff;
+            border-bottom: 1px solid #eee;
+        }
+        #clubCarousel {
+            height: 500px !important;
+            background-color: #000;
+            overflow: hidden;
+        }
+        @media (max-width: 991px) {
+            #clubCarousel {
+                height: 300px !important;
+            }
+        }
+        #clubCarousel .carousel-item {
+            height: 100% !important;
+        }
+        #clubCarousel .carousel-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain; /* Changed to contain to show full photos if possible, or cover for full bleed */
+            background-color: #000;
+        }
+        /* Modal Body Stability */
         #clubModal .modal-content {
-            max-height: 95vh;
+            border: none;
+            border-radius: 12px;
             overflow: hidden;
         }
         #clubModal .modal-body {
-            max-height: 95vh;
-            overflow-y: auto;
+            padding: 0 !important;
         }
-    
-        .pxp-areas-1-item {
-            content-visibility: auto;
-            contain-intrinsic-size: 300px;
-        }
-        img {
-            content-visibility: auto;
-        }
-        .pxp-areas-1-item-fig { aspect-ratio: 16 / 11; width: 100%; height: auto; min-height: 220px; object-fit: cover; background-color: #f0f0f0; }
-        /* Smooth image loading */
-        .pxp-cover {
-        }
-  </style>
+    </style>
+
   <!-- CSS -->
   <link href="new-assets/fonts/fontawesome/css/brands.css" rel="stylesheet"/>
   <link href="new-assets/fonts/fontawesome/css/solid.css" rel="stylesheet"/>
@@ -4786,7 +4797,7 @@
         </div>
        </div>
        <div class="col-lg-6">
-        <div class="p-4 p-md-5 h-100 d-flex flex-column bg-light">
+        <div class="p-4 p-md-5 bg-light">
          <h3 class="mb-3" id="modalClubTitle" style="color: #E31E24; font-weight: 700;">
           Club Title
          </h3>
@@ -4952,7 +4963,7 @@
                         imageSources.forEach(function(src, index) {
                             var activeClass = index === 0 ? 'active' : '';
                             carouselHtml += '<div class="carousel-item ' + activeClass + '">' +
-                                '<img loading="lazy" decoding="async" src="' + src.trim() + '" alt="' + title + '">' +
+                                '<img loading="lazy" decoding="async" src="' + src.trim() + '" alt="' + title + '" style="width:100%; height:100%; object-fit:cover;">' +
                                 '</div>';
                         });
                         carouselInner.innerHTML = carouselHtml;
