@@ -24,64 +24,76 @@
   <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
   
     <style>
-        /* Precision Layout Stability */
+        /* Final 110% Corrected Polaroid Cards */
         .pxp-areas-1-item {
-            content-visibility: visible !important;
-            margin-bottom: 30px;
-        }
-        /* Crisp Institutional Polaroid Cards */
-        .pxp-areas-1-item {
-            display: block !important;
+            display: flex !important;
+            flex-direction: column !important;
             background: #fff !important;
-            border-radius: 8px !important;
+            border-radius: 12px !important;
             overflow: hidden !important;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05) !important;
-            border: 1px solid #eee !important;
-            transition: all 0.2s ease-in-out !important;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1) !important;
+            border: 1px solid #f0f0f0 !important;
+            transition: all 0.3s ease-in-out !important;
             height: 100% !important;
             text-decoration: none !important;
+            margin-bottom: 30px !important;
+            content-visibility: visible !important;
+            opacity: 1 !important;
+            visibility: visible !important;
+            position: relative !important;
         }
         .pxp-areas-1-item:hover {
-            transform: translateY(-4px) !important;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.1) !important;
+            transform: translateY(-8px) !important;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.15) !important;
         }
         .pxp-areas-1-item-fig {
+            position: relative !important; /* Break the absolute position flip */
+            top: auto !important;
+            left: auto !important;
+            bottom: auto !important;
+            right: auto !important;
             height: 250px !important;
             width: 100% !important;
             background-size: contain !important;
             background-repeat: no-repeat !important;
             background-position: center !important;
             background-color: #ffffff !important;
-            padding: 0 !important; /* Flush to edges for logos with bgs */
-            border-bottom: 1px solid #f0f0f0 !important;
+            padding: 0 !important;
+            border-bottom: 1px solid #f5f5f5 !important;
+            order: 1 !important; /* Force to top */
         }
         .pxp-areas-1-item-details {
-            padding: 15px !important;
+            position: relative !important;
+            top: auto !important;
+            padding: 20px !important;
             background: #fff !important;
+            height: auto !important;
+            opacity: 1 !important;
+            visibility: visible !important;
+            order: 2 !important; /* Force to bottom */
         }
         .pxp-areas-1-item-details-area {
-            color: #222 !important;
-            font-size: 14px !important;
-            font-weight: 700 !important;
-            margin-bottom: 5px !important;
+            color: #1a1a1a !important;
+            font-size: 15px !important;
+            font-weight: 800 !important;
+            margin-bottom: 8px !important;
             text-transform: uppercase !important;
-            line-height: 1.2 !important;
+            letter-spacing: 0.5px !important;
+            display: block !important;
         }
         .pxp-areas-1-item-details-city {
-            color: #888 !important;
-            font-size: 12px !important;
-            line-height: 1.4 !important;
+            color: #666 !important;
+            font-size: 13px !important;
+            line-height: 1.5 !important;
             font-style: normal !important;
             display: -webkit-box !important;
             -webkit-line-clamp: 2 !important;
             -webkit-box-orient: vertical !important;
             overflow: hidden !important;
         }
-
         .main-title {
-            margin-bottom: 40px !important;
+            margin-bottom: 50px !important;
         }
-
         #clubCarousel {
             height: 100% !important;
             min-height: 500px;
@@ -92,35 +104,15 @@
             justify-content: center;
         }
         @media (max-width: 991px) {
-            #clubCarousel {
-                height: 300px !important;
-                min-height: 300px;
-            }
-        }
-        #clubCarousel .carousel-item {
-            height: 100% !important;
-            width: 100% !important;
+            #clubCarousel { height: 300px !important; min-height: 300px; }
         }
         #clubCarousel .carousel-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            background-color: #000;
-            opacity: 1 !important;
-            filter: none !important;
-            display: block !important;
+            width: 100%; height: 100%; object-fit: cover; background-color: #000; opacity: 1 !important; filter: none !important; display: block !important;
         }
-        #clubCarousel .carousel-item::before,
-        #clubCarousel .carousel-item::after {
-            display: none !important;
-            content: none !important;
+        #clubCarousel .carousel-item::before, #clubCarousel .carousel-item::after {
+            display: none !important; content: none !important;
         }
-        .modal-body .col-lg-6:first-child {
-            background-color: #000;
-        }
-        /* Modal Body Stability */
-        #clubModal .modal-content {
-            border: none;
+    </style>
             border-radius: 12px;
             overflow: hidden;
         }
