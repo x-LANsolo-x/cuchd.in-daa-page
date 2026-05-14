@@ -1,8 +1,10 @@
 {
   "version": 2,
   "cleanUrls": true,
+  "redirects": [
+    { "source": "/", "destination": "/clubs", "permanent": false }
+  ],
   "rewrites": [
-    { "source": "/", "destination": "/clubs.html" },
     { "source": "/clubs", "destination": "/clubs.html" },
     { "source": "/communities", "destination": "/communities.html" },
     { "source": "/departmental-societies", "destination": "/departmental-societies.html" },
