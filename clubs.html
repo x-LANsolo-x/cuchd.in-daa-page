@@ -61,8 +61,7 @@
   <link href="./favicon-32x32.png" rel="icon" sizes="32x32" type="image/png"/>
   <link href="./favicon-96x96.png" rel="icon" sizes="96x96" type="image/png"/>
   <link href="./favicon-16x16.png" rel="icon" sizes="16x16" type="image/png"/>
-  <link href="https://www.cuchd.in/manifest.json" rel="manifest"/>
-  <meta content="#ffffff" name="msapplication-TileColor">
+    <meta content="#ffffff" name="msapplication-TileColor">
    <meta content="https://www.cuchd.in/add_to_homescreen/ms-icon-144x144.png" name="msapplication-TileImage"/>
    <meta content="#ffffff" name="theme-color"/>
    <!-- Google tag (gtag.js) -->
@@ -282,14 +281,16 @@
    <script src="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.2/min/tiny-slider.js">
    </script>
    <script type="module">
-    var slider = tns({
-        container: '.whatsNew-slider',
-        items: 1,
-        slideBy: 'page',
-        autoplay: true,
-        mouseDrag: true,
-        speed: 1000
-    });
+    if (document.querySelector('.whatsNew-slider')) {
+        var slider = tns({
+            container: '.whatsNew-slider',
+            items: 1,
+            slideBy: 'page',
+            autoplay: true,
+            mouseDrag: true,
+            speed: 1000
+        });
+    }
    </script>
    <link href="campus-life/css/page-inn.css" rel="stylesheet" type="text/css"/>
    <link href="campus-life/css/style.css" rel="stylesheet" type="text/css"/>
@@ -4284,15 +4285,17 @@
   <script defer="" src="./new-assets/js/main-landing.js%3Fv=1.25">
   </script>
   <script>
-   var slider = tns({
-    container: '.whatsNew-slider',
-    items: 1,
-    slideBy: 'page',
-    autoplay: true,
-    mouseDrag: true,
-    speed: 1000,
-    autoplayHoverPause: true
-  });
+   if (document.querySelector('.whatsNew-slider')) {
+       var slider = tns({
+        container: '.whatsNew-slider',
+        items: 1,
+        slideBy: 'page',
+        autoplay: true,
+        mouseDrag: true,
+        speed: 1000,
+        autoplayHoverPause: true
+      });
+   }
   </script>
   <script defer="">
    $(window).on('scroll', function() {
