@@ -23,7 +23,27 @@
   <link href="https://fonts.googleapis.com" rel="preconnect"/>
   <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
   <style>
-   /* Performance optimizations */
+   
+        /* Layout Stability Fixes */
+        .pxp-areas-1-item {
+            /* Remove content-visibility to prevent scroll jumps */
+            content-visibility: visible !important;
+            contain-intrinsic-size: auto !important;
+        }
+        .pxp-areas-1-item-fig { aspect-ratio: 16 / 11; width: 100%; height: auto; min-height: 220px; object-fit: cover; background-color: #f0f0f0; }
+        #clubCarousel { aspect-ratio: 16 / 10; background-color: #000; display: flex; align-items: center; overflow: hidden; }
+        #clubCarousel .carousel-item { height: 100%; width: 100%; }
+        #clubCarousel .carousel-item img { width: 100%; height: 100%; object-fit: cover; }
+        /* Prevent modal from being too tall */
+        #clubModal .modal-content {
+            max-height: 95vh;
+            overflow: hidden;
+        }
+        #clubModal .modal-body {
+            max-height: 95vh;
+            overflow-y: auto;
+        }
+    
         .pxp-areas-1-item {
             content-visibility: auto;
             contain-intrinsic-size: 300px;
@@ -31,10 +51,7 @@
         img {
             content-visibility: auto;
         }
-        .pxp-areas-1-item-fig {
-            will-change: transform;
-            transition: transform 0.3s ease-out;
-        }
+        .pxp-areas-1-item-fig { aspect-ratio: 16 / 11; width: 100%; height: auto; min-height: 220px; object-fit: cover; background-color: #f0f0f0; }
         /* Smooth image loading */
         .pxp-cover {
         }
@@ -318,25 +335,14 @@
       </script>
       <!-- End Google Tag Manager -->
       <style>
-       #clubCarousel {
-        height: 100%;
-    }
+       #clubCarousel { aspect-ratio: 16 / 10; background-color: #000; display: flex; align-items: center; overflow: hidden; }
     #clubCarousel .carousel-inner {
         height: 100%;
     }
-    #clubCarousel .carousel-item {
-        height: 100%;
-        opacity: 1 !important;
-    }
-    #clubCarousel .carousel-item img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        opacity: 1 !important;
-        display: block;
-    }
+    #clubCarousel .carousel-item { height: 100%; width: 100%; }
+    #clubCarousel .carousel-item img { width: 100%; height: 100%; object-fit: cover; }
     #clubModal .row.g-0 {
-        min-height: 500px;
+        min-height: 500px; align-items: stretch;
     }
     #clubModal .col-lg-6:first-child {
         overflow: hidden;
@@ -3183,7 +3189,7 @@
    <!--<section class="webpage__about-section about-section pt-5 d-none">
             <div class="about-section__inner container">
                 <div class="row no-gutters">
-                    <div class="col-12 col-md-6 aos-init">
+                    <div class="col-12 col-md-6 ">
                         <div class="about-section__image">
                             <img loading="lazy" decoding="async" src="campus-life/images/har-har-shambhu.jpg" alt="Abhilipsa Panda" class="img-fluid">
                             <div class="video-play-ico-new">
@@ -3207,7 +3213,7 @@
                             <div class="about-section__pseudoheading heading">Welcoming<br><span class="color-yellow">
                                     Abhilipsa Panda</span><br> to the <span class="color-yellow">CU Family!</span>
                             </div>
-                            <div class="about-section__text aos-init" data-aos="fade">
+                            <div class="about-section__text " >
                                 <p>We are roused to share that Indian classical vocal singer Abhilipsa Panda, who got
                                     immense popularity through her original music video <strong>'Har Har
                                         Shambhu',</strong> has joined Chandigarh University to pursue her academic
@@ -3269,6 +3275,11 @@
        <li>
         <a data-filter="ARTS &amp; CREATIVITY" href="javascript:void(0);">
          Arts &amp; Creativity
+        </a>
+       </li>
+       <li>
+        <a data-filter="HEALTH &amp; WELLNESS" href="javascript:void(0);">
+         Health &amp; Wellness
         </a>
        </li>
       </ul>
