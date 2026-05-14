@@ -60,6 +60,14 @@
             height: 100%;
             object-fit: cover;
             background-color: #000;
+            opacity: 1 !important;
+            filter: none !important;
+            display: block !important;
+        }
+        #clubCarousel .carousel-item::before,
+        #clubCarousel .carousel-item::after {
+            display: none !important;
+            content: none !important;
         }
         .modal-body .col-lg-6:first-child {
             background-color: #000;
