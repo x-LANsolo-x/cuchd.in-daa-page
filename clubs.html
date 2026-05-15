@@ -115,6 +115,30 @@
         #clubCarousel .carousel-item::before, #clubCarousel .carousel-item::after {
             display: none !important; content: none !important;
         }
+
+        /* Unbreakable 50/50 Modal Layout */
+        #clubModal .modal-body .row.g-0 {
+            display: flex !important;
+            flex-wrap: wrap !important;
+            align-items: stretch !important;
+        }
+        #clubModal .modal-body .col-lg-6 {
+            width: 50% !important;
+            flex: 0 0 50% !important;
+            max-width: 50% !important;
+        }
+        @media (max-width: 991px) {
+            #clubModal .modal-body .col-lg-6 {
+                width: 100% !important;
+                flex: 0 0 100% !important;
+                max-width: 100% !important;
+            }
+        }
+        #clubModal .modal-content {
+            border-radius: 12px !important;
+            overflow: hidden !important;
+            border: none !important;
+        }
     </style>
 
   <!-- CSS -->
