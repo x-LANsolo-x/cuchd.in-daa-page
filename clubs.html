@@ -4680,7 +4680,7 @@
 					event.preventDefault()
 					let url = $(this).attr('href')
 					if(!url.includes('#')) {
-						queryParams.forEach((value, name) function {
+						queryParams.forEach((value, name) => {
 							if(!url.includes(name)){
 								url = addParameterToURL(url, name+"="+value)
 							}
@@ -4703,7 +4703,7 @@
 		});
   </script>
   <script>
-   setTimeout(() function {
+   setTimeout(() => {
       var sbtHost = document.getElementById("sbt-widget-host");
       if (sbtHost && sbtHost.shadowRoot) {
           sbtHost.shadowRoot.getElementById('sbt-minimize-styles').textContent += '.sbt-widget-trigger-container{right:12px!important;gap:3px!important}.sbt-widget-trigger{outline:0!important}.sbt-widget-trigger-label{font-weight:700!important;padding:3px 10px!important;font-size:12px!important;font-family:var(--primary-font)!important;color:var(--bs-black)!important}.sbt-widget-close svg,.sbt-widget-minimize svg{fill:#000!important}.sbt-widget-title{font-weight:400!important}.sbt-powered-by{display:none!important}@media (max-width:575px){.sbt-widget-trigger-container{right:3px!important;bottom:34px!important}}';
@@ -4714,8 +4714,8 @@
    document.addEventListener("DOMContentLoaded", function () {
     const lazyImages = document.querySelectorAll('.lazy-img');
     const lazyBackgrounds = document.querySelectorAll('.lazy-bg');
-    const observer = new IntersectionObserver((entries, observer) function {
-        entries.forEach(entry function {
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
         if (entry.isIntersecting) {
             const element = entry.target;
             if (element.tagName === 'IMG') {
@@ -4725,12 +4725,11 @@
             img.classList.remove('lazy-img');
             observer.unobserve(img);
             }
-
-            else if (elemenfunction(t){t.classList.contains('lazy-bg')) {
+            else if (element.classList.contains('lazy-bg')) {
             const bgElement = element;
             const bgUrl = bgElement.getAttribute('data-bg');
             bgElement.style.backgroundImage = `url(${bgUrl})`;
-            bgElemenfunction(t){t.classList.remove('lazy-bg');
+            bgElement.classList.remove('lazy-bg');
             observer.unobserve(bgElement);
             }
         }
@@ -4738,8 +4737,8 @@
     }, {
         rootMargin: '0px 0px 200px 0px'
     });
-    lazyImages.forEach(img function observer.observe(img));
-    lazyBackgrounds.forEach(bg function observer.observe(bg));
+    lazyImages.forEach(img => observer.observe(img));
+    lazyBackgrounds.forEach(bg => observer.observe(bg));
     });
   </script>
   <!--- FOOTER --->
@@ -5092,15 +5091,15 @@
   </style>
   <script>
     $(document).ready(function() {
-        $(".testi-heading-new ul li a[data-filter]").on("click", function(e) {
+        $('.testi-heading-new ul li a[data-filter]').on('click', function(e) {
             e.preventDefault();
-            $(".testi-heading-new ul li a[data-filter]").removeClass("active");
-            $(this).addClass("active");
-            var filterValue = $(this).attr("data-filter");
-            $(".pxp-areas-1-item").each(function() {
-                var category = $(this).attr("data-club-category");
-                var parentCol = $(this).closest(".col-lg-3");
-                if (filterValue === "ALL" || category === filterValue) {
+            $('.testi-heading-new ul li a[data-filter]').removeClass('active');
+            $(this).addClass('active');
+            var filterValue = $(this).attr('data-filter');
+            $('.pxp-areas-1-item').each(function() {
+                var category = $(this).attr('data-club-category');
+                var parentCol = $(this).closest('.col-lg-3');
+                if (filterValue === 'ALL' || category === filterValue) {
                     parentCol.show();
                 } else {
                     parentCol.hide();
