@@ -96,18 +96,24 @@
         }
         #clubCarousel {
             height: 100% !important;
-            min-height: 500px;
             background-color: #000;
             overflow: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+        }
+        #clubCarousel .carousel-inner {
+            height: 100% !important;
+        }
+        #clubCarousel .carousel-item {
+            height: 100% !important;
+            width: 100% !important;
         }
         @media (max-width: 991px) {
             #clubCarousel { height: 300px !important; min-height: 300px; }
         }
         #clubCarousel .carousel-item img {
-            width: 100%; height: 100%; object-fit: cover; background-color: #000; 
+            width: 100% !important; height: 500px !important; object-fit: cover !important; object-position: center center !important; background-color: #000; 
             opacity: 1 !important;
             filter: none !important;
             display: block !important;
@@ -119,8 +125,9 @@
         /* Unbreakable 50/50 Modal Layout */
         #clubModal .modal-body .row.g-0 {
             display: flex !important;
-            flex-wrap: wrap !important;
+            flex-wrap: nowrap !important;
             align-items: stretch !important;
+            width: 100% !important;
         }
         #clubModal .modal-body .col-lg-6 {
             width: 50% !important;
@@ -128,6 +135,9 @@
             max-width: 50% !important;
         }
         @media (max-width: 991px) {
+            #clubModal .modal-body .row.g-0 {
+                flex-wrap: wrap !important;
+            }
             #clubModal .modal-body .col-lg-6 {
                 width: 100% !important;
                 flex: 0 0 100% !important;
@@ -138,6 +148,39 @@
             border-radius: 12px !important;
             overflow: hidden !important;
             border: none !important;
+        }
+        .carousel-control-prev, .carousel-control-next {
+            z-index: 30 !important;
+            width: 50px !important;
+            height: 50px !important;
+            background-color: rgba(0,0,0,0.5) !important;
+            border-radius: 50% !important;
+            top: 50% !important;
+            transform: translateY(-50%) !important;
+            opacity: 1 !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            margin: 0 15px !important;
+        }
+        .carousel-control-prev { left: 0 !important; }
+        .carousel-control-next { right: 0 !important; }
+        .carousel-control-prev-icon, .carousel-control-next-icon {
+            width: 25px !important;
+            height: 25px !important;
+        }
+        #clubCarousel .carousel-item {
+            height: 100% !important;
+            min-height: 500px !important;
+            width: 100% !important;
+            transition: transform 0.4s ease-in-out !important;
+        }
+        #clubCarousel .carousel-item img {
+            width: 100% !important;
+            height: 100% !important;
+            min-height: 500px !important;
+            object-fit: cover !important;
+            object-position: center !important;
         }
     </style>
 
@@ -425,9 +468,9 @@
         height: 100%;
     }
     #clubCarousel .carousel-item { height: 100%; width: 100%; }
-    #clubCarousel .carousel-item img { width: 100%; height: 100%; object-fit: cover; }
+    #clubCarousel .carousel-item img { width: 100%; height: 100%; object-fit: cover; object-position: center center !important; }
     #clubModal .row.g-0 {
-        min-height: 500px; align-items: stretch;
+        min-height: 500px; align-items: stretch !important; height: 100% !important;
     }
     #clubModal .col-lg-6:first-child {
         overflow: hidden;
@@ -3371,8 +3414,8 @@
      </div>
      <div class="row mt-4 mt-md-4">
       <div class="col-sm-12 col-md-6 col-lg-3 mb-4">
-       <a class="pxp-areas-1-item rounded-lg" data-bs-target="#clubModal" data-bs-toggle="modal" data-categories="Aeronautics, UAV Design, Robotics, Aerospace Engineering, Innovation" data-club-category="TECHNICAL" data-contact="gurmail.e5007@cumail.in" data-desc="Focuses on aircraft design, drone technology, and aeronautical engineering." data-faculty="Gurmail Singh Malhi" data-img="" data-longdesc="The Aeromodelling Club is a hub for aviation enthusiasts passionate about aircraft design, drone technology, UAV systems, and aeronautical engineering. The club encourages students to learn practical skills in model aircraft building, flight simulation, robotics integration, and aerospace innovation through workshops, competitions, and hands-on projects." data-media="" data-members="" data-owner="UIE - Aerospace" data-title="AEROMODELLING CLUB" href="javascript:void(0);">
-        <div class="pxp-areas-1-item-fig pxp-cover" style="background-image: url(''); background-color: #ffffff;">
+       <a class="pxp-areas-1-item rounded-lg" data-bs-target="#clubModal" data-bs-toggle="modal" data-categories="Aeronautics, UAV Design, Robotics, Aerospace Engineering, Innovation" data-club-category="TECHNICAL" data-contact="gurmail.e5007@cumail.in" data-desc="Focuses on aircraft design, drone technology, and aeronautical engineering." data-faculty="Gurmail Singh Malhi" data-img="" data-longdesc="The Aeromodelling Club is a hub for aviation enthusiasts passionate about aircraft design, drone technology, UAV systems, and aeronautical engineering. The club encourages students to learn practical skills in model aircraft building, flight simulation, robotics integration, and aerospace innovation through workshops, competitions, and hands-on projects." data-media="" data-members="100+" data-owner="UIE - Aerospace" data-title="AEROMODELLING CLUB" href="javascript:void(0);">
+        <div class="pxp-areas-1-item-fig pxp-cover" style="background-image: url('logos/AEROMODELLING.png'); background-color: #ffffff;">
         </div>
         <div class="pxp-areas-1-item-details">
          <div class="pxp-areas-1-item-details-area">
@@ -3385,7 +3428,7 @@
        </a>
       </div>
       <div class="col-sm-12 col-md-6 col-lg-3 mb-4">
-       <a class="pxp-areas-1-item rounded-lg" data-bs-target="#clubModal" data-bs-toggle="modal" data-categories="Rocket Propulsion, Launch Vehicle Design, Satellite Systems, Cube" data-club-category="TECHNICAL" data-contact="ajin.e8705@cumail.in" data-desc="Focuses on aeronautics, aircraft technologies, and aerospace innovations." data-faculty="Ajin Branesh" data-img="logos/AEROX CLUB.png" data-longdesc="The Computation Club is a vibrant student organization in Chandigarh University's Department of Aerospace Engineering. Under the motto &quot;Transforming Resources into Skills,&quot; the club has developed into a hub for cutting-edge computational research, innovation, and interdisciplinary collaboration. We organize events such as CFD workshop, radar and drone workshop, flight simulation workshop and related competitions, case study-based competition, design hackathons, and so on." data-media="media/aerospace/1755955922486.jpeg,media/aerospace/1755955923298.jpeg,media/astronomy/1758275872692.jpeg,media/astronomy/1758275873097 (1).jpeg,media/astronomy/1758275873097.jpeg,media/campustocorporate/1774979521483.jpeg,media/campustocorporate/1774979530618.jpeg,media/campustocorporate/1775125824807.jpeg,media/cysecsphere/1771655264310.jpeg,media/cysecsphere/1775450959795.jpeg,media/droidlinix/Pasted image.png,media/ignite youth/1772687406757.jpeg,media/ignite youth/1772687406793.jpeg,media/ignite youth/1772687406866.jpeg,media/playnation/Pasted image.png,media/ramanujan/1768155475547.jpeg,media/ramanujan/1768155476269.jpeg,media/ramanujan/1768155478210.jpeg,media/tokentitans/1772218946045.jpeg,media/tokentitans/1772297792352.jpeg,media/young orators/1776547055398.jpeg,media/young orators/1776547055476.jpeg" data-members="479" data-owner="UIE - Aerospace" data-title="AEROX CLUB" href="javascript:void(0);">
+       <a class="pxp-areas-1-item rounded-lg" data-bs-target="#clubModal" data-bs-toggle="modal" data-categories="Rocket Propulsion, Launch Vehicle Design, Satellite Systems, Cube" data-club-category="TECHNICAL" data-contact="ajin.e8705@cumail.in" data-desc="Focuses on aeronautics, aircraft technologies, and aerospace innovations." data-faculty="Ajin Branesh" data-img="logos/AEROX CLUB.png" data-longdesc="The Computation Club is a vibrant student organization in Chandigarh University's Department of Aerospace Engineering. Under the motto &quot;Transforming Resources into Skills,&quot; the club has developed into a hub for cutting-edge computational research, innovation, and interdisciplinary collaboration. We organize events such as CFD workshop, radar and drone workshop, flight simulation workshop and related competitions, case study-based competition, design hackathons, and so on." data-media="media/aerospace/1755955922486.jpeg,media/aerospace/1755955923298.jpeg" data-members="479" data-owner="UIE - Aerospace" data-title="AEROX CLUB" href="javascript:void(0);">
         <div class="pxp-areas-1-item-fig pxp-cover" style="background-image: url('logos/AEROX CLUB.png');">
         </div>
         <div class="pxp-areas-1-item-details">
@@ -3399,7 +3442,7 @@
        </a>
       </div>
       <div class="col-sm-12 col-md-6 col-lg-3 mb-4">
-       <a class="pxp-areas-1-item rounded-lg" data-bs-target="#clubModal" data-bs-toggle="modal" data-categories="Book Reviews,Communication Skills,Confidence Building,Creative Expression,Creative Writing,Critical Thinking,Debate,Elocution,Literary Discussions,Magazine,Open Mic,Poetry,Public Speaking,Publishing,Spoken Word,Storytelling,Writing" data-club-category="COMMUNICATION &amp; MEDIA" data-contact="nancy.e14746@cumail.in" data-desc="A personality and leadership development club for aspiring business professionals." data-faculty="Dr. Nancy Jyani" data-img="logos/ASCENTIA CLUB.jpg" data-longdesc="Where Words Find Wings! Step into a lively space that satisfies your all literary desires and unleashes the power of words. We give wings to creative and bold ideas, through poetry, storytelling, debates and public speaking. Doesn't matter if you're just starting out or are seasoned, every voice counts in our welcoming community. From workshops, open mics, contests, and many public speaking events; we encourage creativity while inspiring collaboration. If diving into a good book is your idea of bliss, you'll feel right at home in Bibliosmia, our lively community of book lovers. At Ascentia, friendships flourish, words become bridges and you are free to be who you really are. Come, join us and be part of a world, where even sky is not the limit and stories come to life." data-media="media/campustocorporate/1774979530618.jpeg,media/campustocorporate/1774979521483.jpeg,media/tokentitans/1772297792352.jpeg" data-members="150" data-owner="Management" data-title="ASCENTIA CLUB" href="javascript:void(0);">
+       <a class="pxp-areas-1-item rounded-lg" data-bs-target="#clubModal" data-bs-toggle="modal" data-categories="Book Reviews,Communication Skills,Confidence Building,Creative Expression,Creative Writing,Critical Thinking,Debate,Elocution,Literary Discussions,Magazine,Open Mic,Poetry,Public Speaking,Publishing,Spoken Word,Storytelling,Writing" data-club-category="COMMUNICATION &amp; MEDIA" data-contact="nancy.e14746@cumail.in" data-desc="A personality and leadership development club for aspiring business professionals." data-faculty="Dr. Nancy Jyani" data-img="logos/ASCENTIA CLUB.jpg" data-longdesc="Where Words Find Wings! Step into a lively space that satisfies your all literary desires and unleashes the power of words. We give wings to creative and bold ideas, through poetry, storytelling, debates and public speaking. Doesn't matter if you're just starting out or are seasoned, every voice counts in our welcoming community. From workshops, open mics, contests, and many public speaking events; we encourage creativity while inspiring collaboration. If diving into a good book is your idea of bliss, you'll feel right at home in Bibliosmia, our lively community of book lovers. At Ascentia, friendships flourish, words become bridges and you are free to be who you really are. Come, join us and be part of a world, where even sky is not the limit and stories come to life." data-media="media/campustocorporate/1775125824807.jpeg,media/campustocorporate/1774979521483.jpeg,media/campustocorporate/1774979530618.jpeg" data-members="150" data-owner="Management" data-title="ASCENTIA CLUB" href="javascript:void(0);">
         <div class="pxp-areas-1-item-fig pxp-cover" style="background-image: url('logos/ASCENTIA CLUB.jpg');">
         </div>
         <div class="pxp-areas-1-item-details">
@@ -3413,7 +3456,7 @@
        </a>
       </div>
       <div class="col-sm-12 col-md-6 col-lg-3 mb-4">
-       <a class="pxp-areas-1-item rounded-lg" data-bs-target="#clubModal" data-bs-toggle="modal" data-categories="Rocket Propulsion,Launch Vehicle Design,Satellite Systems,Cube,Sat Development,Space Mission Planning,Avionics &amp; Guidance Systems,Orbital Mechanics,Space Robotics,Research &amp; Innovation,Student Competitions" data-club-category="TECHNICAL" data-contact="taranjit.e19214@cumail.in" data-desc="Dedicated to astronautics, space missions, rocket science, and advanced aerospace exploration." data-faculty="Taranjit Singh" data-img="logos/ASTRONAUTICS CLUB.jpeg" data-longdesc="Astronautics Club is the official college-level technical club dedicated to space technology, rocketry, and satellite systems. The club focuses on hands-on learning, propulsion systems, CubeSat development, mission design, and space research fundamentals. Through workshops, technical sessions, rocket design projects, satellite simulations, and research-driven activities, the club aims to build strong foundations in orbital mechanics, launch vehicle systems, avionics for space applications, structural design, and space mission planning." data-media="media/ramanujan/1768155476269.jpeg,media/aerospace/1755955923298.jpeg,media/cysecsphere/1771655264310.jpeg" data-members="32" data-owner="UIE - Aerospace" data-title="ASTRONAUTICS CLUB" href="javascript:void(0);">
+       <a class="pxp-areas-1-item rounded-lg" data-bs-target="#clubModal" data-bs-toggle="modal" data-categories="Rocket Propulsion,Launch Vehicle Design,Satellite Systems,Cube,Sat Development,Space Mission Planning,Avionics &amp; Guidance Systems,Orbital Mechanics,Space Robotics,Research &amp; Innovation,Student Competitions" data-club-category="TECHNICAL" data-contact="taranjit.e19214@cumail.in" data-desc="Dedicated to astronautics, space missions, rocket science, and advanced aerospace exploration." data-faculty="Taranjit Singh" data-img="logos/ASTRONAUTICS CLUB.jpeg" data-longdesc="Astronautics Club is the official college-level technical club dedicated to space technology, rocketry, and satellite systems. The club focuses on hands-on learning, propulsion systems, CubeSat development, mission design, and space research fundamentals. Through workshops, technical sessions, rocket design projects, satellite simulations, and research-driven activities, the club aims to build strong foundations in orbital mechanics, launch vehicle systems, avionics for space applications, structural design, and space mission planning." data-media="media/ramanujan/1768155476269.jpeg,media/ramanujan/1768155478210.jpeg,media/ramanujan/1768155475547.jpeg" data-members="100+" data-owner="UIE - Aerospace" data-title="ASTRONAUTICS CLUB" href="javascript:void(0);">
         <div class="pxp-areas-1-item-fig pxp-cover" style="background-image: url('logos/ASTRONAUTICS CLUB.jpeg');">
         </div>
         <div class="pxp-areas-1-item-details">
@@ -3441,8 +3484,8 @@
        </a>
       </div>
       <div class="col-sm-12 col-md-6 col-lg-3 mb-4">
-       <a class="pxp-areas-1-item rounded-lg" data-bs-target="#clubModal" data-bs-toggle="modal" data-categories="Sustainability, Environment, Climate Action, Green Initiatives, Social Awareness" data-club-category="SOCIAL IMPACT" data-contact="swaati.e10067@cumail.in" data-desc="Dedicated to environmental conservation, climate action, and sustainable development." data-faculty="Dr. Swaati Sharma" data-img="" data-longdesc="The Biosphere Club is dedicated to creating awareness about environmental conservation, climate action, and sustainable development. Through plantation drives, cleanliness campaigns, eco-projects, sustainability workshops, and awareness programs, the club inspires students to contribute towards building a greener and healthier planet." data-media="" data-members="" data-owner="Sciences - Biotech" data-title="BIOSPHERE CLUB" href="javascript:void(0);">
-        <div class="pxp-areas-1-item-fig pxp-cover" style="background-image: url(''); background-color: #ffffff;">
+       <a class="pxp-areas-1-item rounded-lg" data-bs-target="#clubModal" data-bs-toggle="modal" data-categories="Sustainability, Environment, Climate Action, Green Initiatives, Social Awareness" data-club-category="SOCIAL IMPACT" data-contact="swaati.e10067@cumail.in" data-desc="Dedicated to environmental conservation, climate action, and sustainable development." data-faculty="Dr. Swaati Sharma" data-img="" data-longdesc="The Biosphere Club is dedicated to creating awareness about environmental conservation, climate action, and sustainable development. Through plantation drives, cleanliness campaigns, eco-projects, sustainability workshops, and awareness programs, the club inspires students to contribute towards building a greener and healthier planet." data-media="" data-members="100+" data-owner="Sciences - Biotech" data-title="BIOSPHERE CLUB" href="javascript:void(0);">
+        <div class="pxp-areas-1-item-fig pxp-cover" style="background-image: url('logos/BIOSPHERE.png'); background-color: #ffffff;">
         </div>
         <div class="pxp-areas-1-item-details">
          <div class="pxp-areas-1-item-details-area">
@@ -3455,7 +3498,7 @@
        </a>
       </div>
       <div class="col-sm-12 col-md-6 col-lg-3 mb-4">
-       <a class="pxp-areas-1-item rounded-lg" data-bs-target="#clubModal" data-bs-toggle="modal" data-categories="Debate,Public Speaking,Writing and Editing,Leadership,Creative Expression" data-club-category="TECHNICAL" data-contact="preet.e15857@cumail.in" data-desc="A business analytics and data insights club combining technology with strategic decision-making." data-faculty="Dr. Preet Kamal" data-img="logos/BIZLYTICS.jpg" data-longdesc="A student society, student association, university society, student club, university club, or student organization is a society or an organization, operated by students at a university, college, or other educational institution, whose membership typically consists only of students" data-media="media/ignite youth/1772687406757.jpeg,media/droidlinix/Pasted image.png,media/aerospace/1755955923298.jpeg" data-members="3" data-owner="AIT - CSE" data-title="BIZLYTICS CLUB" href="javascript:void(0);">
+       <a class="pxp-areas-1-item rounded-lg" data-bs-target="#clubModal" data-bs-toggle="modal" data-categories="Debate,Public Speaking,Writing and Editing,Leadership,Creative Expression" data-club-category="TECHNICAL" data-contact="preet.e15857@cumail.in" data-desc="A business analytics and data insights club combining technology with strategic decision-making." data-faculty="Dr. Preet Kamal" data-img="logos/BIZLYTICS.jpg" data-longdesc="A student society, student association, university society, student club, university club, or student organization is a society or an organization, operated by students at a university, college, or other educational institution, whose membership typically consists only of students" data-media="media/ignite youth/1772687406866.jpeg,media/ignite youth/1772687406793.jpeg,media/ignite youth/1772687406757.jpeg" data-members="100+" data-owner="AIT - CSE" data-title="BIZLYTICS CLUB" href="javascript:void(0);">
         <div class="pxp-areas-1-item-fig pxp-cover" style="background-image: url('logos/BIZLYTICS.jpg');">
         </div>
         <div class="pxp-areas-1-item-details">
@@ -3469,7 +3512,7 @@
        </a>
       </div>
       <div class="col-sm-12 col-md-6 col-lg-3 mb-4">
-       <a class="pxp-areas-1-item rounded-lg" data-bs-target="#clubModal" data-bs-toggle="modal" data-categories="Game Development,Game Design,Game Art,Programming,Storytelling,Game Audio3D Modeling,UI/UXGame Jams,Workshops" data-club-category="TECHNICAL" data-contact="rajat.e19175@cumail.in" data-desc="Dedicated to game design, development, animation, and interactive entertainment technologies." data-faculty="Rajat Kapoor" data-img="logos/BROKEN CONSOLE CLUB.png" data-longdesc="Broken Console is a dynamic and innovative tech club that brings together enthusiasts passionate about gaming, technology, and creative problem-solving. Our mission is to explore the realms of game development, software innovation, and tech projects that push the boundaries of imagination." data-media="media/droidlinix/Pasted image.png,media/ignite youth/1772687406866.jpeg,media/ignite youth/1772687406757.jpeg" data-members="112" data-owner="UIE - BCA" data-title="BROKEN CONSOLE CLUB" href="javascript:void(0);">
+       <a class="pxp-areas-1-item rounded-lg" data-bs-target="#clubModal" data-bs-toggle="modal" data-categories="Game Development,Game Design,Game Art,Programming,Storytelling,Game Audio3D Modeling,UI/UXGame Jams,Workshops" data-club-category="TECHNICAL" data-contact="rajat.e19175@cumail.in" data-desc="Dedicated to game design, development, animation, and interactive entertainment technologies." data-faculty="Rajat Kapoor" data-img="logos/BROKEN CONSOLE CLUB.png" data-longdesc="Broken Console is a dynamic and innovative tech club that brings together enthusiasts passionate about gaming, technology, and creative problem-solving. Our mission is to explore the realms of game development, software innovation, and tech projects that push the boundaries of imagination." data-media="media/droidlinix/Pasted image.png" data-members="112" data-owner="UIE - BCA" data-title="BROKEN CONSOLE CLUB" href="javascript:void(0);">
         <div class="pxp-areas-1-item-fig pxp-cover" style="background-image: url('logos/BROKEN CONSOLE CLUB.png');">
         </div>
         <div class="pxp-areas-1-item-details">
@@ -3483,7 +3526,7 @@
        </a>
       </div>
       <div class="col-sm-12 col-md-6 col-lg-3 mb-4">
-       <a class="pxp-areas-1-item rounded-lg" data-bs-target="#clubModal" data-bs-toggle="modal" data-categories="Programming Challenges,Software Development,Competitive Coding,Hackathons,Tech Talks,Open Source,Project Building,Developer Community,Career Growth" data-club-category="TECHNICAL" data-contact="dilshad.e13682@cumail.in" data-desc="A collaborative coding and computing community promoting technical excellence and innovation." data-faculty="Er. Dilshad Kaur" data-img="logos/C SQUARE CLUB.png" data-longdesc="C Square: Our EthosRule #1: No fluff. We speak in code. Rule #2: We provide the Duty Leave. You deliver the code. Rule #3: From LeetCode logic to live production. Rule #4: Chug Caffeine and Code. Lets grind to the moon and back. " data-media="media/campustocorporate/1774979521483.jpeg,media/tokentitans/1772218946045.jpeg,media/campustocorporate/1775125824807.jpeg" data-members="1411" data-owner="CSE 2nd Year" data-title="C SQUARE CLUB" href="javascript:void(0);">
+       <a class="pxp-areas-1-item rounded-lg" data-bs-target="#clubModal" data-bs-toggle="modal" data-categories="Programming Challenges,Software Development,Competitive Coding,Hackathons,Tech Talks,Open Source,Project Building,Developer Community,Career Growth" data-club-category="TECHNICAL" data-contact="dilshad.e13682@cumail.in" data-desc="A collaborative coding and computing community promoting technical excellence and innovation." data-faculty="Er. Dilshad Kaur" data-img="logos/C SQUARE CLUB.png" data-longdesc="C Square: Our EthosRule #1: No fluff. We speak in code. Rule #2: We provide the Duty Leave. You deliver the code. Rule #3: From LeetCode logic to live production. Rule #4: Chug Caffeine and Code. Lets grind to the moon and back. " data-media="media/campustocorporate/1775125824807.jpeg,media/campustocorporate/1774979521483.jpeg,media/campustocorporate/1774979530618.jpeg" data-members="1411" data-owner="CSE 2nd Year" data-title="C SQUARE CLUB" href="javascript:void(0);">
         <div class="pxp-areas-1-item-fig pxp-cover" style="background-image: url('logos/C SQUARE CLUB.png');">
         </div>
         <div class="pxp-areas-1-item-details">
@@ -3511,7 +3554,7 @@
        </a>
       </div>
       <div class="col-sm-12 col-md-6 col-lg-3 mb-4">
-       <a class="pxp-areas-1-item rounded-lg" data-bs-target="#clubModal" data-bs-toggle="modal" data-categories="Debate,Public Speaking,Writing and Editing,Leadership,Creative Expression" data-club-category="TECHNICAL" data-contact="deepti.e14308@cumail.in" data-desc="Focuses on cloud computing, DevOps, virtualization, and modern infrastructure technologies." data-faculty="Dr. Deepti Sharma" data-img="logos/CLOUDSTACK CLUB.jpeg" data-longdesc="A student society, student association, university society, student club, university club, or student organization is a society or an organization, operated by students at a university, college, or other educational institution, whose membership typically consists only of students" data-media="media/astronomy/1758275872692.jpeg,media/tokentitans/1772297792352.jpeg,media/aerospace/1755955923298.jpeg" data-members="100" data-owner="AIT - CSE" data-title="CLOUDSTACK CLUB" href="javascript:void(0);">
+       <a class="pxp-areas-1-item rounded-lg" data-bs-target="#clubModal" data-bs-toggle="modal" data-categories="Debate,Public Speaking,Writing and Editing,Leadership,Creative Expression" data-club-category="TECHNICAL" data-contact="deepti.e14308@cumail.in" data-desc="Focuses on cloud computing, DevOps, virtualization, and modern infrastructure technologies." data-faculty="Dr. Deepti Sharma" data-img="logos/CLOUDSTACK CLUB.jpeg" data-longdesc="A student society, student association, university society, student club, university club, or student organization is a society or an organization, operated by students at a university, college, or other educational institution, whose membership typically consists only of students" data-media="media/campustocorporate/1775125824807.jpeg,media/campustocorporate/1774979521483.jpeg,media/campustocorporate/1774979530618.jpeg" data-members="100" data-owner="AIT - CSE" data-title="CLOUDSTACK CLUB" href="javascript:void(0);">
         <div class="pxp-areas-1-item-fig pxp-cover" style="background-image: url('logos/CLOUDSTACK CLUB.jpeg');">
         </div>
         <div class="pxp-areas-1-item-details">
@@ -3525,7 +3568,7 @@
        </a>
       </div>
       <div class="col-sm-12 col-md-6 col-lg-3 mb-4">
-       <a class="pxp-areas-1-item rounded-lg" data-bs-target="#clubModal" data-bs-toggle="modal" data-categories="Artificial Intelligence, Machine Learning, Cognitive Computing" data-club-category="TECHNICAL" data-contact="kusumlata.e20159@cumail.in" data-desc="Explores cognitive computing, AI applications, and intelligent systems development." data-faculty="Dr. Kusum Lata" data-img="logos/COGNIX CLUB.png" data-longdesc="Cognix Club is dedicated to exploring the frontiers of cognitive computing, artificial intelligence, and intelligent system development. Through workshops, hackathons, and collaborative projects, students gain hands-on experience in building AI-powered solutions." data-media="" data-members="" data-owner="UIE - CSE" data-title="COGNIX CLUB" href="javascript:void(0);">
+       <a class="pxp-areas-1-item rounded-lg" data-bs-target="#clubModal" data-bs-toggle="modal" data-categories="Artificial Intelligence, Machine Learning, Cognitive Computing" data-club-category="TECHNICAL" data-contact="kusumlata.e20159@cumail.in" data-desc="Explores cognitive computing, AI applications, and intelligent systems development." data-faculty="Dr. Kusum Lata" data-img="logos/COGNIX CLUB.png" data-longdesc="Cognix Club is dedicated to exploring the frontiers of cognitive computing, artificial intelligence, and intelligent system development. Through workshops, hackathons, and collaborative projects, students gain hands-on experience in building AI-powered solutions." data-media="media/campustocorporate/1775125824807.jpeg,media/campustocorporate/1774979521483.jpeg,media/campustocorporate/1774979530618.jpeg" data-members="150" data-owner="UIE - CSE" data-title="COGNIX CLUB" href="javascript:void(0);">
         <div class="pxp-areas-1-item-fig pxp-cover" style="background-image: url('logos/COGNIX CLUB.png'); background-color: #ffffff;">
         </div>
         <div class="pxp-areas-1-item-details">
@@ -3539,7 +3582,7 @@
        </a>
       </div>
       <div class="col-sm-12 col-md-6 col-lg-3 mb-4">
-       <a class="pxp-areas-1-item rounded-lg" data-bs-target="#clubModal" data-bs-toggle="modal" data-categories="Esports, Gaming, Content Creation, Event Management, Online Competitions, Team-Based Activities" data-club-category="TECHNICAL" data-contact="ankita.e9938@cumail.in" data-desc="A gaming and e-sports community organizing tournaments and interactive gaming events." data-faculty="Dr. Ankita Sharma" data-img="logos/CU PLAYNATION CLUB.jpeg" data-longdesc="PlayNation is Chandigarh University’s official Esports and Gaming Club, built for students who live and breathe competitive gaming. From high-stakes tournaments and LAN battles to inter-college leagues and campus showdowns, PlayNation is where strategy, skill, and teamwork come to life. More than just a club - it’s a platform to grow as players, leaders, and future professionals in the ever-evolving world of Esports." data-media="media/playnation/560443129_17916327828192058_3708829733544397137_n.jpg,media/playnation/560448614_17916327840192058_277555166259241882_n.jpg,media/playnation/6392671e-6715-4112-b79c-328ad0a11883.jpeg,media/playnation/658847715_17914319436357556_4860787455947049748_n.jpg.jpeg" data-members="458" data-owner="UIMS" data-title="CU PLAYNATION CLUB" href="javascript:void(0);">
+       <a class="pxp-areas-1-item rounded-lg" data-bs-target="#clubModal" data-bs-toggle="modal" data-categories="Esports, Gaming, Content Creation, Event Management, Online Competitions, Team-Based Activities" data-club-category="TECHNICAL" data-contact="ankita.e9938@cumail.in" data-desc="A gaming and e-sports community organizing tournaments and interactive gaming events." data-faculty="Dr. Ankita Sharma" data-img="logos/CU PLAYNATION CLUB.jpeg" data-longdesc="PlayNation is Chandigarh University’s official Esports and Gaming Club, built for students who live and breathe competitive gaming. From high-stakes tournaments and LAN battles to inter-college leagues and campus showdowns, PlayNation is where strategy, skill, and teamwork come to life. More than just a club - it’s a platform to grow as players, leaders, and future professionals in the ever-evolving world of Esports." data-media="media/playnation/6392671e-6715-4112-b79c-328ad0a11883.jpeg,media/playnation/560448614_17916327840192058_277555166259241882_n.jpg,media/playnation/560443129_17916327828192058_3708829733544397137_n.jpg" data-members="458" data-owner="UIMS" data-title="CU PLAYNATION CLUB" href="javascript:void(0);">
         <div class="pxp-areas-1-item-fig pxp-cover" style="background-image: url('logos/CU PLAYNATION CLUB.jpeg');">
         </div>
         <div class="pxp-areas-1-item-details">
@@ -3567,7 +3610,7 @@
        </a>
       </div>
       <div class="col-sm-12 col-md-6 col-lg-3 mb-4">
-       <a class="pxp-areas-1-item rounded-lg" data-bs-target="#clubModal" data-bs-toggle="modal" data-categories="Android Development, Mobile Innovation, Coding" data-club-category="TECHNICAL" data-desc="Dedicated to Android development, mobile app innovation, and smart device technologies." data-img="logos/DROIDLINX CLUB.jpg" data-longdesc="DroidLinx Club is a hub for mobile technology enthusiasts focused on Android development, cross-platform app building, and smart device innovation. Members collaborate on real-world projects, participate in app development challenges, and stay ahead in mobile technology trends." data-media="media/droidlinix/Pasted image.png" data-members="" data-owner="" data-title="DROIDLINX CLUB" href="javascript:void(0);">
+       <a class="pxp-areas-1-item rounded-lg" data-bs-target="#clubModal" data-bs-toggle="modal" data-categories="Android Development, Mobile Innovation, Coding" data-club-category="TECHNICAL" data-desc="Dedicated to Android development, mobile app innovation, and smart device technologies." data-img="logos/DROIDLINX CLUB.jpg" data-longdesc="DroidLinx Club is a hub for mobile technology enthusiasts focused on Android development, cross-platform app building, and smart device innovation. Members collaborate on real-world projects, participate in app development challenges, and stay ahead in mobile technology trends." data-media="media/droidlinix/Pasted image.png" data-members="100+" data-owner="" data-title="DROIDLINX CLUB" href="javascript:void(0);">
         <div class="pxp-areas-1-item-fig pxp-cover" style="background-image: url('logos/DROIDLINX CLUB.jpg'); background-color: #ffffff;">
         </div>
         <div class="pxp-areas-1-item-details">
@@ -3581,7 +3624,7 @@
        </a>
       </div>
       <div class="col-sm-12 col-md-6 col-lg-3 mb-4">
-       <a class="pxp-areas-1-item rounded-lg" data-bs-target="#clubModal" data-bs-toggle="modal" data-categories="Debate,Public Speaking,Writing and Editing,Leadership,Creative Expressionworkshops." data-club-category="SOCIAL IMPACT" data-contact="arundhati.e5683@cumail.in" data-desc="Promotes environmental sustainability, eco-friendly practices, and green innovation initiatives." data-faculty="Dr. Arundhati" data-img="logos/ECO GENESIS CLUB.jpg" data-longdesc="The Eco Fusion Club aims to merge environment and technology to promote sustainable, eco-friendly practices on campus and beyond. It seeks to foster environmental awareness among students by integrating innovation with conservation in activities like tree plantations, cleanups, recycling drives, workshops, and techenabled green projects." data-media="media/campustocorporate/1774979530618.jpeg,media/ramanujan/1768155475547.jpeg,media/ignite youth/1772687406757.jpeg" data-members="154" data-owner="UIE - Civil" data-title="ECO GENESIS CLUB" href="javascript:void(0);">
+       <a class="pxp-areas-1-item rounded-lg" data-bs-target="#clubModal" data-bs-toggle="modal" data-categories="Debate,Public Speaking,Writing and Editing,Leadership,Creative Expressionworkshops." data-club-category="SOCIAL IMPACT" data-contact="arundhati.e5683@cumail.in" data-desc="Promotes environmental sustainability, eco-friendly practices, and green innovation initiatives." data-faculty="Dr. Arundhati" data-img="logos/ECO GENESIS CLUB.jpg" data-longdesc="The Eco Fusion Club aims to merge environment and technology to promote sustainable, eco-friendly practices on campus and beyond. It seeks to foster environmental awareness among students by integrating innovation with conservation in activities like tree plantations, cleanups, recycling drives, workshops, and techenabled green projects." data-media="media/ignite youth/1772687406866.jpeg,media/ignite youth/1772687406793.jpeg,media/ignite youth/1772687406757.jpeg" data-members="154" data-owner="UIE - Civil" data-title="ECO GENESIS CLUB" href="javascript:void(0);">
         <div class="pxp-areas-1-item-fig pxp-cover" style="background-image: url('logos/ECO GENESIS CLUB.jpg');">
         </div>
         <div class="pxp-areas-1-item-details">
@@ -3595,7 +3638,7 @@
        </a>
       </div>
       <div class="col-sm-12 col-md-6 col-lg-3 mb-4">
-       <a class="pxp-areas-1-item rounded-lg" data-bs-target="#clubModal" data-bs-toggle="modal" data-categories="Debate,Public Speaking,Writing and Editing,Leadership,Creative Expression,Stratergy Building,Management" data-club-category="DESIGN THINKING AND INNOVATION" data-contact="vipasha.uibt@cumail.in" data-desc="Encourages startup culture, business innovation, and entrepreneurial mindset development." data-faculty="Dr. Vipasha Sharma" data-img="logos/Enterprenuership.jpg" data-longdesc="A student society, student association, university society, student club, university club, or student organization is a society or an organization, operated by students at a university, college, or other educational institution, whose membership typically consists only of students" data-media="media/ramanujan/1768155476269.jpeg,media/astronomy/1758275873097.jpeg,media/astronomy/1758275872692.jpeg" data-members="188" data-owner="Sciences - Biotech" data-title="ENTREPRENEURSHIP CLUB" href="javascript:void(0);">
+       <a class="pxp-areas-1-item rounded-lg" data-bs-target="#clubModal" data-bs-toggle="modal" data-categories="Debate,Public Speaking,Writing and Editing,Leadership,Creative Expression,Stratergy Building,Management" data-club-category="DESIGN THINKING AND INNOVATION" data-contact="vipasha.uibt@cumail.in" data-desc="Encourages startup culture, business innovation, and entrepreneurial mindset development." data-faculty="Dr. Vipasha Sharma" data-img="logos/Enterprenuership.jpg" data-longdesc="A student society, student association, university society, student club, university club, or student organization is a society or an organization, operated by students at a university, college, or other educational institution, whose membership typically consists only of students" data-media="media/ramanujan/1768155476269.jpeg,media/ramanujan/1768155478210.jpeg,media/ramanujan/1768155475547.jpeg" data-members="188" data-owner="Sciences - Biotech" data-title="ENTREPRENEURSHIP CLUB" href="javascript:void(0);">
         <div class="pxp-areas-1-item-fig pxp-cover" style="background-image: url('logos/Enterprenuership.jpg');">
         </div>
         <div class="pxp-areas-1-item-details">
@@ -3609,7 +3652,7 @@
        </a>
       </div>
       <div class="col-sm-12 col-md-6 col-lg-3 mb-4">
-       <a class="pxp-areas-1-item rounded-lg" data-bs-target="#clubModal" data-bs-toggle="modal" data-categories="Financial Literacy &amp; Awareness,Investments &amp; Stock Market,Banking&amp; Fintech,Workshops,Events,AI &amp; Finance" data-club-category="BUISNESS &amp; CAREERS" data-contact="charandeep.e13559@cumail.in" data-desc="Dedicated to finance, investment strategies, stock markets, and business analytics learning." data-faculty="Dr. Charandeep Singh" data-img="logos/FINVERSE CLUB.jpg" data-longdesc="Finverse Club is Chandigarh University's official student led financial club under the department of MBA in Banking &amp;amp; Financial Engineering. Our mission is simple: Make finance practical, exciting, and real for students. Whether you are passionate about the stock market, curious about how banks operate, or want to explore financial technology, Finverse gives you the platform to learn, build skills, and connect with industry leaders." data-media="media/tokentitans/1772297792352.jpeg,media/ramanujan/1768155475547.jpeg,media/astronomy/1758275873097 (1).jpeg" data-members="309" data-owner="Management - AIT MBA" data-title="FINVERSE CLUB" href="javascript:void(0);">
+       <a class="pxp-areas-1-item rounded-lg" data-bs-target="#clubModal" data-bs-toggle="modal" data-categories="Financial Literacy &amp; Awareness,Investments &amp; Stock Market,Banking&amp; Fintech,Workshops,Events,AI &amp; Finance" data-club-category="BUISNESS &amp; CAREERS" data-contact="charandeep.e13559@cumail.in" data-desc="Dedicated to finance, investment strategies, stock markets, and business analytics learning." data-faculty="Dr. Charandeep Singh" data-img="logos/FINVERSE CLUB.jpg" data-longdesc="Finverse Club is Chandigarh University's official student led financial club under the department of MBA in Banking &amp;amp; Financial Engineering. Our mission is simple: Make finance practical, exciting, and real for students. Whether you are passionate about the stock market, curious about how banks operate, or want to explore financial technology, Finverse gives you the platform to learn, build skills, and connect with industry leaders." data-media="media/tokentitans/1772218946045.jpeg,media/tokentitans/1772297792352.jpeg" data-members="309" data-owner="Management - AIT MBA" data-title="FINVERSE CLUB" href="javascript:void(0);">
         <div class="pxp-areas-1-item-fig pxp-cover" style="background-image: url('logos/FINVERSE CLUB.jpg');">
         </div>
         <div class="pxp-areas-1-item-details">
@@ -3623,7 +3666,7 @@
        </a>
       </div>
       <div class="col-sm-12 col-md-6 col-lg-3 mb-4">
-       <a class="pxp-areas-1-item rounded-lg" data-bs-target="#clubModal" data-bs-toggle="modal" data-categories="Skill Empowerment,Career Advancement,Innovation &amp; Hackathons,Industry-Academia Collaboration,Emerging Tech Forums,Community &amp; Outreach,Tech Bootcamps &amp; Workshops,Certifications &amp; Training Programs,Research &amp; Development Initiatives,AI &amp; Data Science Challenges,Tech Summits &amp; Expert Talks,Product Development &amp; Prototyping,Internships &amp; Placement Support,Open-Source Contribution Drives,Entrepreneurship &amp; Startup Incubation,Mentorship &amp; Peer Learning Programs,Social Impact Tech Projects,Cybersecurity Awareness &amp; Workshops,Tech Trend Updates &amp; News Forums,Gamified Learning Events" data-club-category="TECHNICAL" data-contact="kirti.e16189@cumail.in" data-desc="A technical club focused on programming fundamentals, coding practices, and project development." data-faculty="Kirti" data-img="logos/FPF CLUB.jpeg" data-longdesc="Future Prep Forum (FPF) is a student-led club dedicated to preparing students for the future of work. We focus on building industry-relevant technical skills, offering accessible certifications, and driving innovation through hands-on hackathons and workshops.By bridging academia and industry, FPF creates meaningful opportunities for learning, collaboration, and career growthempowering students to thrive in an ever-evolving professional landscape." data-media="media/campustocorporate/1774979521483.jpeg,media/aerospace/1755955922486.jpeg,media/ramanujan/1768155478210.jpeg" data-members="51" data-owner="AIT - CSE" data-title="FPF CLUB" href="javascript:void(0);">
+       <a class="pxp-areas-1-item rounded-lg" data-bs-target="#clubModal" data-bs-toggle="modal" data-categories="Skill Empowerment,Career Advancement,Innovation &amp; Hackathons,Industry-Academia Collaboration,Emerging Tech Forums,Community &amp; Outreach,Tech Bootcamps &amp; Workshops,Certifications &amp; Training Programs,Research &amp; Development Initiatives,AI &amp; Data Science Challenges,Tech Summits &amp; Expert Talks,Product Development &amp; Prototyping,Internships &amp; Placement Support,Open-Source Contribution Drives,Entrepreneurship &amp; Startup Incubation,Mentorship &amp; Peer Learning Programs,Social Impact Tech Projects,Cybersecurity Awareness &amp; Workshops,Tech Trend Updates &amp; News Forums,Gamified Learning Events" data-club-category="TECHNICAL" data-contact="kirti.e16189@cumail.in" data-desc="A technical club focused on programming fundamentals, coding practices, and project development." data-faculty="Kirti" data-img="logos/FPF CLUB.jpeg" data-longdesc="Future Prep Forum (FPF) is a student-led club dedicated to preparing students for the future of work. We focus on building industry-relevant technical skills, offering accessible certifications, and driving innovation through hands-on hackathons and workshops.By bridging academia and industry, FPF creates meaningful opportunities for learning, collaboration, and career growthempowering students to thrive in an ever-evolving professional landscape." data-media="media/tokentitans/1772218946045.jpeg,media/tokentitans/1772297792352.jpeg" data-members="100+" data-owner="AIT - CSE" data-title="FPF CLUB" href="javascript:void(0);">
         <div class="pxp-areas-1-item-fig pxp-cover" style="background-image: url('logos/FPF CLUB.jpeg');">
         </div>
         <div class="pxp-areas-1-item-details">
@@ -3637,8 +3680,8 @@
        </a>
       </div>
       <div class="col-sm-12 col-md-6 col-lg-3 mb-4">
-       <a class="pxp-areas-1-item rounded-lg" data-bs-target="#clubModal" data-bs-toggle="modal" data-categories="Hospitality, Tourism, Event Management, Culinary Arts, Professional Development" data-club-category="BUISNESS &amp; CAREERS" data-contact="jagjitsingh.uithm@cumail.in" data-desc="Explores the world of hospitality, tourism, food service, and event management." data-faculty="Dr. Jagjit Singh" data-img="" data-longdesc="The Hotel Management Club provides students with opportunities to explore the dynamic world of hospitality, tourism, food service, and event management. The club organizes culinary activities, hospitality workshops, tourism awareness programs, and industry interaction sessions to enhance professional skills and leadership in the hospitality sector." data-media="" data-members="" data-owner="Management - HHM" data-title="HOTEL MANAGEMENT CLUB" href="javascript:void(0);">
-        <div class="pxp-areas-1-item-fig pxp-cover" style="background-image: url(''); background-color: #ffffff;">
+       <a class="pxp-areas-1-item rounded-lg" data-bs-target="#clubModal" data-bs-toggle="modal" data-categories="Hospitality, Tourism, Event Management, Culinary Arts, Professional Development" data-club-category="BUISNESS &amp; CAREERS" data-contact="jagjitsingh.uithm@cumail.in" data-desc="Explores the world of hospitality, tourism, food service, and event management." data-faculty="Dr. Jagjit Singh" data-img="" data-longdesc="The Hotel Management Club provides students with opportunities to explore the dynamic world of hospitality, tourism, food service, and event management. The club organizes culinary activities, hospitality workshops, tourism awareness programs, and industry interaction sessions to enhance professional skills and leadership in the hospitality sector." data-media="" data-members="100+" data-owner="Management - HHM" data-title="HOTEL MANAGEMENT CLUB" href="javascript:void(0);">
+        <div class="pxp-areas-1-item-fig pxp-cover" style="background-image: url('logos/HOTEL MANAGEMENT CLUB.png'); background-color: #ffffff;">
         </div>
         <div class="pxp-areas-1-item-details">
          <div class="pxp-areas-1-item-details-area">
@@ -3665,7 +3708,7 @@
        </a>
       </div>
       <div class="col-sm-12 col-md-6 col-lg-3 mb-4">
-       <a class="pxp-areas-1-item rounded-lg" data-bs-target="#clubModal" data-bs-toggle="modal" data-categories="Digital Marketing and Transformation,Entrepreneurship Workshops,Branding and Influencer Events &amp; Workshops,Social Media Marketing,Tech Tools and Creative Contests" data-club-category="BUISNESS &amp; CAREERS" data-contact="sameep.e12339@cumail.in" data-desc="Helps students develop branding, digital marketing, and business promotion skills." data-faculty="Sameep Kaur Gill" data-img="logos/MARKETING BRIGADE CLUB.jpeg" data-longdesc="Marketing Brigade is Chandigarh University's official club under the department of MBA- Digital marketing, dedicated to empowering students with hands-on knowledge and experience in the fields of marketing, branding, and digital communication.Our mission is to foster awareness and skill-building in marketing and branding through dynamic initiatives such as workshops, branding booths, influencer-led events, competitions, and full-scale social media campaigns. A full fledged ecosystem dedicated to mastering every vertical of digital marketing." data-media="media/astronomy/1758275872692.jpeg,media/tokentitans/1772297792352.jpeg,media/ramanujan/1768155475547.jpeg" data-members="444" data-owner="Management" data-title="MARKETING BRIGADE CLUB" href="javascript:void(0);">
+       <a class="pxp-areas-1-item rounded-lg" data-bs-target="#clubModal" data-bs-toggle="modal" data-categories="Digital Marketing and Transformation,Entrepreneurship Workshops,Branding and Influencer Events &amp; Workshops,Social Media Marketing,Tech Tools and Creative Contests" data-club-category="BUISNESS &amp; CAREERS" data-contact="sameep.e12339@cumail.in" data-desc="Helps students develop branding, digital marketing, and business promotion skills." data-faculty="Sameep Kaur Gill" data-img="logos/MARKETING BRIGADE CLUB.jpeg" data-longdesc="Marketing Brigade is Chandigarh University's official club under the department of MBA- Digital marketing, dedicated to empowering students with hands-on knowledge and experience in the fields of marketing, branding, and digital communication.Our mission is to foster awareness and skill-building in marketing and branding through dynamic initiatives such as workshops, branding booths, influencer-led events, competitions, and full-scale social media campaigns. A full fledged ecosystem dedicated to mastering every vertical of digital marketing." data-media="media/ignite youth/1772687406866.jpeg,media/ignite youth/1772687406793.jpeg,media/ignite youth/1772687406757.jpeg" data-members="444" data-owner="Management" data-title="MARKETING BRIGADE CLUB" href="javascript:void(0);">
         <div class="pxp-areas-1-item-fig pxp-cover" style="background-image: url('logos/MARKETING BRIGADE CLUB.jpeg');">
         </div>
         <div class="pxp-areas-1-item-details">
@@ -3679,8 +3722,8 @@
        </a>
       </div>
       <div class="col-sm-12 col-md-6 col-lg-3 mb-4">
-       <a class="pxp-areas-1-item rounded-lg" data-bs-target="#clubModal" data-bs-toggle="modal" data-categories="Nanotechnology, Quantum Computing, Research, Advanced Technology, Innovation" data-club-category="TECHNICAL" data-contact="hardeep.uibt@cumail.in" data-desc="Focuses on nanotechnology, quantum computing, and scientific innovation." data-faculty="Dr. Hardeep Kaur" data-img="" data-longdesc="The Nanoverse Club is a futuristic technology community focused on emerging fields such as nanotechnology, quantum computing, advanced materials, and scientific innovation. The club promotes research discussions, technical workshops, innovation challenges, and collaborative projects that help students explore next-generation technologies shaping the future." data-media="" data-members="" data-owner="Sciences - Biotech" data-title="NANOVERSE CLUB" href="javascript:void(0);">
-        <div class="pxp-areas-1-item-fig pxp-cover" style="background-image: url(''); background-color: #ffffff;">
+       <a class="pxp-areas-1-item rounded-lg" data-bs-target="#clubModal" data-bs-toggle="modal" data-categories="Nanotechnology, Quantum Computing, Research, Advanced Technology, Innovation" data-club-category="TECHNICAL" data-contact="hardeep.uibt@cumail.in" data-desc="Focuses on nanotechnology, quantum computing, and scientific innovation." data-faculty="Dr. Hardeep Kaur" data-img="" data-longdesc="The Nanoverse Club is a futuristic technology community focused on emerging fields such as nanotechnology, quantum computing, advanced materials, and scientific innovation. The club promotes research discussions, technical workshops, innovation challenges, and collaborative projects that help students explore next-generation technologies shaping the future." data-media="" data-members="100+" data-owner="Sciences - Biotech" data-title="NANOVERSE CLUB" href="javascript:void(0);">
+        <div class="pxp-areas-1-item-fig pxp-cover" style="background-image: url('logos/NANOVERSE.png'); background-color: #ffffff;">
         </div>
         <div class="pxp-areas-1-item-details">
          <div class="pxp-areas-1-item-details-area">
@@ -3693,8 +3736,8 @@
        </a>
       </div>
       <div class="col-sm-12 col-md-6 col-lg-3 mb-4">
-       <a class="pxp-areas-1-item rounded-lg" data-bs-target="#clubModal" data-bs-toggle="modal" data-categories="Mental Wellness, Emotional Support, Personal Growth, Student Life, Mindfulness" data-club-category="HEALTH &amp; WELLNESS" data-contact="navjyot.e8508@cumail.in" data-desc="Promotes mental health awareness, emotional resilience, and personal growth." data-faculty="Dr. Navjyot Kaur" data-img="" data-longdesc="Nexasoul Club is a student wellness and emotional support community that promotes mental health awareness, positivity, emotional resilience, and personal growth. Through counseling sessions, interactive activities, motivational events, mindfulness workshops, and peer support initiatives, the club creates a safe and supportive environment for holistic student development." data-media="" data-members="" data-owner="UIE - CSE" data-title="NEXASOUL CLUB" href="javascript:void(0);">
-        <div class="pxp-areas-1-item-fig pxp-cover" style="background-image: url(''); background-color: #ffffff;">
+       <a class="pxp-areas-1-item rounded-lg" data-bs-target="#clubModal" data-bs-toggle="modal" data-categories="Mental Wellness, Emotional Support, Personal Growth, Student Life, Mindfulness" data-club-category="HEALTH &amp; WELLNESS" data-contact="navjyot.e8508@cumail.in" data-desc="Promotes mental health awareness, emotional resilience, and personal growth." data-faculty="Dr. Navjyot Kaur" data-img="logos/NEXASOUL.png" data-longdesc="Nexasoul Club is a student wellness and emotional support community that promotes mental health awareness, positivity, emotional resilience, and personal growth. Through counseling sessions, interactive activities, motivational events, mindfulness workshops, and peer support initiatives, the club creates a safe and supportive environment for holistic student development." data-media="" data-members="100+" data-owner="UIE - CSE" data-title="NEXASOUL CLUB" href="javascript:void(0);">
+        <div class="pxp-areas-1-item-fig pxp-cover" style="background-image: url('logos/NEXASOUL.png'); background-color: #ffffff;">
         </div>
         <div class="pxp-areas-1-item-details">
          <div class="pxp-areas-1-item-details-area">
@@ -3707,7 +3750,7 @@
        </a>
       </div>
       <div class="col-sm-12 col-md-6 col-lg-3 mb-4">
-       <a class="pxp-areas-1-item rounded-lg" data-bs-target="#clubModal" data-bs-toggle="modal" data-categories="Innovation,Entrepreneurship,Startups,Leadership,Mentorship,Networking,Workshops,Competitions,Creativity,Skill Development" data-club-category="DESIGN THINKING AND INNOVATION" data-contact="utkarsh.e19457@cumail.in" data-desc="Supports prototype development, startup ideation, and innovative tech solutions." data-faculty="Utkarsh Mishra" data-img="logos/PROTOSTART.jpg" data-longdesc="ProtoStart Club&amp;nbsp;is the heartbeat of innovation at Chandigarh University  a launchpad where raw ideas turn into real startups. Through mentorship, workshops, and high-energy competitions, it fuels creativity, leadership, and an unshakable entrepreneurial spirit, empowering students to rise as tomorrows changemakers." data-media="media/droidlinix/Pasted image.png,media/ramanujan/1768155478210.jpeg,media/young orators/1776547055398.jpeg" data-members="175" data-owner="Electrical" data-title="PROTOSTART CLUB" href="javascript:void(0);">
+       <a class="pxp-areas-1-item rounded-lg" data-bs-target="#clubModal" data-bs-toggle="modal" data-categories="Innovation,Entrepreneurship,Startups,Leadership,Mentorship,Networking,Workshops,Competitions,Creativity,Skill Development" data-club-category="DESIGN THINKING AND INNOVATION" data-contact="utkarsh.e19457@cumail.in" data-desc="Supports prototype development, startup ideation, and innovative tech solutions." data-faculty="Utkarsh Mishra" data-img="logos/PROTOSTART.jpg" data-longdesc="ProtoStart Club&amp;nbsp;is the heartbeat of innovation at Chandigarh University  a launchpad where raw ideas turn into real startups. Through mentorship, workshops, and high-energy competitions, it fuels creativity, leadership, and an unshakable entrepreneurial spirit, empowering students to rise as tomorrows changemakers." data-media="media/droidlinix/Pasted image.png" data-members="175" data-owner="Electrical" data-title="PROTOSTART CLUB" href="javascript:void(0);">
         <div class="pxp-areas-1-item-fig pxp-cover" style="background-image: url('logos/PROTOSTART.jpg');">
         </div>
         <div class="pxp-areas-1-item-details">
@@ -3735,7 +3778,7 @@
        </a>
       </div>
       <div class="col-sm-12 col-md-6 col-lg-3 mb-4">
-       <a class="pxp-areas-1-item rounded-lg" data-bs-target="#clubModal" data-bs-toggle="modal" data-categories="Electronics &amp; Embedded Systems,Programming &amp; Automation,Drone &amp; Aerial Robotics,Robotics Competitions &amp; Hackathons,Research &amp; Innovation,Workshops &amp; Mentorship,Community Projects &amp; Outreach,Leadership,Creative Expression" data-club-category="TECHNICAL" data-contact="anuj.e13929@cumail.in" data-desc="Focuses on robotics engineering, hardware prototyping, and automation projects." data-faculty="Dr. Anuj Gupta" data-img="logos/ROBOX CLUB.jpeg" data-longdesc="Are you ready to embark on an exciting journey into the future of technology? RoboClubChandigarh University is the perfect place for curious minds and tech enthusiasts tounite, innovate, and create. Whether you're a seasoned programmer, a mechanicalgenius, or just starting to explore the world of robotics, you'll find a supportivecommunity here. We dive into the latest advancements, work on cutting-edge projects,and turn imaginative ideas into reality. Join us, and let's build the future together, onerobot at a time!Vision Statement:To be a leading community that fosters innovation, collaboration, and excellence inrobotics. We aim to inspire and equip our members with the skills and knowledge todrive technological advancements and positively impact society. We want every clubmember to have a project in their resume that stands out to the masses.Mission Statement: Cutting-edge innovation through AI + Robotics. Engage in a wide spectrum of cutting-edge projects unique as per everyonesneed and resume. Reverse learning and Holistic development. Add on- Train and stimulate for Patent publishing." data-media="media/cysecsphere/1771655264310.jpeg,media/playnation/Pasted image.png,media/aerospace/1755955922486.jpeg" data-members="249" data-owner="UIE - Mechatronics" data-title="ROBOX CLUB" href="javascript:void(0);">
+       <a class="pxp-areas-1-item rounded-lg" data-bs-target="#clubModal" data-bs-toggle="modal" data-categories="Electronics &amp; Embedded Systems,Programming &amp; Automation,Drone &amp; Aerial Robotics,Robotics Competitions &amp; Hackathons,Research &amp; Innovation,Workshops &amp; Mentorship,Community Projects &amp; Outreach,Leadership,Creative Expression" data-club-category="TECHNICAL" data-contact="anuj.e13929@cumail.in" data-desc="Focuses on robotics engineering, hardware prototyping, and automation projects." data-faculty="Dr. Anuj Gupta" data-img="logos/ROBOX CLUB.jpeg" data-longdesc="Are you ready to embark on an exciting journey into the future of technology? RoboClubChandigarh University is the perfect place for curious minds and tech enthusiasts tounite, innovate, and create. Whether you're a seasoned programmer, a mechanicalgenius, or just starting to explore the world of robotics, you'll find a supportivecommunity here. We dive into the latest advancements, work on cutting-edge projects,and turn imaginative ideas into reality. Join us, and let's build the future together, onerobot at a time!Vision Statement:To be a leading community that fosters innovation, collaboration, and excellence inrobotics. We aim to inspire and equip our members with the skills and knowledge todrive technological advancements and positively impact society. We want every clubmember to have a project in their resume that stands out to the masses.Mission Statement: Cutting-edge innovation through AI + Robotics. Engage in a wide spectrum of cutting-edge projects unique as per everyonesneed and resume. Reverse learning and Holistic development. Add on- Train and stimulate for Patent publishing." data-media="media/cysecsphere/1771655264310.jpeg,media/cysecsphere/1775450959795.jpeg" data-members="249" data-owner="UIE - Mechatronics" data-title="ROBOX CLUB" href="javascript:void(0);">
         <div class="pxp-areas-1-item-fig pxp-cover" style="background-image: url('logos/ROBOX CLUB.jpeg');">
         </div>
         <div class="pxp-areas-1-item-details">
@@ -3749,7 +3792,7 @@
        </a>
       </div>
       <div class="col-sm-12 col-md-6 col-lg-3 mb-4">
-       <a class="pxp-areas-1-item rounded-lg" data-bs-target="#clubModal" data-bs-toggle="modal" data-categories="Innovation,Research &amp; Development,Intellectual Property Rights,Tech Awareness,Creative Thinking,Leadership,Hackathon,Ideathon,Patent-A-Thon" data-club-category="DESIGN THINKING AND INNOVATION" data-contact="ad.uie@cumail.in" data-desc="Encourages futuristic thinking, innovation, and science-fiction-inspired technology ideas." data-faculty="Dr. Ruchika Gupta" data-img="logos/SCI-FI INNOVATION CLUB.png" data-longdesc="The Sci-Fi Innovation Club at Chandigarh University fosters creativity, critical thinking, and innovation through a blend of technical, literary, and leadership activities. It serves as a vibrant platform for students to explore futuristic ideas, intellectual property rights, and collaborative development." data-media="media/campustocorporate/1774979521483.jpeg,media/droidlinix/Pasted image.png,media/cysecsphere/1771655264310.jpeg" data-members="551" data-owner="UIE - CSE" data-title="SCI-FI INNOVATION CLUB" href="javascript:void(0);">
+       <a class="pxp-areas-1-item rounded-lg" data-bs-target="#clubModal" data-bs-toggle="modal" data-categories="Innovation,Research &amp; Development,Intellectual Property Rights,Tech Awareness,Creative Thinking,Leadership,Hackathon,Ideathon,Patent-A-Thon" data-club-category="DESIGN THINKING AND INNOVATION" data-contact="ad.uie@cumail.in" data-desc="Encourages futuristic thinking, innovation, and science-fiction-inspired technology ideas." data-faculty="Dr. Ruchika Gupta" data-img="logos/SCI-FI INNOVATION CLUB.png" data-longdesc="The Sci-Fi Innovation Club at Chandigarh University fosters creativity, critical thinking, and innovation through a blend of technical, literary, and leadership activities. It serves as a vibrant platform for students to explore futuristic ideas, intellectual property rights, and collaborative development." data-media="media/campustocorporate/1775125824807.jpeg,media/campustocorporate/1774979521483.jpeg,media/campustocorporate/1774979530618.jpeg" data-members="551" data-owner="UIE - CSE" data-title="SCI-FI INNOVATION CLUB" href="javascript:void(0);">
         <div class="pxp-areas-1-item-fig pxp-cover" style="background-image: url('logos/SCI-FI INNOVATION CLUB.png');">
         </div>
         <div class="pxp-areas-1-item-details">
@@ -3763,7 +3806,7 @@
        </a>
       </div>
       <div class="col-sm-12 col-md-6 col-lg-3 mb-4">
-       <a class="pxp-areas-1-item rounded-lg" data-bs-target="#clubModal" data-bs-toggle="modal" data-categories="Debate,Public Speaking,Writing and Editing,Leadership,Creative Expression,Student Summit,MUNCommunication,Knowledge and Learning" data-club-category="COMMUNICATION &amp; MEDIA" data-contact="vishal.uila@cumail.in" data-desc="Encourages philosophical discussions, debates, critical thinking, and intellectual conversations." data-faculty="Dr Vishal Monga" data-img="logos/SOCRATIC-CIRCLE CLUB.png" data-longdesc="We are the Socratic Circle Club, under the department of Liberal Arts and Humanities. Words can change the world,&amp;nbsp; that's what we believe in. To make it true, we are providing a platform to the students, so that, their views can be heard by all. Sharing of knowledge and views, with each other, is the best way to converse, understand and reach a solution to any and every problem faced by us, collectively, there are quite a lot of them in recent times, which makes it all the more necessary for us to band together.One man's word is very powerful already, imagine the strength of the collective." data-media="media/astronomy/1758275872692.jpeg,media/ramanujan/1768155475547.jpeg,media/ignite youth/1772687406757.jpeg" data-members="213" data-owner="UILAH" data-title="SOCRATIC-CIRCLE CLUB" href="javascript:void(0);">
+       <a class="pxp-areas-1-item rounded-lg" data-bs-target="#clubModal" data-bs-toggle="modal" data-categories="Debate,Public Speaking,Writing and Editing,Leadership,Creative Expression,Student Summit,MUNCommunication,Knowledge and Learning" data-club-category="COMMUNICATION &amp; MEDIA" data-contact="vishal.uila@cumail.in" data-desc="Encourages philosophical discussions, debates, critical thinking, and intellectual conversations." data-faculty="Dr Vishal Monga" data-img="logos/SOCRATIC-CIRCLE CLUB.png" data-longdesc="We are the Socratic Circle Club, under the department of Liberal Arts and Humanities. Words can change the world,&amp;nbsp; that's what we believe in. To make it true, we are providing a platform to the students, so that, their views can be heard by all. Sharing of knowledge and views, with each other, is the best way to converse, understand and reach a solution to any and every problem faced by us, collectively, there are quite a lot of them in recent times, which makes it all the more necessary for us to band together.One man's word is very powerful already, imagine the strength of the collective." data-media="media/aerospace/1755955922486.jpeg,media/aerospace/1755955923298.jpeg" data-members="213" data-owner="UILAH" data-title="SOCRATIC-CIRCLE CLUB" href="javascript:void(0);">
         <div class="pxp-areas-1-item-fig pxp-cover" style="background-image: url('logos/SOCRATIC-CIRCLE CLUB.png');">
         </div>
         <div class="pxp-areas-1-item-details">
@@ -3777,7 +3820,7 @@
        </a>
       </div>
       <div class="col-sm-12 col-md-6 col-lg-3 mb-4">
-       <a class="pxp-areas-1-item rounded-lg" data-bs-target="#clubModal" data-bs-toggle="modal" data-categories="Artificial Intelligence,Machine Learning,Indian Knowledge Systems,Data Science,Product Management,Open Source,Hackathons,Innovation,Research,Computer Vision,Natural Language Processing,Entrepreneurship,Project Incubation,Generative AIPrompt Engineering,Workshops,Mentorship,Career Development,Cross-Department Collaboration" data-club-category="TECHNICAL" data-contact="raghav.e16302@cumail.in" data-desc="A technology-driven club organizing coding events, workshops, and technical competitions." data-faculty="Dr. Raghav Mehra" data-img="logos/TECH TATVA CLUB.png" data-longdesc='"Rooted in KnowledgeRising with Technology" TechTatva is a university-level club dedicated to upskilling students in disruptive technologies while drawing wisdom from India’s knowledge systems including logic, design, governance, and environmental wisdom. We aim to foster innovation, real-world problem solving, and a collaborative spirit across departments, empowering students to improve everyday life through the power of technology.Learn more about TechTatva at: https://www.techtatva.club/Incubate your project at:&amp;nbsp;https://www.techtatva.club/projects' data-media="media/aerospace/1755955923298.jpeg,media/young orators/1776547055398.jpeg,media/astronomy/1758275872692.jpeg" data-members="763" data-owner="AIT - CSE" data-title="TECH TATVA CLUB" href="javascript:void(0);">
+       <a class="pxp-areas-1-item rounded-lg" data-bs-target="#clubModal" data-bs-toggle="modal" data-categories="Artificial Intelligence,Machine Learning,Indian Knowledge Systems,Data Science,Product Management,Open Source,Hackathons,Innovation,Research,Computer Vision,Natural Language Processing,Entrepreneurship,Project Incubation,Generative AIPrompt Engineering,Workshops,Mentorship,Career Development,Cross-Department Collaboration" data-club-category="TECHNICAL" data-contact="raghav.e16302@cumail.in" data-desc="A technology-driven club organizing coding events, workshops, and technical competitions." data-faculty="Dr. Raghav Mehra" data-img="logos/TECH TATVA CLUB.png" data-longdesc='"Rooted in KnowledgeRising with Technology" TechTatva is a university-level club dedicated to upskilling students in disruptive technologies while drawing wisdom from India’s knowledge systems including logic, design, governance, and environmental wisdom. We aim to foster innovation, real-world problem solving, and a collaborative spirit across departments, empowering students to improve everyday life through the power of technology.Learn more about TechTatva at: https://www.techtatva.club/Incubate your project at:&amp;nbsp;https://www.techtatva.club/projects' data-media="media/aerospace/1755955922486.jpeg,media/aerospace/1755955923298.jpeg" data-members="763" data-owner="AIT - CSE" data-title="TECH TATVA CLUB" href="javascript:void(0);">
         <div class="pxp-areas-1-item-fig pxp-cover" style="background-image: url('logos/TECH TATVA CLUB.png');">
         </div>
         <div class="pxp-areas-1-item-details">
@@ -3791,7 +3834,7 @@
        </a>
       </div>
       <div class="col-sm-12 col-md-6 col-lg-3 mb-4">
-       <a class="pxp-areas-1-item rounded-lg" data-bs-target="#clubModal" data-bs-toggle="modal" data-categories="Debate,Public Speaking,Writing and Editing,Leadership,Creative Expression" data-club-category="ARTS &amp; CREATIVITY" data-contact="parminder.e13335@cumail.in" data-desc="Encourages exploration, teamwork, adventure activities, and experiential learning." data-faculty="Ms. Parminder Kaur" data-img="logos/THE VOYAGE CLUB.jpg" data-longdesc="The Voyage Club is committed to shaping youth who carry the strength of Indias culture and the vision of modern governance. Through participation in the National Youth Parliament in National Level, along with debates and declamation competitions, our members will not just speakthey will think, challenge ideas, and design solutions rooted in values yet ready for the future. This is where our mission meets action: empowering students to become not just voices in a hall, but architects of a Viksit Bharat 2047." data-media="media/playnation/Pasted image.png,media/young orators/1776547055398.jpeg,media/campustocorporate/1774979521483.jpeg" data-members="856" data-owner="UIE - EF 2" data-title="THE VOYAGE CLUB" href="javascript:void(0);">
+       <a class="pxp-areas-1-item rounded-lg" data-bs-target="#clubModal" data-bs-toggle="modal" data-categories="Debate,Public Speaking,Writing and Editing,Leadership,Creative Expression" data-club-category="ARTS &amp; CREATIVITY" data-contact="parminder.e13335@cumail.in" data-desc="Encourages exploration, teamwork, adventure activities, and experiential learning." data-faculty="Ms. Parminder Kaur" data-img="logos/THE VOYAGE CLUB.jpg" data-longdesc="The Voyage Club is committed to shaping youth who carry the strength of Indias culture and the vision of modern governance. Through participation in the National Youth Parliament in National Level, along with debates and declamation competitions, our members will not just speakthey will think, challenge ideas, and design solutions rooted in values yet ready for the future. This is where our mission meets action: empowering students to become not just voices in a hall, but architects of a Viksit Bharat 2047." data-media="media/aerospace/1755955922486.jpeg,media/aerospace/1755955923298.jpeg" data-members="856" data-owner="UIE - EF 2" data-title="THE VOYAGE CLUB" href="javascript:void(0);">
         <div class="pxp-areas-1-item-fig pxp-cover" style="background-image: url('logos/THE VOYAGE CLUB.jpg');">
         </div>
         <div class="pxp-areas-1-item-details">
@@ -3805,7 +3848,7 @@
        </a>
       </div>
       <div class="col-sm-12 col-md-6 col-lg-3 mb-4">
-       <a class="pxp-areas-1-item rounded-lg" data-bs-target="#clubModal" data-bs-toggle="modal" data-categories="Blockchain, Cryptocurrency, Web3, Decentralized Apps" data-club-category="TECHNICAL" data-contact="parveen.e13782@cumail.in" data-desc="Focuses on blockchain technology, cryptocurrency, Web3 development, and decentralized applications." data-faculty="Parveen Kumar" data-img="logos/token titan.jpg" data-longdesc="TokenTitan Club is a student-led community focused on blockchain technology, cryptocurrency ecosystems, Web3 development, and decentralized applications. The club organizes workshops, hackathons, and seminars to educate and empower students in the rapidly evolving world of distributed ledger technology." data-media="media/tokentitans/1772218946045.jpeg,media/tokentitans/1772297792352.jpeg" data-members="" data-owner="UIE - CSE" data-title="TOKENTITAN CLUB" href="javascript:void(0);">
+       <a class="pxp-areas-1-item rounded-lg" data-bs-target="#clubModal" data-bs-toggle="modal" data-categories="Blockchain, Cryptocurrency, Web3, Decentralized Apps" data-club-category="TECHNICAL" data-contact="parveen.e13782@cumail.in" data-desc="Focuses on blockchain technology, cryptocurrency, Web3 development, and decentralized applications." data-faculty="Parveen Kumar" data-img="logos/token titan.jpg" data-longdesc="TokenTitan Club is a student-led community focused on blockchain technology, cryptocurrency ecosystems, Web3 development, and decentralized applications. The club organizes workshops, hackathons, and seminars to educate and empower students in the rapidly evolving world of distributed ledger technology." data-media="media/tokentitans/1772218946045.jpeg,media/tokentitans/1772297792352.jpeg" data-members="100+" data-owner="UIE - CSE" data-title="TOKENTITAN CLUB" href="javascript:void(0);">
         <div class="pxp-areas-1-item-fig pxp-cover" style="background-image: url('logos/token titan.jpg'); background-color: #ffffff;">
         </div>
         <div class="pxp-areas-1-item-details">
@@ -3819,7 +3862,7 @@
        </a>
       </div>
       <div class="col-sm-12 col-md-6 col-lg-3 mb-4">
-       <a class="pxp-areas-1-item rounded-lg" data-bs-target="#clubModal" data-bs-toggle="modal" data-categories="Sustainable Tourism, Cultural Exchange, Field Visits" data-club-category="SOCIAL IMPACT" data-desc="Promotes tourism awareness, cultural exchange, and sustainable travel education." data-img="logos/TOURISM CLUB.png" data-longdesc="The Tourism Club at Chandigarh University is dedicated to promoting tourism awareness, cultural exchange, and sustainable travel practices among students. Through field visits, seminars, and cultural events, the club fosters a deeper understanding of diverse cultures and the tourism industry." data-media="" data-members="" data-owner="" data-title="TOURISM CLUB" href="javascript:void(0);">
+       <a class="pxp-areas-1-item rounded-lg" data-bs-target="#clubModal" data-bs-toggle="modal" data-categories="Sustainable Tourism, Cultural Exchange, Field Visits" data-club-category="SOCIAL IMPACT" data-desc="Promotes tourism awareness, cultural exchange, and sustainable travel education." data-img="" data-longdesc="The Tourism Club at Chandigarh University is dedicated to promoting tourism awareness, cultural exchange, and sustainable travel practices among students. Through field visits, seminars, and cultural events, the club fosters a deeper understanding of diverse cultures and the tourism industry." data-media="" data-members="100+" data-owner="" data-title="TOURISM CLUB" href="javascript:void(0);">
         <div class="pxp-areas-1-item-fig pxp-cover" style="background-image: url('logos/TOURISM CLUB.png'); background-color: #ffffff;">
         </div>
         <div class="pxp-areas-1-item-details">
@@ -3833,7 +3876,7 @@
        </a>
       </div>
       <div class="col-sm-12 col-md-6 col-lg-3 mb-4">
-       <a class="pxp-areas-1-item rounded-lg" data-bs-target="#clubModal" data-bs-toggle="modal" data-categories="Sustainability, Recycling, Environment, Eco-Friendly, Waste Management" data-club-category="SOCIAL IMPACT" data-contact="vikas.e18225@cumail.in" data-desc="Dedicated to promoting sustainability, recycling, and environmental awareness." data-faculty="Vikas Kumar" data-img="logos/UPCYCLE.png" data-longdesc="UpCycle is an official club of Chandigarh University dedicated to promoting sustainability, recycling, and environmental awareness. The club encourages creative upcycling ideas, waste management initiatives, and eco-friendly practices through campaigns, workshops, and community activities to inspire a greener and more responsible future." data-media="" data-members="0" data-owner="UIC" data-title="UPCYCLE CU" href="javascript:void(0);">
+       <a class="pxp-areas-1-item rounded-lg" data-bs-target="#clubModal" data-bs-toggle="modal" data-categories="Sustainability, Recycling, Environment, Eco-Friendly, Waste Management" data-club-category="SOCIAL IMPACT" data-contact="vikas.e18225@cumail.in" data-desc="Dedicated to promoting sustainability, recycling, and environmental awareness." data-faculty="Vikas Kumar" data-img="" data-longdesc="UpCycle is an official club of Chandigarh University dedicated to promoting sustainability, recycling, and environmental awareness. The club encourages creative upcycling ideas, waste management initiatives, and eco-friendly practices through campaigns, workshops, and community activities to inspire a greener and more responsible future." data-media="" data-members="100+" data-owner="UIC" data-title="UPCYCLE CU" href="javascript:void(0);">
         <div class="pxp-areas-1-item-fig pxp-cover" style="background-image: url('logos/UPCYCLE.png'); background-color: #ffffff;">
         </div>
         <div class="pxp-areas-1-item-details">
@@ -3847,8 +3890,8 @@
        </a>
       </div>
       <div class="col-sm-12 col-md-6 col-lg-3 mb-4">
-       <a class="pxp-areas-1-item rounded-lg" data-bs-target="#clubModal" data-bs-toggle="modal" data-categories="" data-club-category="TECHNICAL" data-contact="brandingcoordinator.me@cumail.in" data-desc="Promotes data visualization, analytics, and visual computing technologies." data-faculty="Dr. Harpreet Lubana" data-img="" data-longdesc="Vega Club brings together students passionate about data visualization, analytics, and visual computing. Through hands-on workshops and projects, members learn to transform complex data into meaningful visual narratives and build impactful analytical solutions." data-media="" data-members="" data-owner="UIE - Mechanical" data-title="VEGA CLUB" href="javascript:void(0);">
-        <div class="pxp-areas-1-item-fig pxp-cover" style="background-image: url(''); background-color: #ffffff;">
+       <a class="pxp-areas-1-item rounded-lg" data-bs-target="#clubModal" data-bs-toggle="modal" data-categories="" data-club-category="TECHNICAL" data-contact="brandingcoordinator.me@cumail.in" data-desc="Promotes data visualization, analytics, and visual computing technologies." data-faculty="Dr. Harpreet Lubana" data-img="" data-longdesc="Vega Club brings together students passionate about data visualization, analytics, and visual computing. Through hands-on workshops and projects, members learn to transform complex data into meaningful visual narratives and build impactful analytical solutions." data-media="" data-members="100+" data-owner="UIE - Mechanical" data-title="VEGA CLUB" href="javascript:void(0);">
+        <div class="pxp-areas-1-item-fig pxp-cover" style="background-image: url('logos/VEGA.png'); background-color: #ffffff;">
         </div>
         <div class="pxp-areas-1-item-details">
          <div class="pxp-areas-1-item-details-area">
@@ -3861,7 +3904,7 @@
        </a>
       </div>
       <div class="col-sm-12 col-md-6 col-lg-3 mb-4">
-       <a class="pxp-areas-1-item rounded-lg" data-bs-target="#clubModal" data-bs-toggle="modal" data-categories="Hands-on workshopCoding competitionTechTalk SeriesTech Quiz ShowUI/UX Design Contest" data-club-category="TECHNICAL" data-contact="chander.e19097@cumail.in" data-desc="Dedicated to Augmented Reality and Virtual Reality technologies and immersive experiences." data-faculty="Chander Partap Singh" data-img="logos/VIRTUONIX CLUB.png" data-longdesc="Welcome to the AR/VR Club!  A hub for curious minds and tech lovers exploring Artificial Intelligence, Machine Learning, and Virtual &amp; Augmented Reality.  Here, creativity meets technologywhether its building immersive VR worlds, experimenting with AI, or sparking bold new ideas.  Join us to learn, create, and innovate together! " data-media="media/campustocorporate/1775125824807.jpeg,media/ramanujan/1768155476269.jpeg,media/cysecsphere/1771655264310.jpeg" data-members="66" data-owner="UIE - BCA" data-title="VIRTUONIX CLUB" href="javascript:void(0);">
+       <a class="pxp-areas-1-item rounded-lg" data-bs-target="#clubModal" data-bs-toggle="modal" data-categories="Hands-on workshopCoding competitionTechTalk SeriesTech Quiz ShowUI/UX Design Contest" data-club-category="TECHNICAL" data-contact="chander.e19097@cumail.in" data-desc="Dedicated to Augmented Reality and Virtual Reality technologies and immersive experiences." data-faculty="Chander Partap Singh" data-img="logos/VIRTUONIX CLUB.png" data-longdesc="Welcome to the AR/VR Club!  A hub for curious minds and tech lovers exploring Artificial Intelligence, Machine Learning, and Virtual &amp; Augmented Reality.  Here, creativity meets technologywhether its building immersive VR worlds, experimenting with AI, or sparking bold new ideas.  Join us to learn, create, and innovate together! " data-media="media/campustocorporate/1775125824807.jpeg,media/campustocorporate/1774979521483.jpeg,media/campustocorporate/1774979530618.jpeg" data-members="100+" data-owner="UIE - BCA" data-title="VIRTUONIX CLUB" href="javascript:void(0);">
         <div class="pxp-areas-1-item-fig pxp-cover" style="background-image: url('logos/VIRTUONIX CLUB.png');">
         </div>
         <div class="pxp-areas-1-item-details">
@@ -4659,7 +4702,12 @@
    $(document).ready(function(){
 			function addParameterToURL(url, param){
 				_url = url
-				_url += (_url.split('?')[1] ? '&':'?') + param
+                var splitUrl = _url.split('?');
+                if (splitUrl[1]) {
+                    _url += '&' + param;
+                } else {
+                    _url += '?' + param;
+                }
 				return _url
 			}
 			let queryParams = new URLSearchParams(window.top.location.search);
@@ -4847,27 +4895,12 @@
      <div class="modal-body p-0 position-relative">
       <button aria-label="Close" class="btn-close position-absolute top-0 end-0 m-3" data-bs-dismiss="modal" style="z-index: 1050; background-color: white; padding: 10px; border-radius: 50%;" type="button">
       </button>
-      <div class="row g-0">
-       <div class="col-lg-6" style="overflow: hidden;">
-        <!-- Carousel -->
-        <div class="carousel slide h-100" id="clubCarousel" style="height: 100%;">
-         <div class="carousel-inner h-100" id="clubCarouselInner" style="height: 100%;">
+      <div class="row g-0" style="display: flex !important; align-items: stretch !important;">
+       <div class="col-lg-6" style="overflow: hidden; display: flex !important; flex-direction: column !important;">
+        <div class="carousel slide h-100" id="clubCarousel" style="flex-grow: 1 !important; display: flex !important; flex-direction: column !important;">
+         <div class="carousel-inner h-100" id="clubCarouselInner" style="flex-grow: 1 !important;">
           <!-- Images will be injected here -->
          </div>
-         <button class="carousel-control-prev" data-bs-slide="prev" data-bs-target="#clubCarousel" type="button">
-          <span aria-hidden="true" class="carousel-control-prev-icon">
-          </span>
-          <span class="visually-hidden">
-           Previous
-          </span>
-         </button>
-         <button class="carousel-control-next" data-bs-slide="next" data-bs-target="#clubCarousel" type="button">
-          <span aria-hidden="true" class="carousel-control-next-icon">
-          </span>
-          <span class="visually-hidden">
-           Next
-          </span>
-         </button>
         </div>
        </div>
        <div class="col-lg-6">
@@ -5015,8 +5048,7 @@
                         categoriesContainer.style.display = 'none';
                     }
                 }
-
-                // Carousel with media images
+                          // Phase 1: Robust Data Injection (show.bs.modal)
                 if (carouselInner) {
                     var carouselColumn = carouselInner.closest('.col-lg-6');
                     var contentColumn = clubModal.querySelector('.col-lg-6:last-child');
@@ -5027,46 +5059,70 @@
                         imageSources = mediaImages.split(',').filter(function(s){return s.trim() !== '';});
                     }
 
+                    // Clear any existing content
+                    carouselInner.innerHTML = '';
+
                     if (imageSources.length > 0) {
-                        if (carouselColumn) {
-                            carouselColumn.style.display = 'block';
-                        }
+                        if (carouselColumn) carouselColumn.style.display = 'block';
                         if (contentColumn) contentColumn.className = 'col-lg-6';
 
-                        var carouselHtml = '';
-                        imageSources.forEach(function(src, index) {
-                            var activeClass = index === 0 ? 'active' : '';
-                            carouselHtml += '<div class="carousel-item ' + activeClass + '">' +
-                                '<img loading="lazy" decoding="async" src="' + src.trim() + '" alt="' + title + '" style="width:100%; height:100%; object-fit:cover;">' +
-                                '</div>';
-                        });
-                        carouselInner.innerHTML = carouselHtml;
-
-                        var carouselElement = document.getElementById('clubCarousel');
-                        var oldInstance = bootstrap.Carousel.getInstance(carouselElement);
-                        if (oldInstance) oldInstance.dispose();
-                        var bsCarousel = new bootstrap.Carousel(carouselElement, {
-                            interval: 3000,
-                            pause: 'hover'
-                        });
-                        bsCarousel.to(0);
-                        setTimeout(function() {
-                            bsCarousel.cycle();
-                        }, 500);
-
+                        for (var i = 0; i < imageSources.length; i++) {
+                            var item = document.createElement('div');
+                            item.className = 'carousel-item' + (i === 0 ? ' active' : '');
+                            item.style.height = '100%';
+                            item.style.width = '100%';
+                            
+                            var imgEl = document.createElement('img');
+                            imgEl.loading = 'lazy';
+                            imgEl.src = imageSources[i].trim();
+                            imgEl.alt = title;
+                            imgEl.style.width = '100%';
+                            imgEl.style.height = '100%';
+                            imgEl.style.objectFit = 'cover';
+                            imgEl.style.objectPosition = 'center';
+                            
+                            item.appendChild(imgEl);
+                            carouselInner.appendChild(item);
+                        }
                     } else if (img && img.trim() !== '') {
-                        if (carouselColumn) {
-                            carouselColumn.style.display = 'block';
-                        }
+                        if (carouselColumn) carouselColumn.style.display = 'block';
                         if (contentColumn) contentColumn.className = 'col-lg-6';
-
-                        carouselInner.innerHTML = '<div class="carousel-item active">' +
-                            '<img loading="lazy" decoding="async" src="' + img + '" alt="' + title + '">' +
-                            '</div>';
+                        
+                        var item = document.createElement('div');
+                        item.className = 'carousel-item active';
+                        item.style.height = '100%';
+                        item.style.width = '100%';
+                        
+                        var imgEl = document.createElement('img');
+                        imgEl.src = img;
+                        imgEl.alt = title;
+                        imgEl.style.width = '100%';
+                        imgEl.style.height = '100%';
+                        imgEl.style.objectFit = 'cover';
+                        
+                        item.appendChild(imgEl);
+                        carouselInner.appendChild(item);
                     } else {
                         if (carouselColumn) carouselColumn.style.display = 'none';
                         if (contentColumn) contentColumn.className = 'col-lg-12';
-                        carouselInner.innerHTML = '';
+                    }
+
+                    // Global Carousel Initialization (Always trigger)
+                    var carouselElement = document.getElementById('clubCarousel');
+                    if (carouselElement && typeof bootstrap !== 'undefined') {
+                        var oldInstance = bootstrap.Carousel.getInstance(carouselElement);
+                        if (oldInstance) oldInstance.dispose();
+                        
+                        setTimeout(function() {
+                            var bsCarousel = new bootstrap.Carousel(carouselElement, {
+                                interval: 2000,
+                                pause: false,
+                                ride: 'carousel',
+                                wrap: true,
+                                touch: false
+                            });
+                            bsCarousel.cycle();
+                        }, 500);
                     }
                 }
             });
