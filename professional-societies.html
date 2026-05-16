@@ -276,6 +276,26 @@
             }
 
             /*Curriculum 2026 styling  */
+    
+        #modalClubDetailedDesc, #modalClubShortDesc { 
+            display: block !important;
+            width: 100% !important;
+            max-width: 100% !important;
+            white-space: normal !important;
+            overflow-wrap: break-word !important;
+            word-break: break-word !important;
+            word-wrap: break-word !important;
+        }
+        #clubModal .modal-body {
+            overflow-x: hidden !important;
+        }
+        #ultimateMetadataFortress { 
+            display: flex !important; 
+            visibility: visible !important; 
+            opacity: 1 !important;
+            gap: 15px !important;
+            width: 100% !important;
+        }
     </style>
 
     
@@ -3913,33 +3933,32 @@
                             <h5 class="mb-3 border-bottom pb-2">About the Club</h5>
                             <p id="modalClubDetailedDesc" class="mb-4" style="line-height: 1.6;"></p>
                             
-                            <div class="row mb-4">
-                                <div class="col-sm-6 mb-3 mb-sm-0">
-                                    <div class="p-3 bg-white rounded shadow-sm">
-                                        <h6 class="text-muted mb-1" style="font-size: 0.9rem;">Owned By</h6>
-                                        <p id="modalClubOwner" class="mb-0 fw-bold">Department Name</p>
-                                    </div>
-                                </div>
-                                <div class="col-sm-6">
-                                    <div class="p-3 bg-white rounded shadow-sm">
-                                        <h6 class="text-muted mb-1" style="font-size: 0.9rem;">Registered Members</h6>
-                                        <p id="modalClubMembers" class="mb-0 fw-bold">0</p>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div id="modalClubCategoriesContainer" class="mb-4" style="display: none;">
-                                <h5 class="mb-3 border-bottom pb-2">Categories</h5>
-                                <div id="modalClubCategories" class="d-flex flex-wrap gap-2">
-                                </div>
-                            </div>
-                            
-                            <h5 class="mb-3 border-bottom pb-2">Quick Facts</h5>
-                            <ul class="list-unstyled mb-0">
-                                <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i> Open to all university students</li>
-                                
-                                <li class="mb-2"><i class="fas fa-envelope text-primary me-2"></i> <strong>Contact:</strong> clubs@cuchd.in</li>
-                            </ul>
+          <div id="ultimateMetadataFortress" style="display: flex !important; visibility: visible !important; margin-bottom: 20px; gap: 15px;">
+            <div id="modalClubOwnerWrapper" style="flex: 1; display: block !important;">
+              <div class="p-3 bg-white rounded shadow-sm h-100" style="border: 1px solid #eee;">
+                <h6 class="text-muted mb-1" style="font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.5px;">Owned By</h6>
+                <p class="mb-0 fw-bold" id="modalClubOwner" style="color: #333; font-size: 0.85rem;">Management</p>
+              </div>
+            </div>
+            <div id="modalClubMembersWrapper" style="flex: 1; display: block !important;">
+              <div class="p-3 bg-white rounded shadow-sm h-100" style="border: 1px solid #eee;">
+                <h6 class="text-muted mb-1" style="font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.5px;">Registered Members</h6>
+                <p class="mb-0 fw-bold" id="modalClubMembers" style="color: #333; font-size: 0.85rem;">150+</p>
+              </div>
+            </div>
+          </div>
+
+                             <div id="modalClubCategoriesContainer" class="mb-4" style="display: none;">
+                                 <h5 class="mb-3 border-bottom pb-2"><i class="fas fa-tags me-2"></i>Categories</h5>
+                                 <div id="modalClubCategories" class="d-flex flex-wrap gap-2">
+                                 </div>
+                             </div>
+                             
+                             <h5 class="mb-3 border-bottom pb-2"><i class="fas fa-users me-2"></i>Leads</h5>
+                             <ul class="list-unstyled mb-0">
+                                 <li class="mb-2"><i class="fas fa-user-tie text-primary me-2"></i> <strong>Faculty Champion:</strong> <span id="modalClubFaculty">Not Assigned</span></li>
+                                 <li class="mb-2"><i class="fas fa-envelope text-primary me-2"></i> <strong>Contact:</strong> <span id="modalClubContact">N/A</span></li>
+                             </ul>
                         </div>
                     </div>
                 </div>
@@ -3949,71 +3968,181 @@
 </div>
 
 <script>
-    document.addEventListener('DOMContentLoaded', function () {
-        var clubModal = document.getElementById('clubModal')
-        if(clubModal) {
-            clubModal.addEventListener('show.bs.modal', function (event) {
-                var button = event.relatedTarget;
-                var title = button.getAttribute('data-title');
-                var shortDesc = button.getAttribute('data-desc');
-                var img = button.getAttribute('data-img');
-                var owner = button.getAttribute('data-owner') || "Chandigarh University";
-                var members = button.getAttribute('data-members') || "150+";
-                var longDesc = button.getAttribute('data-longdesc');
-                var categories = button.getAttribute('data-categories');
+    (function() {
+        var fortressInterval = null;
 
-                var modalTitle = clubModal.querySelector('#modalClubTitle');
-                var modalShortDesc = clubModal.querySelector('#modalClubShortDesc');
-                var modalDetailedDesc = clubModal.querySelector('#modalClubDetailedDesc');
-                var modalOwner = clubModal.querySelector('#modalClubOwner');
-                var modalMembers = clubModal.querySelector('#modalClubMembers');
-                var carouselInner = clubModal.querySelector('#clubCarouselInner');
+        function forceData(data) {
+            var modal = document.getElementById('clubModal');
+            if (!modal) return;
 
-                if(modalTitle) modalTitle.textContent = title;
-                if(modalShortDesc) modalShortDesc.textContent = shortDesc;
-                if(modalDetailedDesc) modalDetailedDesc.textContent = longDesc || shortDesc;
-                if(modalOwner) modalOwner.textContent = owner;
-                if(modalMembers) modalMembers.textContent = members;
+            // 1. Core Data Force
+            var t = modal.querySelector('#modalClubTitle');
+            var sd = modal.querySelector('#modalClubShortDesc');
+            var ld = modal.querySelector('#modalClubDetailedDesc');
+            var f_champion = modal.querySelector("#modalClubFaculty");
+            var c_info = modal.querySelector("#modalClubContact");
+            var fortress = modal.querySelector('#ultimateMetadataFortress');
 
-                var categoriesContainer = clubModal.querySelector('#modalClubCategoriesContainer');
-                var categoriesDiv = clubModal.querySelector('#modalClubCategories');
-                
-                if (categoriesContainer && categoriesDiv) {
-                    if (categories) {
-                        categoriesContainer.style.display = 'block';
-                        categoriesDiv.innerHTML = '';
-                        var tags = categories.split(',').slice(0, 5);
-                        var colors = ['#6a737b', '#4285f4', '#34a853', '#ea4335', '#9334e6', '#fbbc05'];
-                        tags.forEach(function(tag, index) {
-                            var t = tag.trim();
-                            if (t === '') return;
-                            var badge = document.createElement('span');
-                            badge.className = 'badge rounded-pill';
-                            badge.style.backgroundColor = colors[index % colors.length];
-                            badge.style.color = '#fff';
-                            badge.style.padding = '8px 15px';
-                            badge.style.fontWeight = '500';
-                            badge.style.fontSize = '0.9rem';
-                            badge.style.boxShadow = '0 2px 4px rgba(0,0,0,0.1)';
-                            badge.textContent = t;
-                            categoriesDiv.appendChild(badge);
-                        });
-                    } else {
-                        categoriesContainer.style.display = 'none';
+            if (t && t.textContent !== data.title) t.textContent = data.title;
+            if (sd && sd.textContent !== data.shortDesc) sd.textContent = data.shortDesc;
+            if (ld && ld.textContent !== data.longDesc) ld.textContent = data.longDesc;
+            if (f_champion && f_champion.textContent !== data.faculty) f_champion.textContent = data.faculty;
+            if (c_info && c_info.textContent !== data.contact) c_info.textContent = data.contact;
+            
+            if (fortress) {
+                fortress.style.setProperty('display', 'flex', 'important');
+                var o = fortress.querySelector('#modalClubOwner');
+                var m = fortress.querySelector('#modalClubMembers');
+                var ow = fortress.querySelector('#modalClubOwnerWrapper');
+                var mw = fortress.querySelector('#modalClubMembersWrapper');
+
+                if (o && o.textContent !== data.owner) o.textContent = data.owner;
+                if (m && m.textContent !== data.members) m.textContent = data.members;
+                if (ow) {
+                    ow.style.setProperty('display', 'block', 'important');
+                    ow.style.setProperty('flex', '1', 'important');
+                }
+                if (mw) {
+                    mw.style.setProperty('display', 'block', 'important');
+                    mw.style.setProperty('flex', '1', 'important');
+                }
+            }
+
+            // 2. Categories Force
+            var catCont = modal.querySelector('#modalClubCategoriesContainer');
+            var catDiv = modal.querySelector('#modalClubCategories');
+            if (catCont && catDiv && data.categories) {
+                catCont.style.display = 'block';
+                if (catDiv.children.length === 0) {
+                    var tags = data.categories.split(',').map(function(s){return s.trim();}).filter(function(s){return s !== "";}).slice(0, 5);
+                    var colors = ['#6a737b', '#4285f4', '#34a853', '#fbbc05', '#9334e6', '#ea4335'];
+                    tags.forEach(function(tag, index) {
+                        var b = document.createElement('span');
+                        b.className = 'badge rounded-pill';
+                        b.style.backgroundColor = colors[index % colors.length];
+                        b.style.color = '#fff';
+                        b.style.padding = '8px 16px';
+                        b.style.fontWeight = '500';
+                        b.style.whiteSpace = 'normal';
+                        b.style.lineHeight = '1.4';
+                        b.style.textAlign = 'center';
+                        b.textContent = tag;
+                        catDiv.appendChild(b);
+                    });
+                }
+            }
+
+            // 3. Carousel Force
+            var cInner = modal.querySelector('#clubCarouselInner');
+            if (cInner && cInner.children.length === 0) {
+                var carouselColumn = cInner.closest('.col-lg-6');
+                var contentColumn = modal.querySelector('.col-lg-6:last-child');
+                var sources = (data.media && data.media.trim() !== '') ? data.media.split(',').filter(function(s){return s.trim() !== '';}) : [(data.img || '')];
+                sources = sources.filter(function(s){return s.trim() !== '';});
+
+                if (sources.length > 0) {
+                    if (carouselColumn) carouselColumn.style.display = 'block';
+                    if (contentColumn) contentColumn.className = 'col-lg-6';
+                    sources.forEach(function(src, i) {
+                        var item = document.createElement('div');
+                        item.className = 'carousel-item' + (i === 0 ? ' active' : '');
+                        item.style.height = '100%';
+                        var im = document.createElement('img');
+                        im.src = src.trim();
+                        im.style.width = '100%';
+                        im.style.height = '100%';
+                        im.style.objectFit = 'cover';
+                        im.loading = 'lazy';
+                        item.appendChild(im);
+                        cInner.appendChild(item);
+                    });
+                    setTimeout(function() {
+                        var cEl = document.getElementById('clubCarousel');
+                        if (cEl && typeof bootstrap !== 'undefined') {
+                            var oldInst = bootstrap.Carousel.getInstance(cEl);
+                            if (oldInst) oldInst.dispose();
+                            var bsCarousel = new bootstrap.Carousel(cEl, {
+                                interval: 2000,
+                                pause: false,
+                                ride: 'carousel',
+                                wrap: true,
+                                touch: false
+                            });
+                            bsCarousel.cycle();
+                        }
+                    }, 150);
+                } else {
+                    if (carouselColumn) carouselColumn.style.display = 'none';
+                    if (contentColumn) contentColumn.className = 'col-lg-12';
+                }
+            }
+        }
+
+        // Global Delegated Event Listener
+        document.addEventListener('click', function(e) {
+            var btn = e.target.closest('[data-bs-toggle="modal"][data-bs-target="#clubModal"]');
+            if (btn) {
+                handleModalTrigger(btn);
+            }
+        }, true);
+
+        // Bootstrap Event Listener for direct triggers
+        document.addEventListener('show.bs.modal', function(e) {
+            if (e.target.id === 'clubModal') {
+                var btn = e.relatedTarget || document.querySelector('[data-bs-toggle="modal"][data-bs-target="#clubModal"]');
+                if (btn) handleModalTrigger(btn);
+            }
+        }, true);
+
+        function handleModalTrigger(btn) {
+            var modal = document.getElementById('clubModal');
+            if (modal) {
+                var cInner = modal.querySelector('#clubCarouselInner');
+                if (cInner) {
+                    cInner.innerHTML = '';
+                    var cEl = modal.querySelector('#clubCarousel');
+                    if (cEl && typeof bootstrap !== 'undefined') {
+                        var bsCarousel = bootstrap.Carousel.getInstance(cEl);
+                        if (bsCarousel) bsCarousel.dispose();
                     }
                 }
+                var catDiv = modal.querySelector('#modalClubCategories');
+                if (catDiv) catDiv.innerHTML = '';
+            }
 
-                // Set up the carousel with the main image
-                if(carouselInner) {
-                    carouselInner.innerHTML = `
-                        <div class="carousel-item active">
-                            <img src="${img}" class="d-block w-100" alt="${title}" style="object-fit: contain; max-height: 300px; width: 100%; padding: 20px;">
-                        </div>
-                    `;
+            var data = {
+                title: btn.getAttribute('data-title') || "Club Name",
+                shortDesc: btn.getAttribute('data-desc') || "",
+                longDesc: btn.getAttribute('data-longdesc') || "",
+                owner: btn.getAttribute('data-owner') || "Chandigarh University",
+                members: btn.getAttribute('data-members') || "150+",
+                faculty: btn.getAttribute('data-faculty') || "Not Assigned",
+                contact: btn.getAttribute('data-contact') || "N/A",
+                categories: btn.getAttribute('data-categories') || "",
+                img: btn.getAttribute('data-img') || "",
+                media: btn.getAttribute('data-media') || ""
+            };
+
+            if (fortressInterval) clearInterval(fortressInterval);
+            fortressInterval = setInterval(function() {
+                var modal = document.getElementById('clubModal');
+                if (modal && modal.classList.contains('show')) {
+                    forceData(data);
                 }
-            });
+            }, 100);
         }
-    });
+
+        // Cleanup on Hide
+        document.addEventListener('hide.bs.modal', function(e) {
+            if (e.target.id === 'clubModal') {
+                if (fortressInterval) clearInterval(fortressInterval);
+                var cInner = e.target.querySelector('#clubCarouselInner');
+                var catDiv = e.target.querySelector('#modalClubCategories');
+                if (cInner) cInner.innerHTML = '';
+                if (catDiv) catDiv.innerHTML = '';
+            }
+        }, true);
+    })();
 </script>
 </body>
 </html>
