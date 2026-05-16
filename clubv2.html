@@ -1858,13 +1858,13 @@
             var cInner = modal.querySelector('#clubCarouselInner');
             if (cInner && cInner.children.length === 0) {
                 var carouselColumn = cInner.closest('.col-lg-6');
-                var contentColumn = modal.querySelector('.col-lg-6:last-child');
+                var contentColumn = modal.querySelector('.row.g-0 > div:last-child');
                 var sources = (data.media && data.media.trim() !== '') ? data.media.split(',').filter(function(s){return s.trim() !== '';}) : [(data.img || '')];
                 sources = sources.filter(function(s){return s.trim() !== '';});
 
                 if (sources.length > 0) {
                     if (carouselColumn) carouselColumn.style.display = 'block';
-                    if (contentColumn) contentColumn.className = 'col-lg-6';
+                    if (contentColumn) contentColumn.className = 'col-lg-6 d-flex flex-column';
                     sources.forEach(function(src, i) {
                         var item = document.createElement('div');
                         item.className = 'carousel-item' + (i === 0 ? ' active' : '');
@@ -1895,7 +1895,7 @@
                     }, 150);
                 } else {
                     if (carouselColumn) carouselColumn.style.display = 'none';
-                    if (contentColumn) contentColumn.className = 'col-lg-12';
+                    if (contentColumn) contentColumn.className = 'col-lg-12 d-flex flex-column';
                 }
             }
         }
