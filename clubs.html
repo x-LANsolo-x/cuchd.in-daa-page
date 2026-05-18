@@ -5168,6 +5168,9 @@
         // Cleanup on Hide
         document.addEventListener('hide.bs.modal', function(e) {
             if (e.target.id === 'clubModal') {
+                if (document.activeElement) {
+                    document.activeElement.blur();
+                }
                 if (fortressInterval) clearInterval(fortressInterval);
                 var cInner = e.target.querySelector('#clubCarouselInner');
                 var catDiv = e.target.querySelector('#modalClubCategories');
