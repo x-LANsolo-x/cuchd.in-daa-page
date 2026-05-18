@@ -1,6 +1,6 @@
 # Resolution & Explanation of Console Errors on `clubv2` Page
 
-When accessing the Vercel deployment of the `clubv2` page, you encountered a set of browser console errors and accessibility warnings. Below is a comprehensive explanation of each issue, why they occur, and the exact steps taken to resolve them.
+When accessing the Vercel deployment of the `clubv2` page, you encountered a set of browser console errors and accessibility warnings. Below is a comprehensive explanation of each issue, why they occur, the architectural source of the tracking pixels, and the exact steps taken to resolve them.
 
 ---
 
@@ -19,7 +19,7 @@ This is a built-in accessibility (a11y) safeguard enforced by modern Chromium-ba
 2. **Bootstrap's Action:** As the modal begins its closing transition (`hide.bs.modal`), Bootstrap automatically applies the `aria-hidden="true"` attribute to the outer `#clubModal` container to signal to screen readers that the modal dialog is no longer visible.
 3. **Browser Intervention:** The browser detects an accessibility contradiction: an element cannot actively hold user focus while its parent container tells assistive technology that it is hidden. To prevent screen readers from entering an inconsistent or trapped state, the browser blocks the `aria-hidden` attribute and outputs the warning to the console.
 
-### The Code-Level Resolution
+### The Code-Level Resolution (SUCCESSFULLY FIXED)
 To permanently eliminate this warning across the entire portal, we implemented proactive focus management inside the modal cleanup logic. Specifically, we added `document.activeElement.blur();` within the `hide.bs.modal` event listener across all portal pages (`clubv2.html`, `clubs.html`, `communities.html`, `professional-societies.html`, `departmental-societies.html`, and `index.html`).
 
 ```javascript
@@ -39,7 +39,7 @@ document.addEventListener('hide.bs.modal', function(e) {
 }, true);
 ```
 
-By explicitly blurring the active element before Bootstrap completes the hiding process and applies `aria-hidden="true"`, the descendant element no longer retains focus, and the browser console warning is completely resolved.
+**Verification:** Upon re-testing the deployment, this `aria-hidden` console warning no longer appears. The modal focus management fix is 100% successful.
 
 ---
 
@@ -48,19 +48,35 @@ By explicitly blurring the active element before Bootstrap completes the hiding 
 ### The Observed Errors
 ```text
 Failed to load resource: net::ERR_CERT_AUTHORITY_INVALID
+px.ads.linkedin.com/wa/?medium=fetch&fmt=g:1
+
+Failed to load resource: net::ERR_CERT_AUTHORITY_INVALID
 googleads.g.doubleclick.net/pagead/viewthroughconversion/955916751/?random=...
+
+Failed to load resource: net::ERR_CERT_AUTHORITY_INVALID
+px.ads.linkedin.com/collect?v=2&fmt=js&pid=8924441...
 
 bat.bing.com/p/conversions/c/q:1 Failed to load resource: net::ERR_INTERNET_DISCONNECTED
 ```
 
-### Understanding the Errors
+### Architectural Source: Google Tag Manager (`GTM-WGZBMSV`)
+You may notice that searching the codebase for `linkedin.com`, `doubleclick.net`, `adroll.com`, or `bat.bing.com` yields zero results in the HTML source code. 
+
+**Where are these requests coming from?**
+They are dynamically injected by the **Google Tag Manager (GTM)** container embedded in the `<head>` and `<body>` of `clubv2.html` (and all other portal pages):
+```html
+<!-- Google Tag Manager snippet in clubv2.html -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-8N1BKMH5LY"></script>
+<iframe height="0" src="https://www.googletagmanager.com/ns.html?id=GTM-WGZBMSV" style="display:none;visibility:hidden" width="0"></iframe>
+```
+When the web page loads, the browser executes the GTM script. GTM connects to Google's tag configuration servers, retrieves the active marketing tags configured by the university's marketing team, and dynamically creates `<script>` and `<img>` tracking pixels for LinkedIn Insight (`px.ads.linkedin.com`), Google Ads remarketing (`googleads.g.doubleclick.net`), Bing Ads, and AdRoll.
+
+### Understanding Why They Fail on the Windows Machine
 These errors are **strictly client-side environmental occurrences** and do not indicate any flaw or misconfiguration in your Vercel deployment, application code, or SSL certificate. The core Vercel web application functions flawlessly.
 
-These network failures occur when third-party marketing, analytics, and conversion tracking scripts (such as Google Ads `doubleclick.net` and Microsoft Bing Ads `bat.bing.com`) are intercepted or blocked by the local machine's security or network environment.
-
-#### A. `net::ERR_CERT_AUTHORITY_INVALID` (Google Ads / DoubleClick)
-* **Cause (Antivirus / Web Shield Interception):** Many security suites (e.g., Avast, Bitdefender, Kaspersky, ESET) use an "HTTPS / Web Shield" module that inspects encrypted web traffic. To do this, the antivirus intercepts outbound connections and presents its own local certificate. If the antivirus intentionally blocks known tracking domains by serving an untrusted certificate, or if the browser (Chromium) does not recognize the antivirus's local root certificate store, the connection is aborted with `ERR_CERT_AUTHORITY_INVALID`.
-* **Cause (DNS Sinkholes / Local Proxies):** If the network uses a DNS filter (like Pi-hole, AdGuard DNS, or corporate firewall sinkholes), requests to `googleads.g.doubleclick.net` are redirected to a local null IP (`0.0.0.0`). When the browser attempts an SSL handshake with `0.0.0.0`, the returned SSL certificate does not match the Google domain name, resulting in a certificate authority error.
+#### A. `net::ERR_CERT_AUTHORITY_INVALID` (LinkedIn Insight & Google Ads)
+* **Cause (Antivirus Web Shield Interception):** Many security suites (e.g., Avast, Bitdefender, Kaspersky, ESET) use an "HTTPS / Web Shield" module that inspects encrypted web traffic. To do this, the antivirus intercepts outbound connections and presents its own local certificate. If the antivirus intentionally blocks known tracking domains by serving an untrusted certificate, or if the browser (Chromium) does not recognize the antivirus's local root certificate store, the connection is aborted with `ERR_CERT_AUTHORITY_INVALID`.
+* **Cause (DNS Sinkholes / Local Proxies):** If the network uses a DNS filter (like Pi-hole, AdGuard DNS, or corporate firewall sinkholes), requests to `px.ads.linkedin.com` or `googleads.g.doubleclick.net` are redirected to a local null IP (`0.0.0.0`). When the browser attempts an SSL handshake with `0.0.0.0`, the returned SSL certificate does not match the tracking domain name, resulting in a certificate authority error.
 
 #### B. `net::ERR_INTERNET_DISCONNECTED` (Bing Ads / `bat.bing.com`)
 * **Cause (Browser Tracking Protection / Ad Blockers):** Browser extensions (e.g., uBlock Origin, Privacy Badger, AdGuard) or built-in browser privacy shields (such as Brave Shields or Edge Tracking Prevention) actively monitor outbound requests. When a script attempts to contact known tracking beacons like `bat.bing.com`, the blocking engine terminates the network socket immediately at the browser level, simulating a disconnected network state (`ERR_INTERNET_DISCONNECTED`) for that specific tracking request.
@@ -72,4 +88,4 @@ These network failures occur when third-party marketing, analytics, and conversi
    * Temporarily pause or disable any active Antivirus "Web Shield" or "HTTPS Scanning" features.
    * Disable browser ad-blocking extensions (uBlock Origin, AdGuard) or turn off built-in tracking protection (e.g., Brave Shields, Edge Strict Privacy).
    * Check if a system-level VPN, custom DNS (AdGuard DNS, Cloudflare Malware/Blocking), or corporate firewall is actively filtering web traffic.
-3. **Application-Level Privacy Option:** If these third-party tracking scripts (Google Ads, Bing Ads, LinkedIn Insights, AdRoll) are no longer actively used or required by the university's marketing team, they can be safely removed from the `<head>` or `<body>` of the HTML files to eliminate all external network tracking requests entirely.
+3. **Application-Level Privacy Option (GTM Removal):** If the university no longer requires third-party tracking (LinkedIn Ads, Google Ads, Bing Ads), you can completely eliminate these network console errors by removing the Google Tag Manager (`GTM-WGZBMSV`) and Google Analytics (`G-8N1BKMH5LY`) scripts from the HTML files.
