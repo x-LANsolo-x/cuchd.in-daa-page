@@ -516,6 +516,11 @@
     </link>
    </link>
   </link>
+  <style>
+    body, h1, h2, h3, h4, h5, h6, p, a, div, span, ul, li {
+        font-family: 'Proxima Nova', sans-serif !important;
+    }
+  </style>
  </head>
  <body class="">
   <style>
@@ -1895,6 +1900,22 @@
                 }
             }
         }
+
+        // Hover Preload Listener for Images
+        document.addEventListener('mouseover', function(e) {
+            var btn = e.target.closest('[data-bs-toggle="modal"][data-bs-target="#clubModal"]');
+            if (btn && !btn.hasAttribute('data-preloaded')) {
+                btn.setAttribute('data-preloaded', 'true');
+                var mediaStr = btn.getAttribute('data-media');
+                var imgSrc = btn.getAttribute('data-img');
+                var sources = (mediaStr && mediaStr.trim() !== '') ? mediaStr.split(',').filter(function(s){return s.trim() !== '';}) : [(imgSrc || '')];
+                sources = sources.filter(function(s){return s.trim() !== '';});
+                sources.forEach(function(src) {
+                    var img = new Image();
+                    img.src = src.trim();
+                });
+            }
+        }, true);
 
         // Global Delegated Event Listener
         document.addEventListener('click', function(e) {
