@@ -1057,7 +1057,7 @@
   {
     "id": "the-voyage-club",
     "title": "THE VOYAGE CLUB",
-    "category": "ARTS & CREATIVITY",
+    "category": "LAW & ETHICS",
     "categories": [
       "Debate",
       "Public Speaking",
@@ -1065,12 +1065,13 @@
       "Leadership",
       "Creative Expression"
     ],
-    "contact": "paminder.e13335@cumail.in",
-    "faculty": "Ms. Parminder Kaur",
-    "members": "856",
-    "owner": "UIE - EF 2",
     "shortDesc": "Encourages exploration, teamwork, adventure activities, and experiential learning.",
     "longDesc": "The Voyage Club is committed to shaping youth who carry the strength of Indias culture and the vision of modern governance. Through participation in the National Youth Parliament in National Level, along with debates and declamation competitions, our members will not just speakthey will think, challenge ideas, and design solutions rooted in values yet ready for the future. This is where our mission meets action: empowering students to become not just voices in a hall, but architects of a Viksit Bharat 2047.",
+    "faculty": "Ms. Parminder Kaur",
+    "contact": "paminder.e13335@cumail.in",
+    "members": "856",
+    "owner": "UIE - EF 2",
+    "logo": "logos/THE VOYAGE CLUB.webp",
     "media": [
       "media/Voyage/voyage_1.jpg",
       "media/Voyage/voyage_2.jpg",
@@ -1088,8 +1089,7 @@
       "media/Voyage/voyage_14.jpg",
       "media/Voyage/voyage_15.jpg",
       "media/Voyage/voyage_16.jpg"
-    ],
-    "logo": "logos/THE VOYAGE CLUB.webp"
+    ]
   },
   {
     "id": "tokentitan-club",
