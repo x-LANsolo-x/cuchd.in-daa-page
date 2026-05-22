@@ -1116,18 +1116,19 @@
   {
     "id": "tourism-club",
     "title": "TOURISM CLUB",
-    "category": "SOCIAL IMPACT",
+    "category": "ARTS & CREATIVITY",
     "categories": [
       "Sustainable Tourism",
       "Cultural Exchange",
       "Field Visits"
     ],
-    "contact": "aishwarya.e15799@cumail.in",
-    "faculty": "Ms. Aishwarya Khanna",
-    "members": "100+",
-    "owner": "TTM",
     "shortDesc": "Promotes tourism awareness, cultural exchange, and sustainable travel education.",
     "longDesc": "The Tourism Club at Chandigarh University is dedicated to promoting tourism awareness, cultural exchange, and sustainable travel practices among students. Through field visits, seminars, and cultural events, the club fosters a deeper understanding of diverse cultures and the tourism industry.",
+    "faculty": "Ms. Aishwarya Khanna",
+    "contact": "aishwarya.e15799@cumail.in",
+    "members": "100+",
+    "owner": "TTM",
+    "logo": "logos/TOURISM CLUB.webp",
     "media": [
       "media/tourism/tourism_1.jpg",
       "media/tourism/tourism_2.jpg",
@@ -1136,8 +1137,7 @@
       "media/tourism/tourism_5.jpg",
       "media/tourism/tourism_6.jpg",
       "media/tourism/tourism_7.jpg"
-    ],
-    "logo": "logos/TOURISM CLUB.webp"
+    ]
   },
   {
     "id": "upcycle-cu",
