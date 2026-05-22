@@ -676,17 +676,17 @@
       "Culinary Arts",
       "Professional Development"
     ],
-    "contact": "jagjitsingh.uithm@cumail.in",
-    "faculty": "Dr. Jagjit Singh",
-    "members": "100+",
-    "owner": "Management - HHM",
     "shortDesc": "Explores the world of hospitality, tourism, food service, and event management.",
     "longDesc": "The Hotel Management Club provides students with opportunities to explore the dynamic world of hospitality, tourism, food service, and event management. The club organizes culinary activities, hospitality workshops, tourism awareness programs, and industry interaction sessions to enhance professional skills and leadership in the hospitality sector.",
+    "faculty": "Dr. Jagjit Singh",
+    "contact": "jagjitsingh.uithm@cumail.in",
+    "members": "100+",
+    "owner": "Management - HHM",
+    "logo": "logos/1779414895413_HOTEL_MANAGEMENT_CLUB.webp",
     "media": [
       "media/hotel management/ef322223-1bc9-458e-a6b6-a5df07951093.png",
       "media/hotel management/event3.jpg"
-    ],
-    "logo": ""
+    ]
   },
   {
     "id": "ignite-youth-club",
