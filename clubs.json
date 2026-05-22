@@ -87,7 +87,7 @@
     "contact": "nancy.e14746@cumail.in",
     "members": "150",
     "owner": "Management",
-    "logo": "logos/1779414472104_ASCENTIA_CLUB.webp",
+    "logo": "logos/1779414425476_ASCENTIA_CLUB.webp",
     "media": [
       "media/ascentia/WhatsApp Image 2026-05-17 at 4.40.06 PM (1).jpeg",
       "media/ascentia/WhatsApp Image 2026-05-17 at 4.40.06 PM (2).jpeg",
@@ -208,16 +208,16 @@
       "Green Initiatives",
       "Social Awareness"
     ],
-    "contact": "swaati.e10067@cumail.in",
-    "faculty": "Dr. Swaati Sharma",
-    "members": "100+",
-    "owner": "Sciences - Biotech",
     "shortDesc": "Dedicated to environmental conservation, climate action, and sustainable development.",
     "longDesc": "The Biosphere Club is dedicated to creating awareness about environmental conservation, climate action, and sustainable development. Through plantation drives, cleanliness campaigns, eco-projects, sustainability workshops, and awareness programs, the club inspires students to contribute towards building a greener and healthier planet.",
+    "faculty": "Dr. Swaati Sharma",
+    "contact": "swaati.e10067@cumail.in",
+    "members": "100+",
+    "owner": "Sciences - Biotech",
+    "logo": "logos/1779414510602_BIOSPHERE.webp",
     "media": [
       "media/biosphere/a6b0b238-56e1-4a30-9636-1307fe19ec9f.png"
-    ],
-    "logo": ""
+    ]
   },
   {
     "id": "bizlytics-club",
