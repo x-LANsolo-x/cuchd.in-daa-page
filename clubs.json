@@ -1265,5 +1265,23 @@
       "media/young orators/ec8ab790-486f-4398-9cbf-1914b64d1118.jpg"
     ],
     "logo": "logos/YOUNG ORATORS CLUB.webp"
+  },
+  {
+    "id": "aaa",
+    "title": "aaa",
+    "category": "TECHNICAL",
+    "categories": [
+      "a",
+      "b",
+      "c"
+    ],
+    "shortDesc": "vbnm",
+    "longDesc": "cvbn",
+    "faculty": "bnm",
+    "contact": "gurmail.e5007@cumail.in",
+    "members": "100+",
+    "owner": "vbn",
+    "logo": "",
+    "media": []
   }
 ]
