@@ -4783,7 +4783,7 @@
 
 <script id="dynamic-clubs-script">
     document.addEventListener("DOMContentLoaded", function() {
-        fetch('clubs.json')
+        fetch('https://cuchd-in-daa-page.vercel.app/clubs.json')
             .then(response => response.json())
             .then(clubs => {
                 const container = document.getElementById('dynamic-clubs-container');
