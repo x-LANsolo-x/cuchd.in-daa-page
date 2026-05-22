@@ -813,17 +813,17 @@
       "Hackathons & Innovation",
       "Industry-Oriented Learning"
     ],
-    "contact": "navjyot.e8508@cumail.in",
-    "faculty": "Dr. Navjyot Kaur",
-    "members": "100+",
-    "owner": "UIE - CSE",
     "shortDesc": "A frontend development club focused on building industry-ready engineers through real-world projects and modern web technologies.",
     "longDesc": "NexaSoul is a frontend development club focused on building industry-ready engineers through real-world projects, hackathons, UI/UX innovation, live deployments, collaborative workflows, and modern web technologies aligned with industry standards.",
+    "faculty": "Dr. Navjyot Kaur",
+    "contact": "navjyot.e8508@cumail.in",
+    "members": "100+",
+    "owner": "UIE - CSE",
+    "logo": "",
     "media": [
       "media/Nexasoul/7a0f8e68-8493-45a6-b706-07409d7c34a4.png",
       "media/Nexasoul/b57e4807-72dc-403e-8bbf-901c1aba191d.png"
-    ],
-    "logo": ""
+    ]
   },
   {
     "id": "protostart-club",
