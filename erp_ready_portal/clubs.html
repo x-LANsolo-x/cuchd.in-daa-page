@@ -4791,9 +4791,9 @@
                 
                 let html = '';
                 clubs.forEach(club => {
-                    const logoUrl = club.logo || 'https://via.placeholder.com/150';
+                    const logoUrl = club.logo ? (club.logo.startsWith('http') ? club.logo : 'https://cuchd-in-daa-page.vercel.app/' + club.logo) : 'https://via.placeholder.com/150';
                     const categories = (club.categories || []).join(', ');
-                    const media = (club.media || []).join(',');
+                    const media = (club.media || []).map(m => m.startsWith('http') ? m : 'https://cuchd-in-daa-page.vercel.app/' + m).join(',');
                     
                     html += '<div class="col-sm-12 col-md-6 col-lg-3 mb-4">' +
                         '<a class="pxp-areas-1-item rounded-lg" ' +
