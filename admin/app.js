@@ -52,6 +52,7 @@ function openAddModal() {
     document.getElementById('clubId').value = '';
     document.getElementById('clubLogoPath').value = '';
     document.getElementById('clubMediaPaths').value = '';
+    document.getElementById('hideMediaColumn').checked = false;
     document.getElementById('logoPreviewContainer').innerHTML = '';
     document.getElementById('mediaPreviewContainer').innerHTML = '';
     document.getElementById('deleteBtn').style.display = 'none';
@@ -81,16 +82,62 @@ function editClub(index) {
 
     const mediaList = club.media || [];
     document.getElementById('clubMediaPaths').value = mediaList.join(',');
+    document.getElementById('hideMediaColumn').checked = club.hideMediaColumn === true;
     
-    const mediaContainer = document.getElementById('mediaPreviewContainer');
-    mediaContainer.innerHTML = '';
-    mediaList.forEach(m => {
-        mediaContainer.innerHTML += `<img src="../${m}" class="media-preview">`;
-    });
+    renderMediaPreview();
 
     document.getElementById('deleteBtn').style.display = 'inline-block';
     document.getElementById('clubModalLabel').innerText = 'Edit Club';
     clubModal.show();
+}
+
+function renderMediaPreview() {
+    const pathsStr = document.getElementById('clubMediaPaths').value;
+    const mediaList = pathsStr ? pathsStr.split(',') : [];
+    const mediaContainer = document.getElementById('mediaPreviewContainer');
+    mediaContainer.innerHTML = '';
+    mediaList.forEach((m, idx) => {
+        mediaContainer.innerHTML += `
+            <div class="media-item-wrapper">
+                <img src="../${m}" class="media-preview">
+                <div class="media-actions">
+                    <button type="button" onclick="moveMediaLeft(${idx})" title="Move Left">&larr;</button>
+                    <button type="button" class="delete-btn" onclick="removeMedia(${idx})" title="Delete">&times;</button>
+                    <button type="button" onclick="moveMediaRight(${idx})" title="Move Right">&rarr;</button>
+                </div>
+            </div>`;
+    });
+}
+
+function moveMediaLeft(idx) {
+    if (idx === 0) return;
+    const pathsStr = document.getElementById('clubMediaPaths').value;
+    const mediaList = pathsStr ? pathsStr.split(',') : [];
+    const temp = mediaList[idx - 1];
+    mediaList[idx - 1] = mediaList[idx];
+    mediaList[idx] = temp;
+    document.getElementById('clubMediaPaths').value = mediaList.join(',');
+    renderMediaPreview();
+}
+
+function moveMediaRight(idx) {
+    const pathsStr = document.getElementById('clubMediaPaths').value;
+    const mediaList = pathsStr ? pathsStr.split(',') : [];
+    if (idx === mediaList.length - 1) return;
+    const temp = mediaList[idx + 1];
+    mediaList[idx + 1] = mediaList[idx];
+    mediaList[idx] = temp;
+    document.getElementById('clubMediaPaths').value = mediaList.join(',');
+    renderMediaPreview();
+}
+
+function removeMedia(idx) {
+    if (!confirm('Are you sure you want to remove this image from the gallery?')) return;
+    const pathsStr = document.getElementById('clubMediaPaths').value;
+    const mediaList = pathsStr ? pathsStr.split(',') : [];
+    mediaList.splice(idx, 1);
+    document.getElementById('clubMediaPaths').value = mediaList.join(',');
+    renderMediaPreview();
 }
 
 async function compressImage(file) {
@@ -236,10 +283,7 @@ async function uploadMedia() {
             let newArr = existingArr.concat(uploadedPaths);
             document.getElementById('clubMediaPaths').value = newArr.join(',');
             
-            const mediaContainer = document.getElementById('mediaPreviewContainer');
-            uploadedPaths.forEach(m => {
-                mediaContainer.innerHTML += `<img src="../${m}" class="media-preview">`;
-            });
+            renderMediaPreview();
             showAlert(`${uploadedPaths.length} media files uploaded to GitHub!`, 'success');
         }
     } catch(e) {
@@ -266,6 +310,7 @@ async function saveClub() {
         members: document.getElementById('clubMembers').value,
         owner: document.getElementById('clubOwner').value,
         logo: document.getElementById('clubLogoPath').value,
+        hideMediaColumn: document.getElementById('hideMediaColumn').checked,
         media: document.getElementById('clubMediaPaths').value ? document.getElementById('clubMediaPaths').value.split(',') : []
     };
 

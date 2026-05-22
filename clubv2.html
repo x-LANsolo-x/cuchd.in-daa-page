@@ -1378,13 +1378,22 @@
             if (cInner && cInner.children.length === 0) {
                 var carouselColumn = cInner.closest('.col-lg-6');
                 var contentColumn = modal.querySelector('.row.g-0 > div:last-child');
-                var sources = (data.media && data.media.trim() !== '') ? data.media.split(',').filter(function(s){return s.trim() !== '';}) : [(data.img || '')];
-                sources = sources.filter(function(s){return s.trim() !== '';});
+                
+                if (data.hideMedia) {
+                    if (carouselColumn) carouselColumn.style.setProperty('display', 'none', 'important');
+                    if (contentColumn) contentColumn.className = 'col-lg-12 d-flex flex-column';
+                } else {
+                    var sources = (data.media && data.media.trim() !== '') ? data.media.split(',').filter(function(s){return s.trim() !== '';}) : [(data.img || '')];
+                    sources = sources.filter(function(s){return s.trim() !== '';});
 
-                if (sources.length > 0) {
-                    if (carouselColumn) carouselColumn.style.display = 'block';
-                    if (contentColumn) contentColumn.className = 'col-lg-6 d-flex flex-column';
-                    sources.forEach(function(src, i) {
+                    if (sources.length > 0) {
+                        if (carouselColumn) {
+                            carouselColumn.style.display = 'block';
+                            carouselColumn.style.removeProperty('display');
+                            carouselColumn.style.setProperty('display', 'flex', 'important');
+                        }
+                        if (contentColumn) contentColumn.className = 'col-lg-6 d-flex flex-column';
+                        sources.forEach(function(src, i) {
                         var item = document.createElement('div');
                         item.className = 'carousel-item' + (i === 0 ? ' active' : '');
                         item.style.height = '100%';
@@ -1413,9 +1422,10 @@
                         }
                     }, 150);
                 } else {
-                    if (carouselColumn) carouselColumn.style.display = 'none';
+                    if (carouselColumn) carouselColumn.style.setProperty('display', 'none', 'important');
                     if (contentColumn) contentColumn.className = 'col-lg-12 d-flex flex-column';
                 }
+                } // end hideMedia else
             }
         }
 
@@ -1477,7 +1487,8 @@
                 contact: btn.getAttribute('data-contact') || "N/A",
                 categories: btn.getAttribute('data-categories') || "",
                 img: btn.getAttribute('data-img') || "",
-                media: btn.getAttribute('data-media') || ""
+                media: btn.getAttribute('data-media') || "",
+                hideMedia: btn.getAttribute('data-hidemedia') === "true"
             };
 
             if (fortressInterval) clearInterval(fortressInterval);
@@ -1567,6 +1578,7 @@
                            'data-img="' + logoUrl + '" ' +
                            'data-longdesc="' + (club.longDesc || '').replace(/"/g, '&quot;') + '" ' +
                            'data-media="' + media + '" ' +
+                           'data-hidemedia="' + (club.hideMediaColumn === true) + '" ' +
                            'data-members="' + (club.members || '').replace(/"/g, '&quot;') + '" ' +
                            'data-owner="' + (club.owner || '').replace(/"/g, '&quot;') + '" ' +
                            'data-title="' + (club.title || '').replace(/"/g, '&quot;') + '" ' +
