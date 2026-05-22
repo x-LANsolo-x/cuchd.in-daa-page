@@ -7,9 +7,8 @@ const BRANCH = 'main';
 export default async function handler(req, res) {
     if (req.method === 'GET') {
         try {
-            const dataPath = path.join(process.cwd(), 'clubs.json');
-            const data = fs.readFileSync(dataPath, 'utf8');
-            return res.status(200).json(JSON.parse(data));
+            const data = require('../clubs.json');
+            return res.status(200).json(data);
         } catch (err) {
             return res.status(500).json({ error: 'Failed to read clubs.json' });
         }
