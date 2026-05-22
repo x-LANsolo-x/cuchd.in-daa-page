@@ -118,15 +118,38 @@ async function compressImage(file) {
                 });
             };
             img.onerror = err => reject(err);
+            img.src = event.target.result;
         };
         reader.onerror = err => reject(err);
     });
+}
+
+async function fetchWithRetry(url, options, retries = 1) {
+    try {
+        const res = await fetch(url, options);
+        if (!res.ok && res.status >= 500 && retries > 0) {
+            console.log("Request failed with 5xx, retrying to handle cold start...");
+            return fetchWithRetry(url, options, retries - 1);
+        }
+        return res;
+    } catch (err) {
+        if (retries > 0) {
+            console.log("Network error, retrying...");
+            return fetchWithRetry(url, options, retries - 1);
+        }
+        throw err;
+    }
 }
 
 async function uploadLogo() {
     const fileInput = document.getElementById('logoUpload');
     if (fileInput.files.length === 0) return alert('Select a logo first');
     
+    const btn = fileInput.nextElementSibling;
+    const originalText = btn.innerText;
+    btn.innerText = "Uploading...";
+    btn.disabled = true;
+
     try {
         const { base64: base64Data, filename: newFilename } = await compressImage(fileInput.files[0]);
         const payload = {
@@ -135,7 +158,7 @@ async function uploadLogo() {
             base64: base64Data
         };
 
-        const res = await fetch(`${API_URL}/upload`, { 
+        const res = await fetchWithRetry(`${API_URL}/upload`, { 
             method: 'POST', 
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(payload) 
@@ -152,6 +175,9 @@ async function uploadLogo() {
     } catch(e) {
         console.error(e);
         showAlert('Upload error', 'danger');
+    } finally {
+        btn.innerText = originalText;
+        btn.disabled = false;
     }
 }
 
@@ -162,22 +188,27 @@ async function uploadMedia() {
     const clubId = document.getElementById('clubId').value || 'new-club-' + Date.now();
     document.getElementById('clubId').value = clubId; 
     
+    const btn = fileInput.nextElementSibling;
+    const originalText = btn.innerText;
+    btn.innerText = "Uploading...";
+    btn.disabled = true;
+
     try {
         let uploadedPaths = [];
         for (let i = 0; i < fileInput.files.length; i++) {
             const { base64: base64Data, filename: newFilename } = await compressImage(fileInput.files[i]);
-            const payload = {
-                type: 'media',
-                clubId: clubId,
-                filename: newFilename,
-                base64: base64Data
-            };
-            
-            const res = await fetch(`${API_URL}/upload`, { 
-                method: 'POST', 
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(payload) 
-            });
+                    const payload = {
+                        type: 'media',
+                        clubId: clubId,
+                        filename: newFilename,
+                        base64: base64Data
+                    };
+                    
+                    const res = await fetchWithRetry(`${API_URL}/upload`, { 
+                        method: 'POST', 
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(payload) 
+                    });
             const data = await res.json();
             if (data.success) {
                 uploadedPaths.push(data.filePath);
@@ -201,6 +232,9 @@ async function uploadMedia() {
     } catch(e) {
         console.error(e);
         showAlert('Upload error', 'danger');
+    } finally {
+        btn.innerText = originalText;
+        btn.disabled = false;
     }
 }
 
@@ -245,7 +279,7 @@ async function deleteCurrentClub() {
 
 async function saveToServer() {
     try {
-        const res = await fetch(`${API_URL}/clubs`, {
+        const res = await fetchWithRetry(`${API_URL}/clubs`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(clubsData)
