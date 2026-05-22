@@ -4,6 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Club Admin Dashboard</title>
+    <script>
+        const expectedPwd = "oaa2627";
+        let storedPwd = sessionStorage.getItem("adminAuth");
+        if (storedPwd !== expectedPwd) {
+            let userPwd = prompt("Enter Admin Password to continue:");
+            if (userPwd === expectedPwd) {
+                sessionStorage.setItem("adminAuth", expectedPwd);
+            } else {
+                alert("Incorrect Password.");
+                document.documentElement.innerHTML = "<h2 style='text-align:center; padding-top: 50px; font-family: sans-serif;'>Unauthorized Access.</h2>";
+                window.stop();
+            }
+        }
+    </script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
         body { background-color: #f8f9fa; }
