@@ -80,23 +80,44 @@ function editClub(index) {
     clubModal.show();
 }
 
+async function fileToBase64(file) {
+    return new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.readAsDataURL(file);
+        reader.onload = () => resolve(reader.result.split(',')[1]); // remove data:image/...;base64,
+        reader.onerror = error => reject(error);
+    });
+}
+
 async function uploadLogo() {
     const fileInput = document.getElementById('logoUpload');
     if (fileInput.files.length === 0) return alert('Select a logo first');
     
-    const formData = new FormData();
-    formData.append('logo', fileInput.files[0]);
-    
     try {
-        const res = await fetch(`${API_URL}/upload/logo`, { method: 'POST', body: formData });
+        const base64Data = await fileToBase64(fileInput.files[0]);
+        const payload = {
+            type: 'logo',
+            filename: fileInput.files[0].name,
+            base64: base64Data
+        };
+
+        const res = await fetch(`${API_URL}/upload`, { 
+            method: 'POST', 
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload) 
+        });
         const data = await res.json();
+        
         if (data.success) {
             document.getElementById('clubLogoPath').value = data.filePath;
             document.getElementById('logoPreviewContainer').innerHTML = `<img src="../${data.filePath}" class="logo-preview">`;
-            showAlert('Logo uploaded successfully', 'success');
+            showAlert('Logo uploaded to GitHub successfully', 'success');
+        } else {
+            showAlert('Upload failed: ' + data.error, 'danger');
         }
     } catch(e) {
-        showAlert('Upload failed', 'danger');
+        console.error(e);
+        showAlert('Upload error', 'danger');
     }
 }
 
@@ -105,31 +126,47 @@ async function uploadMedia() {
     if (fileInput.files.length === 0) return alert('Select media files first');
     
     const clubId = document.getElementById('clubId').value || 'new-club-' + Date.now();
-    document.getElementById('clubId').value = clubId; // Make sure new clubs get an ID
-    
-    const formData = new FormData();
-    formData.append('id', clubId);
-    for (let i = 0; i < fileInput.files.length; i++) {
-        formData.append('media', fileInput.files[i]);
-    }
+    document.getElementById('clubId').value = clubId; 
     
     try {
-        const res = await fetch(`${API_URL}/upload/media`, { method: 'POST', body: formData });
-        const data = await res.json();
-        if (data.success) {
+        let uploadedPaths = [];
+        for (let i = 0; i < fileInput.files.length; i++) {
+            const base64Data = await fileToBase64(fileInput.files[i]);
+            const payload = {
+                type: 'media',
+                clubId: clubId,
+                filename: fileInput.files[i].name,
+                base64: base64Data
+            };
+            
+            const res = await fetch(`${API_URL}/upload`, { 
+                method: 'POST', 
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload) 
+            });
+            const data = await res.json();
+            if (data.success) {
+                uploadedPaths.push(data.filePath);
+            } else {
+                console.error("Failed to upload file", data);
+            }
+        }
+        
+        if (uploadedPaths.length > 0) {
             let existing = document.getElementById('clubMediaPaths').value;
             let existingArr = existing ? existing.split(',') : [];
-            let newArr = existingArr.concat(data.filePaths);
+            let newArr = existingArr.concat(uploadedPaths);
             document.getElementById('clubMediaPaths').value = newArr.join(',');
             
             const mediaContainer = document.getElementById('mediaPreviewContainer');
-            data.filePaths.forEach(m => {
+            uploadedPaths.forEach(m => {
                 mediaContainer.innerHTML += `<img src="../${m}" class="media-preview">`;
             });
-            showAlert('Media uploaded successfully', 'success');
+            showAlert(`${uploadedPaths.length} media files uploaded to GitHub!`, 'success');
         }
     } catch(e) {
-        showAlert('Upload failed', 'danger');
+        console.error(e);
+        showAlert('Upload error', 'danger');
     }
 }
 
