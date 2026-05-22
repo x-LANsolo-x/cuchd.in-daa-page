@@ -156,19 +156,8 @@
             width: 50% !important;
             flex: 0 0 50% !important;
             max-width: 50% !important;
-        .custom-modal-width {
-            max-width: 85% !important;
-            margin-left: auto !important;
-            margin-right: auto !important;
         }
         @media (max-width: 991px) {
-            .custom-modal-width {
-                max-width: 95% !important;
-            }
-            #clubCarousel .carousel-item img {
-                object-fit: contain !important;
-                background-color: #000 !important;
-            }
             #clubModal .modal-body .row.g-0 {
                 flex-wrap: wrap !important;
             }
@@ -4462,7 +4451,7 @@
   </script>
   <!-- Club Details Modal -->
   <div aria-hidden="true" aria-labelledby="clubModalLabel" class="modal fade" id="clubModal" tabindex="-1">
-   <div class="modal-dialog modal-xl modal-dialog-centered custom-modal-width">
+   <div class="modal-dialog modal-xl modal-dialog-centered" style="max-width: 85%;">
     <div class="modal-content">
      <div class="modal-body p-0 position-relative">
       <button aria-label="Close" class="btn-close position-absolute top-0 end-0 m-3" data-bs-dismiss="modal" style="z-index: 1050; background-color: white; padding: 10px; border-radius: 50%;" type="button">
