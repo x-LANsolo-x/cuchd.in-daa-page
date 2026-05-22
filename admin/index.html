@@ -25,6 +25,24 @@
 <div class="container mt-4">
     <div id="alertContainer"></div>
 
+    <div class="row mb-3">
+        <div class="col-md-8">
+            <input type="text" id="searchInput" class="form-control" placeholder="Search clubs by name or faculty..." oninput="filterClubs()">
+        </div>
+        <div class="col-md-4">
+            <select id="filterCategory" class="form-select" onchange="filterClubs()">
+                <option value="ALL">All Categories</option>
+                <option value="TECHNICAL">TECHNICAL</option>
+                <option value="BUISNESS & CAREERS">BUISNESS & CAREERS</option>
+                <option value="COMMUNICATION & MEDIA">COMMUNICATION & MEDIA</option>
+                <option value="DESIGN THINKING AND INNOVATION">DESIGN THINKING AND INNOVATION</option>
+                <option value="SOCIAL IMPACT">SOCIAL IMPACT</option>
+                <option value="LAW & ETHICS">LAW & ETHICS</option>
+                <option value="ARTS & CREATIVITY">ARTS & CREATIVITY</option>
+            </select>
+        </div>
+    </div>
+
     <div class="card shadow-sm">
         <div class="card-body p-0">
             <table class="table table-hover mb-0">

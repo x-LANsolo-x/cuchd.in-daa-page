@@ -14,11 +14,24 @@ async function loadClubs() {
     }
 }
 
+function filterClubs() {
+    renderTable();
+}
+
 function renderTable() {
     const tbody = document.getElementById('clubsTableBody');
     tbody.innerHTML = '';
-    
+
+    const searchTerm = (document.getElementById('searchInput')?.value || '').toLowerCase();
+    const filterCat = document.getElementById('filterCategory')?.value || 'ALL';
+
     clubsData.forEach((club, index) => {
+        if (filterCat !== 'ALL' && club.category !== filterCat) return;
+        
+        const titleMatch = club.title?.toLowerCase().includes(searchTerm);
+        const facultyMatch = club.faculty?.toLowerCase().includes(searchTerm);
+        if (searchTerm && !titleMatch && !facultyMatch) return;
+
         const logoUrl = club.logo ? `../${club.logo}` : 'https://via.placeholder.com/50';
         const tr = document.createElement('tr');
         tr.innerHTML = `
