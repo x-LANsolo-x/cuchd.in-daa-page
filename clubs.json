@@ -1266,5 +1266,25 @@
       "media/young orators/ec8ab790-486f-4398-9cbf-1914b64d1118.jpg"
     ],
     "logo": "logos/YOUNG ORATORS CLUB.webp"
+  },
+  {
+    "id": "aaaaa",
+    "title": "aaaaa",
+    "category": "TECHNICAL",
+    "categories": [
+      "a",
+      "a",
+      "a",
+      "a"
+    ],
+    "shortDesc": "aaaaaaa",
+    "longDesc": "aaaaaaaaa",
+    "faculty": "aaaaa",
+    "contact": "cocurr.clubs@cumail.in",
+    "members": "100",
+    "owner": "aaaaaaa",
+    "logo": "",
+    "hideMediaColumn": false,
+    "media": []
   }
 ]
