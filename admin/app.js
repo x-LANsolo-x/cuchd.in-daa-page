@@ -80,12 +80,46 @@ function editClub(index) {
     clubModal.show();
 }
 
-async function fileToBase64(file) {
+async function compressImage(file) {
     return new Promise((resolve, reject) => {
         const reader = new FileReader();
         reader.readAsDataURL(file);
-        reader.onload = () => resolve(reader.result.split(',')[1]); // remove data:image/...;base64,
-        reader.onerror = error => reject(error);
+        reader.onload = event => {
+            const img = new Image();
+            img.src = event.target.result;
+            img.onload = () => {
+                const canvas = document.createElement('canvas');
+                const MAX_WIDTH = 1200;
+                const MAX_HEIGHT = 1200;
+                let width = img.width;
+                let height = img.height;
+
+                if (width > height) {
+                    if (width > MAX_WIDTH) {
+                        height *= MAX_WIDTH / width;
+                        width = MAX_WIDTH;
+                    }
+                } else {
+                    if (height > MAX_HEIGHT) {
+                        width *= MAX_HEIGHT / height;
+                        height = MAX_HEIGHT;
+                    }
+                }
+                
+                canvas.width = width;
+                canvas.height = height;
+                const ctx = canvas.getContext('2d');
+                ctx.drawImage(img, 0, 0, width, height);
+                
+                const dataUrl = canvas.toDataURL('image/webp', 0.8);
+                resolve({
+                    base64: dataUrl.split(',')[1],
+                    filename: file.name.replace(/\.[^/.]+$/, "") + ".webp"
+                });
+            };
+            img.onerror = err => reject(err);
+        };
+        reader.onerror = err => reject(err);
     });
 }
 
@@ -94,10 +128,10 @@ async function uploadLogo() {
     if (fileInput.files.length === 0) return alert('Select a logo first');
     
     try {
-        const base64Data = await fileToBase64(fileInput.files[0]);
+        const { base64: base64Data, filename: newFilename } = await compressImage(fileInput.files[0]);
         const payload = {
             type: 'logo',
-            filename: fileInput.files[0].name,
+            filename: newFilename,
             base64: base64Data
         };
 
@@ -131,11 +165,11 @@ async function uploadMedia() {
     try {
         let uploadedPaths = [];
         for (let i = 0; i < fileInput.files.length; i++) {
-            const base64Data = await fileToBase64(fileInput.files[i]);
+            const { base64: base64Data, filename: newFilename } = await compressImage(fileInput.files[i]);
             const payload = {
                 type: 'media',
                 clubId: clubId,
-                filename: fileInput.files[i].name,
+                filename: newFilename,
                 base64: base64Data
             };
             
