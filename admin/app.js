@@ -8,10 +8,33 @@ async function loadClubs() {
     try {
         const res = await fetch(`${API_URL}/clubs`);
         clubsData = await res.json();
+        updateCategoryCounts();
         renderTable();
     } catch (e) {
         showAlert('Error loading clubs data', 'danger');
     }
+}
+
+function updateCategoryCounts() {
+    const select = document.getElementById('filterCategory');
+    if (!select) return;
+    
+    // Calculate counts
+    const counts = { 'ALL': clubsData.length };
+    clubsData.forEach(club => {
+        const cat = club.category || 'UNASSIGNED';
+        counts[cat] = (counts[cat] || 0) + 1;
+    });
+
+    // Update dropdown text while keeping values intact
+    Array.from(select.options).forEach(opt => {
+        const val = opt.value;
+        const count = counts[val] || 0;
+        
+        // Remove previous count if it exists (e.g. " (5)")
+        const baseText = opt.text.replace(/ \(\d+\)$/, '');
+        opt.text = `${baseText} (${count})`;
+    });
 }
 
 function filterClubs() {
@@ -323,6 +346,7 @@ async function saveClub() {
 
     await saveToServer();
     clubModal.hide();
+    updateCategoryCounts();
     renderTable();
 }
 
@@ -332,6 +356,7 @@ async function deleteCurrentClub() {
     clubsData = clubsData.filter(c => c.id !== clubId);
     await saveToServer();
     clubModal.hide();
+    updateCategoryCounts();
     renderTable();
 }
 
