@@ -1142,7 +1142,7 @@
   {
     "id": "upcycle-cu",
     "title": "UPCYCLE CU",
-    "category": "ARTS & CREATIVITY",
+    "category": "SOCIAL IMPACT",
     "categories": [
       "Sustainability",
       "Recycling",
@@ -1150,20 +1150,20 @@
       "Eco-Friendly",
       "Waste Management"
     ],
-    "contact": "vikas.e18225@cumail.in",
-    "faculty": "Vikas Kumar",
-    "members": "100+",
-    "owner": "UIC",
     "shortDesc": "Dedicated to promoting sustainability, recycling, and environmental awareness.",
     "longDesc": "UpCycle is an official club of Chandigarh University dedicated to promoting sustainability, recycling, and environmental awareness. The club encourages creative upcycling ideas, waste management initiatives, and eco-friendly practices through campaigns, workshops, and community activities to inspire a greener and more responsible future.",
+    "faculty": "Vikas Kumar",
+    "contact": "vikas.e18225@cumail.in",
+    "members": "100+",
+    "owner": "UIC",
+    "logo": "",
     "media": [
       "media/UpCycle/2f89aade-6e33-41b7-8308-925228a6be03.png",
       "media/UpCycle/4b2e8bd0-98a0-4445-b1ff-ff4411698217.png",
       "media/UpCycle/4f0acb2d-00ad-4847-b273-4c65dc1731f5.png",
       "media/UpCycle/6fa8d20c-599c-4de9-8d0e-4956e8d4761c.png",
       "media/UpCycle/dd7e9394-f974-439a-99e8-0dc86c493645.png"
-    ],
-    "logo": ""
+    ]
   },
   {
     "id": "vision-velocity-club",
