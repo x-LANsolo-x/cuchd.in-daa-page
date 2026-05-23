@@ -842,12 +842,14 @@
       "Creativity",
       "Skill Development"
     ],
-    "contact": "utkarsh.e19457@cumail.in",
-    "faculty": "Utkarsh Mishra",
-    "members": "175",
-    "owner": "Electrical",
     "shortDesc": "Supports prototype development, startup ideation, and innovative tech solutions.",
     "longDesc": "ProtoStart Club&nbsp;is the heartbeat of innovation at Chandigarh University  a launchpad where raw ideas turn into real startups. Through mentorship, workshops, and high-energy competitions, it fuels creativity, leadership, and an unshakable entrepreneurial spirit, empowering students to rise as tomorrows changemakers.",
+    "faculty": "Er. Utkarsh Mishra",
+    "contact": "utkarsh.e19457@cumail.in",
+    "members": "175",
+    "owner": "Electrical",
+    "logo": "logos/PROTOSTART.webp",
+    "hideMediaColumn": false,
     "media": [
       "media/protopitch/1774865253014.jpg",
       "media/protopitch/1774865253537.jpg",
@@ -855,8 +857,7 @@
       "media/protopitch/656010474_18138484249512232_1835719885482714914_n.jpg",
       "media/protopitch/da7fc970-420d-41a9-bcae-87452934c172.png",
       "media/protopitch/image.png"
-    ],
-    "logo": "logos/PROTOSTART.webp"
+    ]
   },
   {
     "id": "ramanujan-club",
