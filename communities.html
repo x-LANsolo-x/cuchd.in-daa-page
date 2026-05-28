@@ -278,6 +278,14 @@
             gap: 15px !important;
             width: 100% !important;
         }
+    
+        /* Fix for modal background blackness disturbance (stacking context fix) */
+        .modal-backdrop {
+            z-index: 999998 !important;
+        }
+        .modal {
+            z-index: 999999 !important;
+        }
     </style>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.4/tiny-slider.css" rel="stylesheet"/>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" rel="stylesheet"/>
