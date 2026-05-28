@@ -265,6 +265,13 @@
         .modal {
             z-index: 999999 !important;
         }
+
+        /* Fix for body zoom breaking modal backdrop sizing */
+        @media (min-width: 1200px) and (max-width: 1399px) {
+            .modal-backdrop, .modal {
+                zoom: 142.857142857% !important;
+            }
+        }
     </style>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.4/tiny-slider.css" rel="stylesheet"/>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" rel="stylesheet"/>

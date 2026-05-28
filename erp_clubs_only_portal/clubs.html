@@ -222,6 +222,13 @@
         .modal {
             z-index: 999999 !important;
         }
+
+        /* Fix for body zoom breaking modal backdrop sizing */
+        @media (min-width: 1200px) and (max-width: 1399px) {
+            .modal-backdrop, .modal {
+                zoom: 142.857142857% !important;
+            }
+        }
     </style>
 
   <!-- CSS -->
