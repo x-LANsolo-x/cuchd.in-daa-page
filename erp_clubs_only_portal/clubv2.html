@@ -216,6 +216,14 @@
             gap: 15px !important;
             width: 100% !important;
         }
+
+        /* Fix for modal background blackness disturbance (stacking context fix) */
+        .modal-backdrop {
+            z-index: 999998 !important;
+        }
+        .modal {
+            z-index: 999999 !important;
+        }
     </style>
 
   <!-- CSS -->
