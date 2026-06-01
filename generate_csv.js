@@ -18,7 +18,7 @@ function escapeCSV(field) {
 }
 
 // CSV Header
-const headers = ['Logo Link', 'Club Name', 'Club Description', 'Club Categories'];
+const headers = ['Logo Link', 'Club Name', 'Club Description', 'Club Category', 'Club Categories'];
 const rows = [headers.map(escapeCSV).join(',')];
 
 const BASE_URL = 'https://cuchd-in-daa-page.vercel.app/';
@@ -27,12 +27,14 @@ for (const club of clubs) {
     const logoLink = club.logo ? `${BASE_URL}${encodeURI(club.logo)}` : '';
     const clubName = club.title || '';
     const clubDescription = club.longDesc || club.shortDesc || '';
+    const clubCategory = club.category || '';
     const clubCategories = Array.isArray(club.categories) ? club.categories.join(', ') : '';
 
     rows.push([
         logoLink,
         clubName,
         clubDescription,
+        clubCategory,
         clubCategories
     ].map(escapeCSV).join(','));
 }

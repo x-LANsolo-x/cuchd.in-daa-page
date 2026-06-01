@@ -2,7 +2,7 @@
   {
     "id": "aeromodelling-club",
     "title": "AEROMODELLING CLUB",
-    "category": "TECHNICAL",
+    "category": "SCIENCE AND TECHNOLOGY",
     "categories": [
       "Aeronautics",
       "UAV Design",
@@ -28,7 +28,7 @@
   {
     "id": "aerox-club",
     "title": "AEROX CLUB",
-    "category": "TECHNICAL",
+    "category": "SCIENCE AND TECHNOLOGY",
     "categories": [
       "Drones",
       "Drone Technologies",
@@ -62,7 +62,7 @@
   {
     "id": "ascentia-club",
     "title": "ASCENTIA CLUB",
-    "category": "COMMUNICATION & MEDIA",
+    "category": "ART AND CREATIVITY",
     "categories": [
       "Book Reviews",
       "Communication Skills",
@@ -104,7 +104,7 @@
   {
     "id": "astronautics-club",
     "title": "ASTRONAUTICS CLUB",
-    "category": "TECHNICAL",
+    "category": "SCIENCE AND TECHNOLOGY",
     "categories": [
       "Rocket Propulsion",
       "Launch Vehicle Design",
@@ -147,7 +147,7 @@
   {
     "id": "astronomy-club",
     "title": "ASTRONOMY CLUB",
-    "category": "TECHNICAL",
+    "category": "SCIENCE AND TECHNOLOGY",
     "categories": [
       "Observational Astronomy",
       "Telescope Handling",
@@ -223,7 +223,7 @@
   {
     "id": "bizlytics-club",
     "title": "BIZLYTICS CLUB",
-    "category": "TECHNICAL",
+    "category": "SCIENCE AND TECHNOLOGY",
     "categories": [
       "Debate",
       "Public Speaking",
@@ -251,7 +251,7 @@
   {
     "id": "broken-console-club",
     "title": "BROKEN CONSOLE CLUB",
-    "category": "TECHNICAL",
+    "category": "SCIENCE AND TECHNOLOGY",
     "categories": [
       "Game Development",
       "Game Design",
@@ -280,7 +280,7 @@
   {
     "id": "c-square-club",
     "title": "C SQUARE CLUB",
-    "category": "TECHNICAL",
+    "category": "SCIENCE AND TECHNOLOGY",
     "categories": [
       "Programming Challenges",
       "Software Development",
@@ -331,7 +331,7 @@
   {
     "id": "campus-to-corporate-club",
     "title": "CAMPUS-TO-CORPORATE CLUB",
-    "category": "BUISNESS & CAREERS",
+    "category": "BUSINESS",
     "categories": [
       "Corporate Skill Development",
       "Communication & Soft Skills",
@@ -373,7 +373,7 @@
   {
     "id": "cloudstack-club",
     "title": "CLOUDSTACK CLUB",
-    "category": "TECHNICAL",
+    "category": "SCIENCE AND TECHNOLOGY",
     "categories": [
       "Debate",
       "Public Speaking",
@@ -395,7 +395,7 @@
   {
     "id": "cognix-club",
     "title": "COGNIX CLUB",
-    "category": "TECHNICAL",
+    "category": "SCIENCE AND TECHNOLOGY",
     "categories": [
       "Artificial Intelligence",
       "Machine Learning",
@@ -419,7 +419,7 @@
   {
     "id": "cu-playnation-club",
     "title": "CU PLAYNATION CLUB",
-    "category": "TECHNICAL",
+    "category": "SCIENCE AND TECHNOLOGY",
     "categories": [
       "Esports",
       "Gaming",
@@ -450,7 +450,7 @@
   {
     "id": "cysecsphere-club",
     "title": "CYSECSPHERE CLUB",
-    "category": "TECHNICAL",
+    "category": "SCIENCE AND TECHNOLOGY",
     "categories": [
       "Ethical Hacking",
       "Capture the Flag",
@@ -510,7 +510,7 @@
   {
     "id": "droidlinx-club",
     "title": "DROIDLINX CLUB",
-    "category": "TECHNICAL",
+    "category": "SCIENCE AND TECHNOLOGY",
     "categories": [
       "Android Development",
       "Mobile Innovation",
@@ -562,7 +562,7 @@
   {
     "id": "entrepreneurship-club",
     "title": "ENTREPRENEURSHIP CLUB",
-    "category": "DESIGN THINKING AND INNOVATION",
+    "category": "SCIENCE AND TECHNOLOGY",
     "categories": [
       "Debate",
       "Public Speaking",
@@ -589,7 +589,7 @@
   {
     "id": "finverse-club",
     "title": "FINVERSE CLUB",
-    "category": "BUISNESS & CAREERS",
+    "category": "BUSINESS",
     "categories": [
       "Financial Literacy & Awareness",
       "Investments & Stock Market",
@@ -621,7 +621,7 @@
   {
     "id": "fpf-club",
     "title": "FPF CLUB",
-    "category": "TECHNICAL",
+    "category": "SCIENCE AND TECHNOLOGY",
     "categories": [
       "Skill Empowerment",
       "Career Advancement",
@@ -670,7 +670,7 @@
   {
     "id": "hotel-management-club",
     "title": "HOTEL MANAGEMENT CLUB",
-    "category": "BUISNESS & CAREERS",
+    "category": "BUSINESS",
     "categories": [
       "Hospitality",
       "Tourism",
@@ -693,7 +693,7 @@
   {
     "id": "ignite-youth-club",
     "title": "IGNITE YOUTH CLUB",
-    "category": "LAW & ETHICS",
+    "category": "SOCIAL IMPACT",
     "categories": [
       "Leadership",
       "Community Service",
@@ -726,7 +726,7 @@
   {
     "id": "kalaverse-club",
     "title": "KALAVERSE CLUB",
-    "category": "ARTS & CREATIVITY",
+    "category": "ART AND CREATIVITY",
     "categories": [
       "Filmmaking & Cinematography",
       "Content Creation & Social Media",
@@ -753,7 +753,7 @@
   {
     "id": "marketing-brigade-club",
     "title": "MARKETING BRIGADE CLUB",
-    "category": "BUISNESS & CAREERS",
+    "category": "BUSINESS",
     "categories": [
       "Digital Marketing and Transformation",
       "Entrepreneurship Workshops",
@@ -784,7 +784,7 @@
   {
     "id": "nanoverse-club",
     "title": "NANOVERSE CLUB",
-    "category": "TECHNICAL",
+    "category": "SCIENCE AND TECHNOLOGY",
     "categories": [
       "Nanotechnology",
       "Quantum Computing",
@@ -807,7 +807,7 @@
   {
     "id": "nexasoul-club",
     "title": "NEXASOUL CLUB",
-    "category": "TECHNICAL",
+    "category": "SCIENCE AND TECHNOLOGY",
     "categories": [
       "Frontend Development",
       "UI/UX Design",
@@ -830,7 +830,7 @@
   {
     "id": "protostart-club",
     "title": "PROTOSTART CLUB",
-    "category": "DESIGN THINKING AND INNOVATION",
+    "category": "SCIENCE AND TECHNOLOGY",
     "categories": [
       "Innovation",
       "Entrepreneurship",
@@ -863,7 +863,7 @@
   {
     "id": "ramanujan-club",
     "title": "RAMANUJAN CLUB",
-    "category": "TECHNICAL",
+    "category": "SCIENCE AND TECHNOLOGY",
     "categories": [
       "Mathematics",
       "Creativity",
@@ -917,7 +917,7 @@
   {
     "id": "robox-club",
     "title": "ROBOX CLUB",
-    "category": "TECHNICAL",
+    "category": "SCIENCE AND TECHNOLOGY",
     "categories": [
       "Electronics & Embedded Systems",
       "Programming & Automation",
@@ -955,7 +955,7 @@
   {
     "id": "sci-fi-innovation-club",
     "title": "SCI-FI INNOVATION CLUB",
-    "category": "DESIGN THINKING AND INNOVATION",
+    "category": "SCIENCE AND TECHNOLOGY",
     "categories": [
       "Innovation",
       "Research & Development",
@@ -990,7 +990,7 @@
   {
     "id": "socratic-circle-club",
     "title": "SOCRATIC-CIRCLE CLUB",
-    "category": "COMMUNICATION & MEDIA",
+    "category": "ART AND CREATIVITY",
     "categories": [
       "Debate",
       "Public Speaking",
@@ -1016,7 +1016,7 @@
   {
     "id": "tech-tatva-club",
     "title": "TECH TATVA CLUB",
-    "category": "TECHNICAL",
+    "category": "SCIENCE AND TECHNOLOGY",
     "categories": [
       "Artificial Intelligence",
       "Machine Learning",
@@ -1060,7 +1060,7 @@
   {
     "id": "the-voyage-club",
     "title": "THE VOYAGE CLUB",
-    "category": "LAW & ETHICS",
+    "category": "SOCIAL IMPACT",
     "categories": [
       "Debate",
       "Public Speaking",
@@ -1097,7 +1097,7 @@
   {
     "id": "tokentitan-club",
     "title": "TOKENTITAN CLUB",
-    "category": "TECHNICAL",
+    "category": "SCIENCE AND TECHNOLOGY",
     "categories": [
       "Blockchain",
       "Cryptocurrency",
@@ -1119,7 +1119,7 @@
   {
     "id": "tourism-club",
     "title": "TOURISM CLUB",
-    "category": "ARTS & CREATIVITY",
+    "category": "ART AND CREATIVITY",
     "categories": [
       "Sustainable Tourism",
       "Cultural Exchange",
@@ -1171,7 +1171,7 @@
   {
     "id": "vision-velocity-club",
     "title": "VIKSIT VELOCITY CLUB",
-    "category": "TECHNICAL",
+    "category": "SCIENCE AND TECHNOLOGY",
     "categories": [
       "Motorsports Engineering",
       "Formula Bharat",
@@ -1196,7 +1196,7 @@
   {
     "id": "virtuonix-club",
     "title": "VIRTUONIX CLUB",
-    "category": "TECHNICAL",
+    "category": "SCIENCE AND TECHNOLOGY",
     "categories": [
       "Hands-on workshop",
       "Coding competition",
@@ -1222,7 +1222,7 @@
   {
     "id": "young-orators-club",
     "title": "YOUNG ORATORS CLUB",
-    "category": "COMMUNICATION & MEDIA",
+    "category": "ART AND CREATIVITY",
     "categories": [
       "Personality Development",
       "Communication",

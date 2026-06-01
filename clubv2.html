@@ -638,24 +638,12 @@
         </a>
        </li>
        <li>
-        <a data-filter="TECHNICAL" href="javascript:void(0);">
-         Technical
+        <a data-filter="SCIENCE AND TECHNOLOGY" href="javascript:void(0);">
+         Science and Technology
         </a>
        </li>
        <li>
-        <a data-filter="BUISNESS &amp; CAREERS" href="javascript:void(0);">
-         Business &amp; Careers
-        </a>
-       </li>
-       <li>
-        <a data-filter="COMMUNICATION &amp; MEDIA" href="javascript:void(0);">
-         Communication &amp; Media
-        </a>
-       </li>
-       <li>
-        <a data-filter="DESIGN THINKING AND INNOVATION" href="javascript:void(0);">
-         Design Thinking &amp; Innovation
-        </a>
+        <a data-filter="ART AND CREATIVITY" href="javascript:void(0);">Art and Creativity</a>
        </li>
        <li>
         <a data-filter="SOCIAL IMPACT" href="javascript:void(0);">
@@ -663,19 +651,14 @@
         </a>
        </li>
        <li>
-        <a data-filter="LAW &amp; ETHICS" href="javascript:void(0);">
-         Law &amp; Ethics
-        </a>
-       </li>
-       <li>
-        <a data-filter="ARTS &amp; CREATIVITY" href="javascript:void(0);">
-         Arts &amp; Creativity
+        <a data-filter="BUSINESS" href="javascript:void(0);">
+         Business
         </a>
        </li>
 
       </ul>
      </div>
-     <div class="row mt-4 mt-md-4" id="dynamic-clubs-container">
+     <div class="mt-4 mt-md-4" id="dynamic-clubs-container">
       
       
       
@@ -1541,44 +1524,100 @@
 
 <script id="dynamic-clubs-script">
     document.addEventListener("DOMContentLoaded", function() {
-        fetch('https://cuchd-in-daa-page.vercel.app/clubs.json')
+        // Fetching local clubs.json which matches the updated CSV structure
+        fetch('./clubs.json')
             .then(response => response.json())
             .then(clubs => {
                 const container = document.getElementById('dynamic-clubs-container');
                 if(!container) return;
+
+                const CATEGORY_ORDER = [
+                    'SCIENCE AND TECHNOLOGY',
+                    'ART AND CREATIVITY',
+                    'SOCIAL IMPACT',
+                    'BUSINESS'
+                ];
                 
-                let html = '';
+                // Group clubs by category
+                const grouped = {};
+                CATEGORY_ORDER.forEach(cat => grouped[cat] = []);
                 clubs.forEach(club => {
-                    const logoUrl = club.logo ? (club.logo.startsWith('http') ? club.logo : 'https://cuchd-in-daa-page.vercel.app/' + club.logo) : 'https://via.placeholder.com/150';
-                    const categories = (club.categories || []).join(', ');
-                    const media = (club.media || []).map(m => m.startsWith('http') ? m : 'https://cuchd-in-daa-page.vercel.app/' + m).join(',');
-                    
-                    html += '<div class="col-sm-12 col-md-6 col-lg-3 mb-4">' +
-                        '<a class="pxp-areas-1-item rounded-lg" ' +
-                           'data-bs-target="#clubModal" ' +
-                           'data-bs-toggle="modal" ' +
-                           'data-categories="' + categories.replace(/"/g, '&quot;') + '" ' +
-                           'data-club-category="' + (club.category || '').replace(/"/g, '&quot;') + '" ' +
-                           'data-contact="' + (club.contact || '').replace(/"/g, '&quot;') + '" ' +
-                           'data-desc="' + (club.shortDesc || '').replace(/"/g, '&quot;') + '" ' +
-                           'data-faculty="' + (club.faculty || '').replace(/"/g, '&quot;') + '" ' +
-                           'data-img="' + logoUrl + '" ' +
-                           'data-longdesc="' + (club.longDesc || '').replace(/"/g, '&quot;') + '" ' +
-                           'data-media="' + media + '" ' +
-                           'data-hidemedia="' + (club.hideMediaColumn === true) + '" ' +
-                           'data-members="' + (club.members || '').replace(/"/g, '&quot;') + '" ' +
-                           'data-owner="' + (club.owner || '').replace(/"/g, '&quot;') + '" ' +
-                           'data-title="' + (club.title || '').replace(/"/g, '&quot;') + '" ' +
-                           'href="javascript:void(0);">' +
-                            '<div class="pxp-areas-1-item-fig pxp-cover lazy-bg" style="background-image: url(\'' + logoUrl + '\'); background-color: #ffffff;"></div>' +
-                            '<div class="pxp-areas-1-item-details">' +
-                                '<div class="pxp-areas-1-item-details-area">' + club.title + '</div>' +
-                                '<div class="pxp-areas-1-item-details-city">' + (club.shortDesc || '') + '</div>' +
-                            '</div>' +
-                        '</a>' +
-                    '</div>';
+                    const cat = (club.category || '').toUpperCase();
+                    if (grouped[cat] !== undefined) grouped[cat].push(club);
                 });
+
+                let html = '';
+                CATEGORY_ORDER.forEach(cat => {
+                    const catClubs = grouped[cat];
+                    if (!catClubs || catClubs.length === 0) return;
+                    const sectionId = 'cat-section-' + cat.replace(/\s+/g, '-').toLowerCase();
+
+                    html += `<div class="club-category-section w-100" id="${sectionId}" data-cat="${cat}">
+                        <div class="row">`;
+
+                    catClubs.forEach(club => {
+                        const logoUrl = club.logo ? (club.logo.startsWith('http') ? club.logo : 'https://cuchd-in-daa-page.vercel.app/' + club.logo) : 'https://via.placeholder.com/150';
+                        const categories = (club.categories || []).join(', ');
+                        const media = (club.media || []).map(m => m.startsWith('http') ? m : 'https://cuchd-in-daa-page.vercel.app/' + m).join(',');
+
+                        html += '<div class="col-sm-12 col-md-6 col-lg-3 mb-4">' +
+                            '<a class="pxp-areas-1-item rounded-lg" ' +
+                               'data-bs-target="#clubModal" ' +
+                               'data-bs-toggle="modal" ' +
+                               'data-categories="' + categories.replace(/"/g, '&quot;') + '" ' +
+                               'data-club-category="' + (club.category || '').replace(/"/g, '&quot;') + '" ' +
+                               'data-contact="' + (club.contact || '').replace(/"/g, '&quot;') + '" ' +
+                               'data-desc="' + (club.shortDesc || '').replace(/"/g, '&quot;') + '" ' +
+                               'data-faculty="' + (club.faculty || '').replace(/"/g, '&quot;') + '" ' +
+                               'data-img="' + logoUrl + '" ' +
+                               'data-longdesc="' + (club.longDesc || '').replace(/"/g, '&quot;') + '" ' +
+                               'data-media="' + media + '" ' +
+                               'data-hidemedia="' + (club.hideMediaColumn === true) + '" ' +
+                               'data-members="' + (club.members || '').replace(/"/g, '&quot;') + '" ' +
+                               'data-owner="' + (club.owner || '').replace(/"/g, '&quot;') + '" ' +
+                               'data-title="' + (club.title || '').replace(/"/g, '&quot;') + '" ' +
+                               'href="javascript:void(0);">' +
+                                '<div class="pxp-areas-1-item-fig pxp-cover lazy-bg" style="background-image: url(\'' + logoUrl + '\'); background-color: #ffffff;"></div>' +
+                                '<div class="pxp-areas-1-item-details">' +
+                                    '<div class="pxp-areas-1-item-details-area">' + club.title + '</div>' +
+                                    '<div class="pxp-areas-1-item-details-city">' + (club.shortDesc || '') + '</div>' +
+                                '</div>' +
+                            '</a>' +
+                        '</div>';
+                    });
+
+                    html += '</div></div>';
+                });
+
                 container.innerHTML = html;
+
+                // Re-wire filter tabs to show/hide category sections
+                document.querySelectorAll('.testi-heading-new ul li a[data-filter]').forEach(function(tab) {
+                    tab.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        document.querySelectorAll('.testi-heading-new ul li a[data-filter]').forEach(t => t.classList.remove('active'));
+                        this.classList.add('active');
+                        var filterValue = this.getAttribute('data-filter');
+                        document.querySelectorAll('.club-category-section').forEach(function(sec) {
+                            if (filterValue === 'ALL' || sec.getAttribute('data-cat') === filterValue) {
+                                sec.style.display = '';
+                                sec.classList.add('category-show');
+                            } else {
+                                sec.style.display = 'none';
+                                sec.classList.remove('category-show');
+                            }
+                        });
+                        if (filterValue !== 'ALL') {
+                            var target = document.getElementById('cat-section-' + filterValue.replace(/\s+/g, '-').toLowerCase());
+                            if (target) {
+                                setTimeout(function() {
+                                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                                }, 100);
+                            }
+                        }
+                    }, true);
+                });
             })
             .catch(err => console.error("Error loading clubs:", err));
     });
