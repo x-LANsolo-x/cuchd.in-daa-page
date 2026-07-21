@@ -1541,8 +1541,11 @@
                 const grouped = {};
                 CATEGORY_ORDER.forEach(cat => grouped[cat] = []);
                 clubs.forEach(club => {
-                    const cat = (club.category || '').toUpperCase();
-                    if (grouped[cat] !== undefined) grouped[cat].push(club);
+                    const clubCat = club.category || '';
+                    const matchedCat = CATEGORY_ORDER.find(c => c.toLowerCase() === clubCat.trim().toLowerCase());
+                    if (matchedCat) {
+                        grouped[matchedCat].push(club);
+                    }
                 });
 
                 let html = '<div class="row w-100 m-0">';
