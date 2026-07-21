@@ -724,33 +724,6 @@
     "logo": "logos/IGNITE YOUTH CLUB.webp"
   },
   {
-    "id": "kalaverse-club",
-    "title": "KALAVERSE CLUB",
-    "category": "Media, Culture & Communication",
-    "categories": [
-      "Filmmaking & Cinematography",
-      "Content Creation & Social Media",
-      "Photography & Editing",
-      "Branding & Digital Marketing",
-      "Creative Storytelling & Design"
-    ],
-    "contact": "",
-    "faculty": "",
-    "members": "100+",
-    "owner": "UIMS",
-    "shortDesc": "A creative media club focused on filmmaking, social media, and content creation.",
-    "longDesc": "Kalaverse is a creative media club focused on filmmaking, social media, and content creation. It provides students with opportunities to learn, create, collaborate, and showcase their creativity through engaging events and competitions.",
-    "media": [
-      "media/kalaverse/ANI-20260410052139.jpg",
-      "media/kalaverse/films-lab-2.jpg",
-      "media/kalaverse/Hitube_49R5NfXhSi_2026_05_21_10_54_22.jpg",
-      "media/kalaverse/Hitube_uc06Us2gqX_2026_05_21_10_54_28.jpg",
-      "media/kalaverse/Hitube_HgJFoNTts2_2026_05_21_10_54_33.jpg",
-      "media/kalaverse/Hitube_5JzrSdAE23_2026_05_21_10_54_37.jpg"
-    ],
-    "logo": "logos/KALAVERSE CLUB.webp"
-  },
-  {
     "id": "marketing-brigade-club",
     "title": "MARKETING BRIGADE CLUB",
     "category": "Business & Management",
@@ -1140,32 +1113,6 @@
       "media/tourism/tourism_5.jpg",
       "media/tourism/tourism_6.jpg",
       "media/tourism/tourism_7.jpg"
-    ]
-  },
-  {
-    "id": "upcycle-cu",
-    "title": "UPCYCLE CU",
-    "category": "Social Impact & Community Development & Community Development",
-    "categories": [
-      "Sustainability",
-      "Recycling",
-      "Environment",
-      "Eco-Friendly",
-      "Waste Management"
-    ],
-    "shortDesc": "Dedicated to promoting sustainability, recycling, and environmental awareness.",
-    "longDesc": "UpCycle is an official club of Chandigarh University dedicated to promoting sustainability, recycling, and environmental awareness. The club encourages creative upcycling ideas, waste management initiatives, and eco-friendly practices through campaigns, workshops, and community activities to inspire a greener and more responsible future.",
-    "faculty": "Vikas Kumar",
-    "contact": "vikas.e18225@cumail.in",
-    "members": "100+",
-    "owner": "UIC",
-    "logo": "logos/1779415062543_UPCYCLE.webp",
-    "media": [
-      "media/UpCycle/2f89aade-6e33-41b7-8308-925228a6be03.png",
-      "media/UpCycle/4b2e8bd0-98a0-4445-b1ff-ff4411698217.png",
-      "media/UpCycle/4f0acb2d-00ad-4847-b273-4c65dc1731f5.png",
-      "media/UpCycle/6fa8d20c-599c-4de9-8d0e-4956e8d4761c.png",
-      "media/UpCycle/dd7e9394-f974-439a-99e8-0dc86c493645.png"
     ]
   },
   {
