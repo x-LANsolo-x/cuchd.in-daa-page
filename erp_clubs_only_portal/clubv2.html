@@ -30,6 +30,18 @@
             display: flex !important;
             flex-direction: column !important;
             background: #fff !important;
+            border-radius: 12px !important;
+            overflow: hidden !important;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1) !important;
+            border: 1px solid #f0f0f0 !important;
+            transition: all 0.3s ease-in-out !important;
+            height: 100% !important;
+            text-decoration: none !important;
+            margin-bottom: 30px !important;
+            content-visibility: visible !important;
+            opacity: 1 !important;
+            visibility: visible !important;
+            position: relative !important;
         }
         #clubCarousel {
             border-radius: 0 !important;
@@ -49,19 +61,6 @@
             flex: 1 !important; 
             visibility: visible !important;
             opacity: 1 !important;
-        }
-            border-radius: 12px !important;
-            overflow: hidden !important;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.1) !important;
-            border: 1px solid #f0f0f0 !important;
-            transition: all 0.3s ease-in-out !important;
-            height: 100% !important;
-            text-decoration: none !important;
-            margin-bottom: 30px !important;
-            content-visibility: visible !important;
-            opacity: 1 !important;
-            visibility: visible !important;
-            position: relative !important;
         }
         .pxp-areas-1-item:hover {
             transform: translateY(-8px) !important;
@@ -638,21 +637,21 @@
         </a>
        </li>
        <li>
-        <a data-filter="SCIENCE AND TECHNOLOGY" href="javascript:void(0);">
-         Science and Technology
+        <a data-filter="Science, Technology & Innovation" href="javascript:void(0);">
+         Science, Technology & Innovation
         </a>
        </li>
        <li>
-        <a data-filter="ART AND CREATIVITY" href="javascript:void(0);">Art and Creativity</a>
+        <a data-filter="Media, Culture & Communication" href="javascript:void(0);">Media, Culture & Communication</a>
        </li>
        <li>
-        <a data-filter="SOCIAL IMPACT" href="javascript:void(0);">
-         Social Impact
+        <a data-filter="Social Impact & Community Development & Community Development" href="javascript:void(0);">
+         Social Impact & Community Development
         </a>
        </li>
        <li>
-        <a data-filter="BUSINESS" href="javascript:void(0);">
-         Business
+        <a data-filter="Business & Management" href="javascript:void(0);">
+         Business & Management
         </a>
        </li>
 
@@ -1532,13 +1531,13 @@
                 if(!container) return;
 
                 const CATEGORY_ORDER = [
-                    'SCIENCE AND TECHNOLOGY',
-                    'ART AND CREATIVITY',
-                    'SOCIAL IMPACT',
-                    'BUSINESS'
+                    'Science, Technology & Innovation',
+                    'Media, Culture & Communication',
+                    'Social Impact & Community Development & Community Development',
+                    'Business & Management'
                 ];
                 
-                // Group clubs by category
+                // Group clubs by category to maintain ordering
                 const grouped = {};
                 CATEGORY_ORDER.forEach(cat => grouped[cat] = []);
                 clubs.forEach(club => {
@@ -1546,21 +1545,17 @@
                     if (grouped[cat] !== undefined) grouped[cat].push(club);
                 });
 
-                let html = '';
+                let html = '<div class="row w-100 m-0">';
                 CATEGORY_ORDER.forEach(cat => {
                     const catClubs = grouped[cat];
                     if (!catClubs || catClubs.length === 0) return;
-                    const sectionId = 'cat-section-' + cat.replace(/\s+/g, '-').toLowerCase();
-
-                    html += `<div class="club-category-section w-100" id="${sectionId}" data-cat="${cat}">
-                        <div class="row">`;
 
                     catClubs.forEach(club => {
                         const logoUrl = club.logo ? (club.logo.startsWith('http') ? club.logo : 'https://cuchd-in-daa-page.vercel.app/' + club.logo) : 'https://via.placeholder.com/150';
                         const categories = (club.categories || []).join(', ');
                         const media = (club.media || []).map(m => m.startsWith('http') ? m : 'https://cuchd-in-daa-page.vercel.app/' + m).join(',');
 
-                        html += '<div class="col-sm-12 col-md-6 col-lg-3 mb-4">' +
+                        html += '<div class="col-sm-12 col-md-6 col-lg-3 mb-4 club-card-wrapper" data-cat="' + cat + '">' +
                             '<a class="pxp-areas-1-item rounded-lg" ' +
                                'data-bs-target="#clubModal" ' +
                                'data-bs-toggle="modal" ' +
@@ -1585,13 +1580,12 @@
                             '</a>' +
                         '</div>';
                     });
-
-                    html += '</div></div>';
                 });
+                html += '</div>';
 
                 container.innerHTML = html;
 
-                // Re-wire filter tabs to show/hide category sections
+                // Re-wire filter tabs to show/hide individual cards
                 document.querySelectorAll('.testi-heading-new ul li a[data-filter]').forEach(function(tab) {
                     tab.addEventListener('click', function(e) {
                         e.preventDefault();
@@ -1599,23 +1593,13 @@
                         document.querySelectorAll('.testi-heading-new ul li a[data-filter]').forEach(t => t.classList.remove('active'));
                         this.classList.add('active');
                         var filterValue = this.getAttribute('data-filter');
-                        document.querySelectorAll('.club-category-section').forEach(function(sec) {
-                            if (filterValue === 'ALL' || sec.getAttribute('data-cat') === filterValue) {
-                                sec.style.display = '';
-                                sec.classList.add('category-show');
+                        document.querySelectorAll('.club-card-wrapper').forEach(function(card) {
+                            if (filterValue === 'ALL' || card.getAttribute('data-cat') === filterValue) {
+                                card.style.display = 'block';
                             } else {
-                                sec.style.display = 'none';
-                                sec.classList.remove('category-show');
+                                card.style.display = 'none';
                             }
                         });
-                        if (filterValue !== 'ALL') {
-                            var target = document.getElementById('cat-section-' + filterValue.replace(/\s+/g, '-').toLowerCase());
-                            if (target) {
-                                setTimeout(function() {
-                                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                                }, 100);
-                            }
-                        }
                     }, true);
                 });
             })
