@@ -462,12 +462,14 @@
       "Threat Hunting",
       "Cybersecurity Research"
     ],
-    "contact": "sheetal.e15433@cumail.in",
-    "faculty": "Sheetal Laroiya",
-    "members": "389",
-    "owner": "AIT - CSE",
     "shortDesc": "A cybersecurity-focused club promoting ethical hacking, digital safety, and cyber awareness.",
     "longDesc": "Welcome to Cysecsphere Club CU - Chandigarh University's Core Cybersecurity Community. We're a student-led initiative exploring the frontlines of cybersecurity through hands-on CTFs, workshops, research, and red vs. blue team activities. Whether you're into ethical hacking, cryptography, or threat intel, this is where curiosity meets real-world skill-building.",
+    "faculty": "Sheetal Laroiya",
+    "contact": "sheetal.e15433@cumail.in",
+    "members": "389",
+    "owner": "AIT - CSE",
+    "logo": "logos/1784644967245_1000302899.webp",
+    "hideMediaColumn": false,
     "media": [
       "media/cysecsphere/cysec_1.jpg",
       "media/cysecsphere/cysec_2.jpg",
@@ -504,8 +506,7 @@
       "media/cysecsphere/cysec_33.jpg",
       "media/cysecsphere/cysec_34.jpg",
       "media/cysecsphere/cysec_35.jpg"
-    ],
-    "logo": "logos/CYSECSPHERE CLUB.webp"
+    ]
   },
   {
     "id": "droidlinx-club",
